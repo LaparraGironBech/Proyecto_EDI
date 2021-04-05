@@ -16,7 +16,7 @@ namespace Proyecto_EDI.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            //Prueba
+            //Prueba 2
         }
 
         public IActionResult Index()
