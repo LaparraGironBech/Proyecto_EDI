@@ -131,5 +131,38 @@ namespace Proyecto_EDI.Models
 
         }
 
+        public T DevolverInicio()
+        {
+            return PrimerNodo.Data;
+        }
+
+        public T DevolverFinal()
+        {
+            return UltimoNodo.Data;
+        }
+        public T DevolverValue(int pos)
+        {
+            if (Cantidad == 0 || pos == 0)
+            {
+                return DevolverInicio();
+            }
+            else
+                if (pos >= Cantidad)
+            {
+                return DevolverFinal();
+            }
+            else
+            {
+                Nodo temp = PrimerNodo;
+                int cont = 0;
+                while (cont < pos)
+                {
+                    temp = temp.siguiente;
+                    cont++;
+                }
+                return temp.Data;
+            }
+        }
+
     }
 }
