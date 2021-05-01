@@ -8,10 +8,10 @@ namespace Proyecto_EDI.Models.Data
     public sealed class Singleton
     {
         private readonly static Singleton _instance = new Singleton();
-        public List<Personas> PersonasList;
+        public List<Paciente> PacienteList;
         private Singleton()
         {
-            PersonasList = new List<Personas>();
+            PacienteList = new List<Paciente>();
         }
 
         public static Singleton Instance
