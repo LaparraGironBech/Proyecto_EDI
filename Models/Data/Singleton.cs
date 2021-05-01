@@ -8,13 +8,15 @@ namespace Proyecto_EDI.Models.Data
     public sealed class Singleton
     {
         private readonly static Singleton _instance = new Singleton();
-      
         public List<Paciente> PacienteList;
-        public List<SelectListItem> SelectListItemList;
+        public Lista<CentroVacunacion> listaCentrosVacunacion;
+        public Lista<int> listaReferencia;
+        
         private Singleton()
-        {
+        {            
             PacienteList = new List<Paciente>();
-            SelectListItemList = new List<SelectListItem>();
+            listaCentrosVacunacion = new Lista<CentroVacunacion>();
+            listaReferencia = new Lista<int>();
         }
 
         public static Singleton Instance
