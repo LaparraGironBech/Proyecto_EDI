@@ -16,16 +16,18 @@ namespace Proyecto_EDI.Models
         public string apellido { get; set; }
         [Required]
 
-        public string departamento { get; set; }
+        public int departamento { get; set; }
         [Required]
-        public string municipio { get; set; }
+        public int municipio { get; set; }
+        
+        public string municipiostring { get; set; }
         [Required]
         public int edad { get; set; }
         [Required]
         public int grupo_prioridad { get; set; }
         [Required]
         public bool vacunado { get; set; }
-        public Paciente(string Name, string lastname, int DPI, string departament, string muni, int ed, int prio)
+        public Paciente(string Name, string lastname, int DPI, int departament, int muni, int ed, int prio)
         {
             nombre = Name;
             apellido = lastname;

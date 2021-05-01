@@ -32,11 +32,22 @@
                 <input asp-for="departamento" class="form-control" />
                 <span asp-validation-for="departamento" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="municipio" class="control-label"></label>
-                <input asp-for="municipio" class="form-control" />
-                <span asp-validation-for="municipio" class="text-danger"></span>
-            </div>
+
+            <label asp-for="municipio" class="control-label"></label>
+            <br>
+            <select asp-for="municipio" name="municipio">
+
+                <option name="municipio" value="0"> Guatemala</option>
+
+                <option name="municipio" value="1"> Izabal</option>
+
+                <option name="municipio" value="2"> Alta Verapaz</option>
+
+                <option name="municipio" value="3"> Baja Verapaz</option>
+
+            </select>
+
+            <span asp-validation-for="municipio" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="edad" class="control-label"></label>
                 <input asp-for="edad" class="form-control" />
@@ -47,11 +58,7 @@
                 <input asp-for="grupo_prioridad" class="form-control" />
                 <span asp-validation-for="grupo_prioridad" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="vacunado" /> @Html.DisplayNameFor(model => model.vacunado)
-                </label>
-            </div>
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

@@ -44,8 +44,8 @@ namespace Proyecto_EDI.Controllers
                     dpi = Convert.ToInt32(collection["dpi"]),
                     nombre = collection["nombre"],
                     apellido = collection["apellido"],
-                    departamento = collection["departamento"],
-                    municipio = collection["municipio"],
+                    departamento = Convert.ToInt32(collection["departamento"]),
+                    municipio = Convert.ToInt32(collection["municipio"]),
                     edad = Convert.ToInt32(collection["edad"]),
                     grupo_prioridad = Convert.ToInt32(collection["grupo_prioridad"]),
                     vacunado = Convert.ToBoolean(collection["vacunado"])
@@ -97,6 +97,8 @@ namespace Proyecto_EDI.Controllers
         public ActionResult Edit(int id)
         {
             var editPaciente = Singleton.Instance.PacienteList.Find(x => x.dpi == id);
+            Singleton.Instance.PacienteList.Remove(editPaciente);
+            
             return View(editPaciente);
         }
 
@@ -107,6 +109,19 @@ namespace Proyecto_EDI.Controllers
         {
             try
             {
+                
+                var newPaciente = new Models.Paciente
+                {
+                    dpi = Convert.ToInt32(collection["dpi"]),
+                    nombre = collection["nombre"],
+                    apellido = collection["apellido"],
+                    departamento = Convert.ToInt32(collection["departamento"]),
+                    municipio = Convert.ToInt32(collection["municipio"]),
+                    edad = Convert.ToInt32(collection["edad"]),
+                    grupo_prioridad = Convert.ToInt32(collection["grupo_prioridad"]),
+                    vacunado = Convert.ToBoolean(collection["vacunado"])
+                };
+                Singleton.Instance.PacienteList.Add(newPaciente);
                 return RedirectToAction(nameof(Index));
             }
             catch
