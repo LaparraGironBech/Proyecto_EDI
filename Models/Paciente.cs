@@ -9,7 +9,7 @@ namespace Proyecto_EDI.Models
     public class Paciente
     {
         [Required]
-        public int? dpi { get; set; }
+        public int dpi { get; set; }
         [Required]
         public string nombre { get; set; }
         [Required]
@@ -37,6 +37,7 @@ namespace Proyecto_EDI.Models
             edad = 0;
             grupo_prioridad = 0;
             vacunado = false;
+            municipiostring = "";
         }
     }
 }
