@@ -30,9 +30,18 @@ namespace Proyecto_EDI.Models
             }
         }
         //Declaraci´´on de los nodos y cantidades
-        public int Cantidad;
+        public int Cantidad { get; set; }
         public Nodo PrimerNodo;
         public Nodo UltimoNodo;
+        
+        public Lista()
+        {
+            Cantidad = 0;
+            PrimerNodo = null;
+            UltimoNodo = null;
+        }
+
+        
 
 
 
@@ -79,18 +88,25 @@ namespace Proyecto_EDI.Models
             }
             else
             {
-                Nodo pretemp = PrimerNodo;
-                Nodo temp = Nom3;
-                int cont = 0;
-
-                while (cont < (pos - 1))
+                if (Cantidad >= Cantidad)
                 {
-                    pretemp = pretemp.siguiente;
-                    cont++;
+                    AgregarFinal(t);
                 }
-                temp.siguiente = pretemp.siguiente;
-                pretemp.siguiente = temp;
-                Cantidad++;
+                else
+                {
+                    Nodo pretemp = PrimerNodo;
+                    Nodo temp = Nom3;
+                    int cont = 0;
+
+                    while (cont < (pos - 1))
+                    {
+                        pretemp = pretemp.siguiente;
+                        cont++;
+                    }
+                    temp.siguiente = pretemp.siguiente;
+                    pretemp.siguiente = temp;
+                    Cantidad++;
+                }
             }
         }
 

@@ -10,9 +10,7 @@ using Proyecto_EDI.Models;
 namespace Proyecto_EDI.Controllers
 {
     public class PacienteController : Controller        
-    {
-        int posicion = 0;
-        int cantidadCentros = 0;
+    {       
         // GET: PacienteController
         public ActionResult Index()
         {
@@ -55,36 +53,43 @@ namespace Proyecto_EDI.Controllers
                 Paciente nuevoPaciente = new Paciente(newPaciente.nombre,newPaciente.apellido,newPaciente.dpi,newPaciente.departamento,newPaciente.municipio,newPaciente.edad,newPaciente.grupo_prioridad);
                 int prioridad = newPaciente.grupo_prioridad;
                 int municipioPivot = newPaciente.municipio;
-                PacienteIndice nuevoPacienteIndice = new PacienteIndice(nuevoPaciente.apellido,nuevoPaciente.apellido,nuevoPaciente.dpi);
+                PacienteIndice nuevoPacienteIndice = new PacienteIndice(nuevoPaciente.nombre,nuevoPaciente.apellido,nuevoPaciente.dpi);
                 newCentro.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);                
                 int posicionEncontrada = 0;                
                 bool encontrado = false;
-                if (cantidadCentros == 0)
+                if (Singleton.Instance.cantidadCentros == 0)
                 {
-                    Singleton.Instance.listaReferencia.AgregarPos(posicion, municipioPivot);
-                    Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicion, newCentro);
-                    posicion++;
+                    Singleton.Instance.listaReferencia.AgregarPos(Singleton.Instance.posicion, municipioPivot);
+                    Singleton.Instance.listaCentrosVacunacion.AgregarPos(Singleton.Instance.posicion, newCentro);
+                    Singleton.Instance.posicion++;
+                    Singleton.Instance.cantidadCentros++;
                 }
                 else
                 {
-                    for (int i = 0; i < cantidadCentros; i++)
+                    for (int i = 0; i < Singleton.Instance.cantidadCentros; i++)
                     {
-                        if (prioridad == Singleton.Instance.listaReferencia.DevolverValue(i))
+                        if (municipioPivot == Singleton.Instance.listaReferencia.DevolverValue(i))
                         {
                             encontrado = true;
                             posicionEncontrada = i;
-                            i = cantidadCentros;
+                            i = Singleton.Instance.cantidadCentros;
                         }
                     }
                     if (encontrado == false)
                     {
-                        Singleton.Instance.listaReferencia.AgregarPos(posicion, municipioPivot);
-                        Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicion, newCentro);
-                        posicion++;
+                        Singleton.Instance.listaReferencia.AgregarPos(Singleton.Instance.posicion, municipioPivot);
+                        Singleton.Instance.listaCentrosVacunacion.AgregarPos(Singleton.Instance.posicion, newCentro);
+                        Singleton.Instance.posicion++;
+                        Singleton.Instance.cantidadCentros++;
                     }
                     else
                     {
-                        Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicionEncontrada, newCentro);
+                        CentroVacunacion tempVacunacion = new CentroVacunacion();
+                        tempVacunacion = Singleton.Instance.listaCentrosVacunacion.DevolverValue(posicionEncontrada);
+                        tempVacunacion.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);
+                        Singleton.Instance.listaCentrosVacunacion.Eliminarpos(posicionEncontrada);
+                        Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicionEncontrada, tempVacunacion);
+
                     }
                 }
                 return RedirectToAction(nameof(Index));

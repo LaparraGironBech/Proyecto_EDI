@@ -22,7 +22,7 @@ namespace Proyecto_EDI.Models
 
         public void insertarPaciente(Paciente pac, PacienteIndice pac1, int prioridad)
         {
-            listaPacientes.AgregarFinal(pac);
+            listaPacientes.AgregarInicio(pac);
             avlPaciente.Insertar(pac1);
             priodadPaciente.insertar(prioridad, pac);
         }        

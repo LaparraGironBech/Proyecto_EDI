@@ -20,7 +20,8 @@ namespace Proyecto_EDI.Models
         [Required]
         public int municipio { get; set; }
         
-        public string municipiostring { get; set; }
+        public string municipioString { get; set; }
+        public string departamentoString { get; set; }
         [Required]
         public int edad { get; set; }
         [Required]
@@ -37,7 +38,8 @@ namespace Proyecto_EDI.Models
             edad = ed;
             grupo_prioridad = prio;
             vacunado = false;
-            municipiostring = "";
+            municipioString = "";
+            departamentoString = "";
         }
         public Paciente()
         {
