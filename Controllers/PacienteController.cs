@@ -53,14 +53,15 @@ namespace Proyecto_EDI.Controllers
                 Singleton.Instance.PacienteList.Add(newPaciente);
                 CentroVacunacion newCentro = new CentroVacunacion();
                 Paciente nuevoPaciente = new Paciente(newPaciente.nombre,newPaciente.apellido,newPaciente.dpi,newPaciente.departamento,newPaciente.municipio,newPaciente.edad,newPaciente.grupo_prioridad);
-                int prioridad = 0;
+                int prioridad = newPaciente.grupo_prioridad;
+                int municipioPivot = newPaciente.municipio;
                 PacienteIndice nuevoPacienteIndice = new PacienteIndice(nuevoPaciente.apellido,nuevoPaciente.apellido,nuevoPaciente.dpi);
                 newCentro.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);                
                 int posicionEncontrada = 0;                
                 bool encontrado = false;
                 if (cantidadCentros == 0)
                 {
-                    Singleton.Instance.listaReferencia.AgregarPos(posicion, prioridad);
+                    Singleton.Instance.listaReferencia.AgregarPos(posicion, municipioPivot);
                     Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicion, newCentro);
                     posicion++;
                 }
@@ -72,11 +73,12 @@ namespace Proyecto_EDI.Controllers
                         {
                             encontrado = true;
                             posicionEncontrada = i;
+                            i = cantidadCentros;
                         }
                     }
                     if (encontrado == false)
                     {
-                        Singleton.Instance.listaReferencia.AgregarPos(posicion, prioridad);
+                        Singleton.Instance.listaReferencia.AgregarPos(posicion, municipioPivot);
                         Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicion, newCentro);
                         posicion++;
                     }
