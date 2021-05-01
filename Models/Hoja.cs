@@ -12,6 +12,7 @@ namespace Proyecto_EDI.Models
         public Hoja<T> hojaDerecha { get; set; }
         public int altura { get; set; }
         public int FE { get; set; }
+        
 
         public Hoja()
         {
