@@ -31,32 +31,30 @@ namespace Proyecto_EDI.Models
             else
             {
                 int aux = prio;
+                PrioridadIndice auxPac = newTemp;
                 for (int i = 0; i < tamLista; i++)
                 {
                     if (aux < listaAlternativa[i])
                     {
-                        if (i == tamLista-1)
-                        {
-                            aux = listaAlternativa[i];
-                            listaAlternativa[tamLista] = aux;                            
-                            pacPrioridad.AgregarFinal(pacPrioridad.DevolverValue(i));
+                        int temp = aux;
+                        aux = listaAlternativa[i];
+                        listaAlternativa[i] = temp;
 
-                            listaAlternativa.Insert(i, prio);
-                            intercambiar();
-                        }
-                        else
-                        {
-                            listaAlternativa.Insert(i, aux);
-                            pacPrioridad.AgregarFinal(newTemp);
-                        }
+                        PrioridadIndice tempPac = auxPac;
+                        auxPac = pacPrioridad.DevolverValue(i);
+                        pacPrioridad.AgregarPos(i,tempPac);
+
                     }
                 }
+                tamLista++;
             }
         }
 
-        public void intercambiar()
+        public void ExtraerInicio()
         {
-
+            listaAlternativa.RemoveAt(0);
+            pacPrioridad.EliminarInicio();
         }
+        
     }
 }

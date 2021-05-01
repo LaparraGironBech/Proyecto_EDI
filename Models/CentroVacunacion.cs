@@ -10,12 +10,14 @@ namespace Proyecto_EDI.Models
         Lista<Paciente> listaPacientes;
         TablaHash<int, Paciente> tablaPaciente;
         AVL<PacienteIndice> avlPaciente;
+        ColaDePrioridad priodadPaciente;
 
         CentroVacunacion()
         {
             listaPacientes = null;
             tablaPaciente = null;
             avlPaciente = null;
+            priodadPaciente = null;
         }
     }
 }

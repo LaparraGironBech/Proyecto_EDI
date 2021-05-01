@@ -164,5 +164,52 @@ namespace Proyecto_EDI.Models
             }
         }
 
-    }
+        public void EliminarInicio()
+        {
+            Nodo auxiliar = PrimerNodo.siguiente;
+            PrimerNodo = auxiliar;
+            Cantidad--;
+        }
+
+        public void EliminarFinal()
+        {
+            if (Cantidad > 0)
+            {
+                Nodo auxiliar;
+                auxiliar = ObtenerPos(Cantidad - 2);
+                UltimoNodo = auxiliar;
+                UltimoNodo.siguiente = null;
+                Cantidad--;
+            }
+        }
+
+        public void Eliminarpos(int posi)
+        {
+            int pos = posi;
+            if (pos == 0)
+            {
+                EliminarInicio();
+            }
+            else
+            {
+                if (pos == (Cantidad - 1))
+                {
+                    EliminarFinal();
+                }
+                else
+                {
+                    if (pos > 0 && pos < (Cantidad - 1))
+                    {
+                        Nodo auxiliar1 = ObtenerPos(pos - 1);
+                        Nodo auxiliar2 = ObtenerPos(pos);
+                        Nodo auxiliar3 = ObtenerPos(pos + 1);
+
+                        auxiliar1.siguiente = auxiliar3;
+                        auxiliar2.siguiente = null;
+                        Cantidad--;
+                    }
+                }
+            }
+
+        }
 }
