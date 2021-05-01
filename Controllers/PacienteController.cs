@@ -5,11 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Proyecto_EDI.Models.Data;
+using Proyecto_EDI.Models;
 
 namespace Proyecto_EDI.Controllers
 {
-    public class PacienteController : Controller
+    public class PacienteController : Controller        
     {
+        int posicion = 0;
+        int cantidadCentros = 0;
         // GET: PacienteController
         public ActionResult Index()
         {
@@ -46,8 +49,42 @@ namespace Proyecto_EDI.Controllers
                     edad = Convert.ToInt32(collection["edad"]),
                     grupo_prioridad = Convert.ToInt32(collection["grupo_prioridad"]),
                     vacunado = Convert.ToBoolean(collection["vacunado"])
-                };
+                };               
                 Singleton.Instance.PacienteList.Add(newPaciente);
+                CentroVacunacion newCentro = new CentroVacunacion();
+                Paciente nuevoPaciente = new Paciente(newPaciente.nombre,newPaciente.apellido,newPaciente.dpi,newPaciente.departamento,newPaciente.municipio,newPaciente.edad,newPaciente.grupo_prioridad);
+                int prioridad = 0;
+                PacienteIndice nuevoPacienteIndice = new PacienteIndice(nuevoPaciente.apellido,nuevoPaciente.apellido,nuevoPaciente.dpi);
+                newCentro.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);                
+                int posicionEncontrada = 0;                
+                bool encontrado = false;
+                if (cantidadCentros == 0)
+                {
+                    Singleton.Instance.listaReferencia.AgregarPos(posicion, prioridad);
+                    Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicion, newCentro);
+                    posicion++;
+                }
+                else
+                {
+                    for (int i = 0; i < cantidadCentros; i++)
+                    {
+                        if (prioridad == Singleton.Instance.listaReferencia.DevolverValue(i))
+                        {
+                            encontrado = true;
+                            posicionEncontrada = i;
+                        }
+                    }
+                    if (encontrado == false)
+                    {
+                        Singleton.Instance.listaReferencia.AgregarPos(posicion, prioridad);
+                        Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicion, newCentro);
+                        posicion++;
+                    }
+                    else
+                    {
+                        Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicionEncontrada, newCentro);
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch

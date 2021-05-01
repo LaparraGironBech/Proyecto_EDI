@@ -32,6 +32,12 @@ namespace Proyecto_EDI.Models
         {
             parametro = PAR;
         }
+        public PacienteIndice(string name, string lastname, int DPI)
+        {
+            nombre = name;
+            apellido = lastname;
+            dpi = DPI;
+        }
 
 
     }

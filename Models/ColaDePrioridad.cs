@@ -11,11 +11,11 @@ namespace Proyecto_EDI.Models
         public Lista<PrioridadIndice> pacPrioridad;
         List<int> listaAlternativa;
         public int tamLista { get; set; }
-        ColaDePrioridad()
+        public ColaDePrioridad()
         {
             tamLista = 0;
-            pacPrioridad = null;
-            listaAlternativa = null;
+            pacPrioridad = new Lista<PrioridadIndice>();
+            listaAlternativa = new List<int>();
 
         }
 
