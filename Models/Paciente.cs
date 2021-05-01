@@ -16,9 +16,11 @@ namespace Proyecto_EDI.Models
         public string apellido { get; set; }
         [Required]
 
-        public string departamento { get; set; }
+        public int departamento { get; set; }
         [Required]
-        public string municipio { get; set; }
+        public int municipio { get; set; }
+        
+        public string municipiostring { get; set; }
         [Required]
         public int edad { get; set; }
         [Required]
@@ -30,8 +32,8 @@ namespace Proyecto_EDI.Models
             nombre = "";
             apellido = "";
             dpi = 0;
-            departamento = "";
-            municipio = "";
+            departamento = 0;
+            municipio = 0;
             edad = 0;
             grupo_prioridad = 0;
             vacunado = false;
