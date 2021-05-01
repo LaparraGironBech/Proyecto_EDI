@@ -37,6 +37,7 @@ namespace Proyecto_EDI.Models
             edad = ed;
             grupo_prioridad = prio;
             vacunado = false;
+            municipiostring = "";
         }
         public Paciente()
         {
