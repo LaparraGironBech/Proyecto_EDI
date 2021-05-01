@@ -228,5 +228,44 @@ namespace Proyecto_EDI.Models
             }
 
         }
+
+        //metodos prioridad
+        public void InsertarInicio(Nodo t)
+        {
+            PrimerNodo = t;
+        }
+        public void insertarfinal(Nodo t)
+        {
+            UltimoNodo = t;
+        }
+        public void insertarpos(int pos, T t)
+        {
+            Nodo Nom3 = new Nodo(t);
+            if (pos == 0)
+            {
+                InsertarInicio(Nom3);
+            }
+            else
+            {
+                if (pos == (Cantidad - 1))
+                {
+                    insertarfinal(Nom3);
+                }
+                else
+                {
+                    if (pos > 0 && pos < (Cantidad - 1))
+                    {
+                        Nodo temp = PrimerNodo;
+                        int cont = 0;
+                        while (cont < pos)
+                        {
+                            temp = temp.siguiente;
+                            cont++;
+                        }
+                        temp = Nom3;
+                    }
+                }
+            }
+        }
     }
 }

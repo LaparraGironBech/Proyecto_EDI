@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Proyecto_EDI.Models
 {
     public class ColaDePrioridad
-    {         
+    {
         public int prioridad { get; set; }
         public Lista<PrioridadIndice> pacPrioridad;
         List<int> listaAlternativa;
@@ -18,6 +18,7 @@ namespace Proyecto_EDI.Models
             listaAlternativa = new List<int>();
 
         }
+
 
         public void insertar(int prio, Paciente pac)
         {
@@ -36,23 +37,16 @@ namespace Proyecto_EDI.Models
                 {
                     if (aux < listaAlternativa[i])
                     {
-                        int temp = aux;                       
+                        int temp = aux;
                         aux = listaAlternativa[i];
-                        listaAlternativa[i] = temp;                                                                      
+                        listaAlternativa[i] = temp;
                         listaAlternativa.Add(aux);
 
                         PrioridadIndice tempPac = auxPac;
                         auxPac = pacPrioridad.DevolverValue(i);
-                        pacPrioridad.AgregarPos(i, tempPac);
-                        if (i == tamLista - 1) {
-                            pacPrioridad.EliminarFinal();
-                        }
-                        else
-                        {
-                            pacPrioridad.Eliminarpos(i+1);
-                        }
+                        pacPrioridad.insertarpos(i, tempPac);
                         pacPrioridad.AgregarFinal(auxPac);
-                        
+
 
                     }
                 }
@@ -64,7 +58,6 @@ namespace Proyecto_EDI.Models
         {
             listaAlternativa.RemoveAt(0);
             pacPrioridad.EliminarInicio();
-        }
-        
+        }       
     }
 }
