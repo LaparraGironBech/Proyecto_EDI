@@ -1,8 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<style>
+    .Botones {
+        width: 100px;
+        height: 50px;
+        color: white;
+        background: #02007F;
+        border: none;
+        border-radius: 2px;
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        .Botones:hover {
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -o-transform: scale(1);
+            -webkit-transition-duration: 0.5s;
+            -moz-transition-duration: 0.5s;
+            -o-transition-duration: 0.5s;
+        }
+</style>
+
+<div style="margin: 0% 0% 10% 40% !important;float: left;" class="d-grid gap-2">
+
+    <a asp-controller="Paciente" asp-action="Index"><button class="Botones" type="button">Ingreso de Paciente</button></a>  <br /><br />
+
+    <a asp-controller="CentroVacunacion" asp-action="Index"><button class="Botones" type="button">Simulación</button></a>  <br /><br />
+
+
 </div>
+<br />
+<br />
