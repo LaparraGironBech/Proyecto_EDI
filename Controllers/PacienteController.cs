@@ -6,16 +6,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Proyecto_EDI.Models.Data;
 using Proyecto_EDI.Models;
-
+using System.IO;
+using Microsoft.AspNetCore.Routing;
 namespace Proyecto_EDI.Controllers
 {
-    public class PacienteController : Controller        
-    {       
+    public class PacienteController : Controller
+    {
         // GET: PacienteController
         public ActionResult Index()
         {
             return View(Singleton.Instance.PacienteList);
         }
+
+       
+
+
+
 
         // GET: PacienteController/Details/5
         public ActionResult Details(int id)
@@ -23,6 +29,8 @@ namespace Proyecto_EDI.Controllers
             var ViewJugadores = Singleton.Instance.PacienteList.Find(x => x.dpi == id);
             return View(ViewJugadores);
         }
+
+        
 
         // GET: PacienteController/Create
         public ActionResult Create()
@@ -33,6 +41,9 @@ namespace Proyecto_EDI.Controllers
         // POST: PacienteController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
+       
+
         public ActionResult Create(IFormCollection collection)
         {
             try
@@ -162,4 +173,5 @@ namespace Proyecto_EDI.Controllers
             }
         }
     }
+    
 }

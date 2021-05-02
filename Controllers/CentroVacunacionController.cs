@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Proyecto_EDI.Models.Data;
 using Proyecto_EDI.Models;
+using Proyecto_EDI.Controllers;
 
 namespace Proyecto_EDI.Controllers
 {
@@ -36,6 +37,7 @@ namespace Proyecto_EDI.Controllers
         {
             try
             {
+
                 return RedirectToAction(nameof(Index));
             }
             catch
