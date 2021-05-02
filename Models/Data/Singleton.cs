@@ -13,12 +13,17 @@ namespace Proyecto_EDI.Models.Data
         public Lista<int> listaReferencia;
         public int posicion;
         public int cantidadCentros;
+        public Lista<Paciente> listaGeneralDePacientes;
+        public Lista<Paciente> listaPacientesVacunados;
+        
         
         private Singleton()
         {            
             PacienteList = new List<Paciente>();
             listaCentrosVacunacion = new Lista<CentroVacunacion>();
             listaReferencia = new Lista<int>();
+            listaGeneralDePacientes = new Lista<Paciente>();
+            listaPacientesVacunados = new Lista<Paciente>();
             posicion = 0;
             cantidadCentros = 0;
         }

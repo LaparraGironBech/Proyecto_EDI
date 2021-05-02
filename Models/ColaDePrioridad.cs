@@ -37,11 +37,13 @@ namespace Proyecto_EDI.Models
                 {
                     if (aux < listaAlternativa[i])
                     {
+                        //Cambio lista c#
                         int temp = aux;
                         aux = listaAlternativa[i];
                         listaAlternativa[i] = temp;
                         listaAlternativa.Add(aux);
 
+                        //Cambio lista artesanal
                         PrioridadIndice tempPac = auxPac;
                         auxPac = pacPrioridad.DevolverValue(i);
                         pacPrioridad.insertarpos(i, tempPac);

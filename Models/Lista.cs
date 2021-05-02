@@ -228,8 +228,7 @@ namespace Proyecto_EDI.Models
             }
 
         }
-
-        //metodos prioridad
+       
         public void InsertarInicio(Nodo t)
         {
             PrimerNodo = t;

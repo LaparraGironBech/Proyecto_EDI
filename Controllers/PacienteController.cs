@@ -57,6 +57,7 @@ namespace Proyecto_EDI.Controllers
                 newCentro.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);                
                 int posicionEncontrada = 0;                
                 bool encontrado = false;
+                Singleton.Instance.listaGeneralDePacientes.AgregarInicio(nuevoPaciente);
                 if (Singleton.Instance.cantidadCentros == 0)
                 {
                     Singleton.Instance.listaReferencia.AgregarPos(Singleton.Instance.posicion, municipioPivot);
