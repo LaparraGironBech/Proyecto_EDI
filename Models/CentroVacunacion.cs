@@ -20,7 +20,7 @@ namespace Proyecto_EDI.Models
             priodadPaciente = new ColaDePrioridad();
         }
 
-        public void insertarPaciente(Paciente pac, PacienteIndice pac1, int prioridad)
+        public void insertarPaciente(Paciente pac, PacienteIndice pac1, int prioridad)//Aqui se insertan en todas las estructuras a utilizar
         {
             listaPacientes.AgregarInicio(pac);
             avlPaciente.Insertar(pac1);

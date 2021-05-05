@@ -72,7 +72,6 @@ namespace Proyecto_EDI.Controllers
         {
             return View();
         }
-
         // POST: CentroVacunacionController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

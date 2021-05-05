@@ -88,7 +88,7 @@ namespace Proyecto_EDI.Models
             }
             else
             {
-                if (Cantidad >= Cantidad)
+                if (Cantidad > Cantidad)
                 {
                     AgregarFinal(t);
                 }
@@ -231,11 +231,15 @@ namespace Proyecto_EDI.Models
        
         public void InsertarInicio(Nodo t)
         {
+            t.siguiente = PrimerNodo;
             PrimerNodo = t;
+            Cantidad++;
         }
         public void insertarfinal(Nodo t)
         {
+            UltimoNodo.siguiente = t;
             UltimoNodo = t;
+            Cantidad++;
         }
         public void insertarpos(int pos, T t)
         {
@@ -262,8 +266,10 @@ namespace Proyecto_EDI.Models
                             cont++;
                         }
                         temp = Nom3;
+                        Cantidad++;
                     }
                 }
+                
             }
         }
     }

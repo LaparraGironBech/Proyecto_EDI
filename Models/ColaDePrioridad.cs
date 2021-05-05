@@ -46,10 +46,8 @@ namespace Proyecto_EDI.Models
                         //Cambio lista artesanal
                         PrioridadIndice tempPac = auxPac;
                         auxPac = pacPrioridad.DevolverValue(i);
-                        pacPrioridad.insertarpos(i, tempPac);
-                        pacPrioridad.AgregarFinal(auxPac);
-
-
+                        pacPrioridad.AgregarPos(i, tempPac);
+                      //  pacPrioridad.AgregarFinal(auxPac);
                     }
                 }
                 tamLista++;
