@@ -37,6 +37,10 @@ namespace Proyecto_EDI.Controllers
         {
             try
             {
+                //if (Singleton.Instance.listaCentrosVacunacion.ObtenerPos(0).Data.totalPacientes<3) { }
+                //Paciente newPac = Singleton.Instance.listaCentrosVacunacion.ObtenerPos(0).Data.priodadPaciente.pacPrioridad.PrimerNodo.Data.pacientePrioridad;
+                 
+                
 
                 return RedirectToAction(nameof(Index));
             }
