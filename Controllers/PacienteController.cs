@@ -33,17 +33,16 @@ namespace Proyecto_EDI.Controllers
         {
             return View();
         }
-        public ActionResult Simulator()
+        public ActionResult Simulator(string municipio)
         {
-            return View();
+            int municipi = Convert.ToInt32(municipio);
+            //IniciarSimulacion(municipi);
+            return View(listSimulacion);
         }
 
-        // POST: PacienteController/Create
-        [HttpPost]
+            // POST: PacienteController/Create
+            [HttpPost]
         [ValidateAntiForgeryToken]
-        
-       
-
         public ActionResult Create(IFormCollection collection)
         {
             try
@@ -181,6 +180,7 @@ namespace Proyecto_EDI.Controllers
                 return View();
             }
         }
+
 
         public void IniciarSimulacion(int id)
         {            
