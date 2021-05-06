@@ -407,22 +407,32 @@
             <span asp-validation-for="municipio" class="text-danger"></span>
 
 
-
-
-
-
             <div class="form-group">
                 <label asp-for="edad" class="control-label"></label>
                 <input asp-for="edad" class="form-control" />
                 <span asp-validation-for="edad" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <label asp-for="grupo_prioridad" class="control-label"></label>
+            <br>
+            <select asp-for="grupo_prioridad" name="grupo_prioridad">
+                <option name="grupo_prioridad" value="1"> Trabajador de establecimientos de salud asistencial que atienden pacientes con COVID-19</option>
+                <option name="grupo_prioridad" value="2"> Trabajador de establecimiento de salud asistencial no incluidos en sub-fase 1a y comunitario de apoyo , incluyendo: comadronas, promotores voluntarios y terapeutas tradicionales</option>
+                <option name="grupo_prioridad" value="3"> Estudiantes de ciencias de la salud y afines que realizan prácticas asistenciales en establecimientos de salud</option>
+                <option name="grupo_prioridad" value="4"> Cuerpos de socorro (bomberos y paramédicos de ambulancias, incluyendo cuerpos de socorro CONRED), trabajadores de funerarias y personal que labora en instituciones de adultos mayores (asilos)</option>
+                <option name="grupo_prioridad" value="5"> Personas internadas en hogares o instituciones de adultos mayores (asilos)</option>
+                <option name="grupo_prioridad" value="6"> Trabajadores del sector salud (administrativos) no incluidos en sub-fases anteriores de acuerdo con otros factores de riesgo</option>
+                <option name="grupo_prioridad" value="10"> Adultos de 18 o más con las condiciones siguientes: Hipertensión arterial que requiere medicamento, diabetes mellitus, enfermedad pulmonar crónica, enfermedad renal crónica, enfermedades cardiovasculares y cerebro vasculares, inmunosupresión (VIH, cáncer, uso de inmunosupresores) u obesidad</option>
+                <option name="grupo_prioridad" value="11"> Trabajadores sector educación ( incluye maestros y docentes del nivel preprimario, primario, básico, diversificado y universitario) que no haya sido incluido en las sub fases a), b) o c</option>
+                <option name="grupo_prioridad" value="12"> Trabajadores sector seguridad nacional (incluye PNC, PMT, militares y personal del sistema penitenciario)</option>
+                <option name="grupo_prioridad" value="13"> Trabajadores registrados en las municipalidades y entidades que prestan servicios esenciales de electricidad, agua, recolección de basura, aduanas y migración</option>
+                <option name="grupo_prioridad" value="14"> Autoridades y demás servidores públicos del Ministerio de Educación y trabajadores de las Universidades del país</option>
+                <option name="grupo_prioridad" value="15"> Trabajadores sector justicia, (incluye jueces, personal en tribunales, fiscales, auxiliares fiscales e investigadores del Ministerio Público)</option>
+                <option name="grupo_prioridad" value="-1"> Ninguna de las anteriores</option>
 
-                <label asp-for="grupo_prioridad" class="control-label"></label>
-                <input asp-for="grupo_prioridad" class="dropdown" />
-                <span asp-validation-for="grupo_prioridad" class="text-danger"></span>
-            </div>
+
+            </select>
+            <span asp-validation-for="grupo_prioridad" class="text-danger"></span>
 
 
 

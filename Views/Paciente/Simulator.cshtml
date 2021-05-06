@@ -1,35 +1,43 @@
 ﻿@model Proyecto_EDI.Models.Paciente
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Simulator";
+    string[] Dates = new string[8] { "Nombre", "Apellido", "DPI", "Departamento", "Municipio", "Edad", "Grupo de prioridad", "Estado de vacunación" };
 }
-
-<h1>Edit</h1>
-
-<h4>Paciente</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="nombre" class="control-label"></label>
-                <input asp-for="nombre" class="form-control" />
-                <span asp-validation-for="nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="apellido" class="control-label"></label>
-                <input asp-for="apellido" class="form-control" />
-                <span asp-validation-for="apellido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="dpi" class="control-label"></label>
-                <input asp-for="dpi" class="form-control" />
-                <span asp-validation-for="dpi" class="text-danger"></span>
-            </div>
-            <label asp-for="departamento" class="control-label"></label>
-            <br>
-            <select asp-for="departamento" name="departamento">
+<style>
+    .boton
+    {
+        width: 150px;
+        height:45px;
+        border-radius:15px;
+        background:#0094ff;
+        color: #ffffff;
+        border:none;
+      font-size:20px;
+      margin: 0px 0px 0px 45px;
+    }
+    .combobox {
+        
+        height: 45px;
+        border-radius: 15px;
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #808080;
+        font-size: 20px;
+    }
+    label {
+        font-size: 20px;
+        color: #000000;
+    }
+</style>
+<h1>Simulator</h1>
+<!--Elegir departamento y municipio-->
+<table>
+    <tr>
+        <td><br />
+     
+            <label style="float:left;"><b>&nbsp;&nbsp;Departamento:</b></label>
+            <select class="combobox" style="float:left;" asp-for="departamento" name="departamento">
                 <option name="municipio" value="0"> Guatemala</option>
                 <option name="municipio" value="1"> El Progreso</option>
                 <option name="municipio" value="2"> Sacatepéquez</option>
@@ -57,10 +65,8 @@
 
             </select>
             <span asp-validation-for="departamento" class="text-danger"></span>
-            <br>
-            <label asp-for="municipio" class="control-label"></label>
-            <br>
-            <select asp-for="municipio" name="municipio">
+            <label style="float:left;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Municipio:</b></label>
+            <select class="combobox" style="float:left;" asp-for="municipio" name="municipio">
 
                 <option name="municipio" value="0"> Guatemala</option>
                 <option name="municipio" value="1"> Santa Catarina Pinula</option>
@@ -405,45 +411,80 @@
             </select>
             <span asp-validation-for="municipio" class="text-danger"></span>
 
+        
+        <button class="boton">Correr</button>
+       
+        </td>
+    </tr>
+    <tr>
+        <td><br /><br /><br /><br />
+            <!-- Tabla para mostrar-->
+                              <table class="table">
+                                  <thead class="table-light">
+                                      <tr>
+                                          <th>
+                                              @Dates[0]
+                                          </th>
+                                          <th>
+                                              @Dates[1]
+                                          </th>
+                                          <th>
+                                              @Dates[2]
+                                          </th>
+                                          <th>
+                                              @Dates[3]
+                                          </th>
+                                          <th>
+                                              @Dates[4]
+                                          </th>
+                                          <th>
+                                              @Dates[5]
+                                          </th>
+                                          <th>
+                                              @Dates[6]
+                                          </th>
+                                          <th>
+                                              @Dates[7]
+                                          </th>
+                                          <th></th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      @for (int i = 0; i < 3; i++)
+                                      {
+                                          <tr>
+                                              <td>
+                                                  @Dates[0]
+                                              </td>
+                                              <td>
+                                                  @Dates[0]
+                                              </td>
+                                              <td>
+                                                  @Dates[0]
+                                              </td>
+                                              <td>
+                                                  @Dates[0]
+                                              </td>
+                                              <td>
+                                                  @Dates[0]
+                                              </td>
+                                              <td>
+                                                  @Dates[0]
+                                              </td>
+                                              <td>
+                                                  @Dates[0]
+                                              </td>
+                                              <td>
+                                                  @Dates[0]
+                                              </td>
+
+                                          </tr>
+                                      }
+                                  </tbody>
+                              </table>
+
+        </td>
+    </tr>
+</table>
 
 
-            <span asp-validation-for="municipio" class="text-danger"></span>
-            <div class="form-group">
-                <label asp-for="edad" class="control-label"></label>
-                <input asp-for="edad" class="form-control" />
-                <span asp-validation-for="edad" class="text-danger"></span>
-            </div>
-            <label asp-for="grupo_prioridad" class="control-label"></label>
-            <br>
-            <select asp-for="grupo_prioridad" name="grupo_prioridad">
-                <option name="grupo_prioridad" value="1"> Trabajador de establecimientos de salud asistencial que atienden pacientes con COVID-19</option>
-                <option name="grupo_prioridad" value="2"> Trabajador de establecimiento de salud asistencial no incluidos en sub-fase 1a y comunitario de apoyo , incluyendo: comadronas, promotores voluntarios y terapeutas tradicionales</option>
-                <option name="grupo_prioridad" value="3"> Estudiantes de ciencias de la salud y afines que realizan prácticas asistenciales en establecimientos de salud</option>
-                <option name="grupo_prioridad" value="4"> Cuerpos de socorro (bomberos y paramédicos de ambulancias, incluyendo cuerpos de socorro CONRED), trabajadores de funerarias y personal que labora en instituciones de adultos mayores (asilos)</option>
-                <option name="grupo_prioridad" value="5"> Personas internadas en hogares o instituciones de adultos mayores (asilos)</option>
-                <option name="grupo_prioridad" value="6"> Trabajadores del sector salud (administrativos) no incluidos en sub-fases anteriores de acuerdo con otros factores de riesgo</option>
-                <option name="grupo_prioridad" value="10"> Adultos de 18 o más con las condiciones siguientes: Hipertensión arterial que requiere medicamento, diabetes mellitus, enfermedad pulmonar crónica, enfermedad renal crónica, enfermedades cardiovasculares y cerebro vasculares, inmunosupresión (VIH, cáncer, uso de inmunosupresores) u obesidad</option>
-                <option name="grupo_prioridad" value="11"> Trabajadores sector educación ( incluye maestros y docentes del nivel preprimario, primario, básico, diversificado y universitario) que no haya sido incluido en las sub fases a), b) o c</option>
-                <option name="grupo_prioridad" value="12"> Trabajadores sector seguridad nacional (incluye PNC, PMT, militares y personal del sistema penitenciario)</option>
-                <option name="grupo_prioridad" value="13"> Trabajadores registrados en las municipalidades y entidades que prestan servicios esenciales de electricidad, agua, recolección de basura, aduanas y migración</option>
-                <option name="grupo_prioridad" value="14"> Autoridades y demás servidores públicos del Ministerio de Educación y trabajadores de las Universidades del país</option>
-                <option name="grupo_prioridad" value="15"> Trabajadores sector justicia, (incluye jueces, personal en tribunales, fiscales, auxiliares fiscales e investigadores del Ministerio Público)</option>
-                <option name="grupo_prioridad" value="-1"> Ninguna de las anteriores</option>
-
-
-            </select>
-            <span asp-validation-for="grupo_prioridad" class="text-danger"></span>
-
-
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
