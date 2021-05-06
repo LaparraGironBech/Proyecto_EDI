@@ -12,6 +12,7 @@ namespace Proyecto_EDI.Controllers
 {
     public class PacienteController : Controller
     {
+        Lista<PrioridadIndice> listSimulacion = new Lista<PrioridadIndice>();
         // GET: PacienteController
         public ActionResult Index()
         {
@@ -178,8 +179,7 @@ namespace Proyecto_EDI.Controllers
         }
 
         public void IniciarSimulacion(int id)
-        {
-            Lista<PrioridadIndice> listSimulacion = new Lista<PrioridadIndice>();
+        {            
             if (Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.pacientesPrioridad == 0)
             {
                 //no hay datos
@@ -200,6 +200,10 @@ namespace Proyecto_EDI.Controllers
                     Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.ExtraerPaciente();
                 }
             }
-        }                 
+        }  
+        public ActionResult VerificarEstadoDeVacunacion() 
+        {
+            return Redirect("Index");            
+        }
     }        
 }
