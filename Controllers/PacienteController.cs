@@ -18,11 +18,6 @@ namespace Proyecto_EDI.Controllers
             return View(Singleton.Instance.PacienteList);
         }
 
-       
-
-
-
-
         // GET: PacienteController/Details/5
         public ActionResult Details(int id)
         {
@@ -172,6 +167,8 @@ namespace Proyecto_EDI.Controllers
                 return View();
             }
         }
+
+       
     }
     
 }

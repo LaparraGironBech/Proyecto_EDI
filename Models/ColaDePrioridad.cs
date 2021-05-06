@@ -32,23 +32,36 @@ namespace Proyecto_EDI.Models
             else
             {
                 int aux = prio;
+                bool agregado = false;
                 PrioridadIndice auxPac = newTemp;
                 for (int i = 0; i < tamLista; i++)
                 {
                     if (aux < listaAlternativa[i])
                     {
+                       
                         //Cambio lista c#
                         int temp = aux;
                         aux = listaAlternativa[i];
-                        listaAlternativa[i] = temp;
-                        listaAlternativa.Add(aux);
+                        //listaAlternativa[i] = temp;                     
+                      //  listaAlternativa.Add(aux);
+                        listaAlternativa.Insert(i, temp);
 
                         //Cambio lista artesanal
                         PrioridadIndice tempPac = auxPac;
                         auxPac = pacPrioridad.DevolverValue(i);
                         pacPrioridad.AgregarPos(i, tempPac);
-                      //  pacPrioridad.AgregarFinal(auxPac);
+                        //  pacPrioridad.AgregarFinal(auxPac);
+
+                        agregado = true;
+                        if (i == 0) { aux = listaAlternativa[tamLista]; }
                     }
+                }
+                if(agregado==false)//se agrega alfinal esto por si el dato es el mayor
+                {
+                    //lista c#
+                    listaAlternativa.Add(aux);
+                    //lista artesanal
+                    pacPrioridad.AgregarPos(tamLista, auxPac);
                 }
                 tamLista++;
             }
