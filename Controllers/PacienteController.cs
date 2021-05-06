@@ -55,11 +55,16 @@ namespace Proyecto_EDI.Controllers
                     grupo_prioridad = Convert.ToInt32(collection["grupo_prioridad"]),
                     vacunado = Convert.ToBoolean(collection["vacunado"])
                 };               
-                Singleton.Instance.PacienteList.Add(newPaciente);
+                Singleton.Instance.PacienteList.Add(newPaciente);                
+                Municipios_Departamentos piv = new Municipios_Departamentos();
+                string municipioP = piv.DevolverMunicipio(newPaciente.municipio); 
+                string departamentoP = piv.DevolverDepartamento(newPaciente.departamento);
+                newPaciente.municipioString = municipioP;
+                newPaciente.departamentoString = departamentoP;
                 // se instancia un objeto centro de vacunación y se instancia objeto paciente para los procesos del centro de vacunacion
                 CentroVacunacion newCentro = new CentroVacunacion(); 
-                Paciente nuevoPaciente = new Paciente(newPaciente.nombre,newPaciente.apellido,newPaciente.dpi,newPaciente.departamento,newPaciente.municipio,newPaciente.edad,newPaciente.grupo_prioridad);
-                //se igualaran variables para poder procesos próximos
+                Paciente nuevoPaciente = new Paciente(newPaciente.nombre,newPaciente.apellido,newPaciente.dpi,newPaciente.departamento,newPaciente.municipio,newPaciente.edad,newPaciente.grupo_prioridad, municipioP, departamentoP);
+                //se igualaran variables para poder procesos próximos                                 
                 int prioridad = newPaciente.grupo_prioridad;
                 int municipioPivot = newPaciente.municipio;
                 PacienteIndice nuevoPacienteIndice = new PacienteIndice(nuevoPaciente.nombre,nuevoPaciente.apellido,nuevoPaciente.dpi);
@@ -184,7 +189,7 @@ namespace Proyecto_EDI.Controllers
                 for (int i = 0; i < Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.pacientesPrioridad; i++)
                 {
                     listSimulacion.InsertarInicio(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.priodadPaciente.pacPrioridad.ObtenerInicio());
-                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.ExtraerPaciente();
+                    
                 }
             }
             else
