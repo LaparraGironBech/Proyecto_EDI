@@ -32,6 +32,10 @@ namespace Proyecto_EDI.Controllers
         {
             return View();
         }
+        public ActionResult Simulator()
+        {
+            return View();
+        }
 
         // POST: PacienteController/Create
         [HttpPost]
