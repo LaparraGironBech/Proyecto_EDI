@@ -1,23 +1,22 @@
-﻿@model Proyecto_EDI.Models.Paciente
+﻿@model Proyecto_EDI.Models.Lista<PrioridadIndice>
 
 @{
     ViewData["Title"] = "Simulator";
     string[] Dates = new string[8] { "Nombre", "Apellido", "DPI", "Departamento", "Municipio", "Edad", "Grupo de prioridad", "Estado de vacunación" };
 }
 <style>
-    .boton
-    {
+    .boton {
         width: 150px;
-        height:45px;
-        border-radius:15px;
-        background:#0094ff;
+        height: 45px;
+        border-radius: 15px;
+        background: #0094ff;
         color: #ffffff;
-        border:none;
-      font-size:20px;
-      margin: 0px 0px 0px 45px;
+        border: none;
+        font-size: 20px;
+        margin: 0px 0px 0px 45px;
     }
+
     .combobox {
-        
         height: 45px;
         border-radius: 15px;
         background: #ffffff;
@@ -25,6 +24,7 @@
         border: 1px solid #808080;
         font-size: 20px;
     }
+
     label {
         font-size: 20px;
         color: #000000;
@@ -32,459 +32,462 @@
 </style>
 <h1>Simulator</h1>
 <!--Elegir departamento y municipio-->
-<table>
-    <tr>
-        <td><br />
-     
-            <label style="float:left;"><b>&nbsp;&nbsp;Departamento:</b></label>
-            <select class="combobox" style="float:left;" asp-for="departamento" name="departamento">
-                <option name="municipio" value="0"> Guatemala</option>
-                <option name="municipio" value="1"> El Progreso</option>
-                <option name="municipio" value="2"> Sacatepéquez</option>
-                <option name="municipio" value="3"> Chimaltenango</option>
-                <option name="municipio" value="4"> Escuintla</option>
-                <option name="municipio" value="5"> Santa Rosa</option>
-                <option name="municipio" value="6"> Sololá</option>
-                <option name="municipio" value="7"> Totonicapán</option>
-                <option name="municipio" value="8"> Quetzaltenango</option>
-                <option name="municipio" value="9"> Suchitepéquez</option>
-                <option name="municipio" value="10"> Retalhuleu</option>
-                <option name="municipio" value="11"> San Marcos</option>
-                <option name="municipio" value="12"> Huehuetenango</option>
-                <option name="municipio" value="13"> Quiché</option>
-                <option name="municipio" value="14"> Baja Verapaz</option>
-                <option name="municipio" value="15"> Alta Verapaz</option>
-                <option name="municipio" value="16"> Petén</option>
-                <option name="municipio" value="17"> Izabal</option>
-                <option name="municipio" value="18"> Zacapa</option>
-                <option name="municipio" value="19"> Chiquimula</option>
-                <option name="municipio" value="20"> Jalapa</option>
-                <option name="municipio" value="21"> Jutiapa</option>
+
+    <table>
+        <tr>
+            <td>
+                <br />
+                <form>
+                    <label style="float:left;"><b>&nbsp;&nbsp;Departamento:</b></label>
+                    <select class="combobox" style="float:left;"  name="departamento">
+                        <option name="municipio" value="0"> Guatemala</option>
+                        <option name="municipio" value="1"> El Progreso</option>
+                        <option name="municipio" value="2"> Sacatepéquez</option>
+                        <option name="municipio" value="3"> Chimaltenango</option>
+                        <option name="municipio" value="4"> Escuintla</option>
+                        <option name="municipio" value="5"> Santa Rosa</option>
+                        <option name="municipio" value="6"> Sololá</option>
+                        <option name="municipio" value="7"> Totonicapán</option>
+                        <option name="municipio" value="8"> Quetzaltenango</option>
+                        <option name="municipio" value="9"> Suchitepéquez</option>
+                        <option name="municipio" value="10"> Retalhuleu</option>
+                        <option name="municipio" value="11"> San Marcos</option>
+                        <option name="municipio" value="12"> Huehuetenango</option>
+                        <option name="municipio" value="13"> Quiché</option>
+                        <option name="municipio" value="14"> Baja Verapaz</option>
+                        <option name="municipio" value="15"> Alta Verapaz</option>
+                        <option name="municipio" value="16"> Petén</option>
+                        <option name="municipio" value="17"> Izabal</option>
+                        <option name="municipio" value="18"> Zacapa</option>
+                        <option name="municipio" value="19"> Chiquimula</option>
+                        <option name="municipio" value="20"> Jalapa</option>
+                        <option name="municipio" value="21"> Jutiapa</option>
 
 
 
-            </select>
-            <span asp-validation-for="departamento" class="text-danger"></span>
-            <label style="float:left;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Municipio:</b></label>
-            <select class="combobox" style="float:left;" asp-for="municipio" name="municipio">
+                    </select>
+                    <spanclass="text-danger"></span>
+                    <label style="float:left;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Municipio:</b></label>
+                    <select class="combobox" style="float:left;"  name="municipio">
 
-                <option name="municipio" value="0"> Guatemala</option>
-                <option name="municipio" value="1"> Santa Catarina Pinula</option>
-                <option name="municipio" value="2"> San José Pinula</option>
-                <option name="municipio" value="3"> San José del Golfo</option>
-                <option name="municipio" value="4"> Palencia</option>
-                <option name="municipio" value="5"> Chinautla</option>
-                <option name="municipio" value="6"> San Pedro Ayampuc</option>
-                <option name="municipio" value="7"> Mixco</option>
-                <option name="municipio" value="8"> San Pedro Sacatepéquez</option>
-                <option name="municipio" value="9"> San Juan Sacatepéquez</option>
-                <option name="municipio" value="10"> San Raymundo</option>
-                <option name="municipio" value="11"> Chuarrancho</option>
-                <option name="municipio" value="12"> Fraijanes</option>
-                <option name="municipio" value="13"> Amatitlán</option>
-                <option name="municipio" value="14"> Villa Nueva</option>
-                <option name="municipio" value="15"> Villa Canales</option>
-                <option name="municipio" value="16"> Petapa</option>
-                <option name="municipio" value="17"> Guastatoya</option>
-                <option name="municipio" value="18"> Morazán</option>
-                <option name="municipio" value="19"> San Agustín Acasaguastlán</option>
-                <option name="municipio" value="20"> San Cristóbal Acasaguastlán</option>
-                <option name="municipio" value="21"> El Jícaro</option>
-                <option name="municipio" value="22"> Sansare</option>
-                <option name="municipio" value="23"> Sanarate</option>
-                <option name="municipio" value="24"> San Antonio la Paz</option>
-                <option name="municipio" value="25"> Antigua Guatemala</option>
-                <option name="municipio" value="26"> Jocotenango</option>
-                <option name="municipio" value="27"> Pastores</option>
-                <option name="municipio" value="28"> Sumpango</option>
-                <option name="municipio" value="29"> Santo Domingo Xenacoj</option>
-                <option name="municipio" value="30"> Santiago Sacatepéquez</option>
-                <option name="municipio" value="31"> San Bartolomé Milpas Altas</option>
-                <option name="municipio" value="32"> San Lucas Sacatepéquez</option>
-                <option name="municipio" value="33"> Santa Lucía Milpas Altas</option>
-                <option name="municipio" value="34"> Magdalena Milpas Altas</option>
-                <option name="municipio" value="35"> Santa María de Jesús</option>
-                <option name="municipio" value="36"> Ciudad Vieja</option>
-                <option name="municipio" value="37"> San Miguel Dueñas</option>
-                <option name="municipio" value="38"> Alotenango</option>
-                <option name="municipio" value="39"> San Antonio Aguas Calientes</option>
-                <option name="municipio" value="40"> Santa Catarina Barahona</option>
-                <option name="municipio" value="41"> Chimaltenango</option>
-                <option name="municipio" value="42"> San José Poaquil</option>
-                <option name="municipio" value="43"> San Martín Jilotepeque</option>
-                <option name="municipio" value="44"> Comalapa</option>
-                <option name="municipio" value="45"> Santa Apolonia</option>
-                <option name="municipio" value="46"> Tecpán Guatemala</option>
-                <option name="municipio" value="47"> Patzún</option>
-                <option name="municipio" value="48"> Pochuta</option>
-                <option name="municipio" value="49"> Patzicía</option>
-                <option name="municipio" value="50"> Santa Cruz Balanyá</option>
-                <option name="municipio" value="51"> Acatenango</option>
-                <option name="municipio" value="52"> Yepocapa</option>
-                <option name="municipio" value="53"> San Andrés Itzapa</option>
-                <option name="municipio" value="54"> Parramos</option>
-                <option name="municipio" value="55"> Zaragoza</option>
-                <option name="municipio" value="56"> El Tejar</option>
-                <option name="municipio" value="57"> Escuintla</option>
-                <option name="municipio" value="58"> Santa Lucía Cotzumalguapa</option>
-                <option name="municipio" value="59"> La Democracia</option>
-                <option name="municipio" value="60"> Siquinalá</option>
-                <option name="municipio" value="61"> Masagua</option>
-                <option name="municipio" value="62"> Tiquisate</option>
-                <option name="municipio" value="63"> La Gomera</option>
-                <option name="municipio" value="64"> Guanagazapa</option>
-                <option name="municipio" value="65"> San José</option>
-                <option name="municipio" value="66"> Iztapa</option>
-                <option name="municipio" value="67"> Palín</option>
-                <option name="municipio" value="68"> San Vicente Pacaya</option>
-                <option name="municipio" value="69"> Nueva Concepción</option>
-                <option name="municipio" value="70"> Cuilapa</option>
-                <option name="municipio" value="71"> Barberena</option>
-                <option name="municipio" value="72"> Santa Rosa de Lima</option>
-                <option name="municipio" value="73"> Casillas</option>
-                <option name="municipio" value="74"> San Rafael las Flores</option>
-                <option name="municipio" value="75"> Oratorio</option>
-                <option name="municipio" value="76"> San Juan Tecuaco</option>
-                <option name="municipio" value="77"> Chiquimulilla</option>
-                <option name="municipio" value="78"> Taxisco</option>
-                <option name="municipio" value="79"> Santa María Ixhuatán</option>
-                <option name="municipio" value="80"> Guazacapán</option>
-                <option name="municipio" value="81"> Santa Cruz Naranjo</option>
-                <option name="municipio" value="82"> Pueblo Nuevo Viñas</option>
-                <option name="municipio" value="83"> Nueva Santa Rosa</option>
-                <option name="municipio" value="84"> Sololá</option>
-                <option name="municipio" value="85"> San José Chacayá</option>
-                <option name="municipio" value="86"> Santa María Visitación</option>
-                <option name="municipio" value="87"> Santa Lucía Utatlán</option>
-                <option name="municipio" value="88"> Nahualá</option>
-                <option name="municipio" value="89"> Santa Catarina Ixtahuacán</option>
-                <option name="municipio" value="90"> Santa Clara la Laguna</option>
-                <option name="municipio" value="91"> Concepción</option>
-                <option name="municipio" value="92"> San Andrés Semetabaj</option>
-                <option name="municipio" value="93"> Panajachel</option>
-                <option name="municipio" value="94"> Santa Catarina Palopó</option>
-                <option name="municipio" value="95"> San Antonio Palopó</option>
-                <option name="municipio" value="96"> San Lucas Tolimán</option>
-                <option name="municipio" value="97"> Santa Cruz la Laguna</option>
-                <option name="municipio" value="98"> San Pablo la Laguna</option>
-                <option name="municipio" value="99"> San Marcos la Laguna</option>
-                <option name="municipio" value="100"> San Juan la Laguna</option>
-                <option name="municipio" value="101"> San Pedro la Laguna</option>
-                <option name="municipio" value="102"> Santiago Atitlán</option>
-                <option name="municipio" value="103"> Totonicapán</option>
-                <option name="municipio" value="104"> San Cristóbal Totonicapán</option>
-                <option name="municipio" value="105"> San Francisco el Alto</option>
-                <option name="municipio" value="106"> San Andrés Xecul</option>
-                <option name="municipio" value="107"> Momostenango</option>
-                <option name="municipio" value="108"> Santa María Chiquimula</option>
-                <option name="municipio" value="109"> Santa Lucía la Reforma</option>
-                <option name="municipio" value="110"> San Bartolo</option>
-                <option name="municipio" value="111"> Quetzaltenango</option>
-                <option name="municipio" value="112"> Salcajá</option>
-                <option name="municipio" value="113"> Olintepeque</option>
-                <option name="municipio" value="114"> San Carlos Sija</option>
-                <option name="municipio" value="115"> Sibilia</option>
-                <option name="municipio" value="116"> Cabricán</option>
-                <option name="municipio" value="117"> Cajolá</option>
-                <option name="municipio" value="118"> San Miguel Siguilá</option>
-                <option name="municipio" value="119"> Ostuncalco</option>
-                <option name="municipio" value="120"> San Mateo</option>
-                <option name="municipio" value="121"> Concepción Chiquirichapa</option>
-                <option name="municipio" value="122"> San Martín Sacatepéquez</option>
-                <option name="municipio" value="123"> Almolonga</option>
-                <option name="municipio" value="124"> Cantel</option>
-                <option name="municipio" value="125"> Huitán</option>
-                <option name="municipio" value="126"> Zunil</option>
-                <option name="municipio" value="127"> Colomba</option>
-                <option name="municipio" value="128"> San Francisco la Unión</option>
-                <option name="municipio" value="129"> El Palmar</option>
-                <option name="municipio" value="130"> Coatepeque</option>
-                <option name="municipio" value="131"> Génova</option>
-                <option name="municipio" value="132"> Flores Costa Cuca</option>
-                <option name="municipio" value="133"> La Esperanza</option>
-                <option name="municipio" value="134"> Palestina de los Altos</option>
-                <option name="municipio" value="135"> Mazatenango</option>
-                <option name="municipio" value="136"> Cuyotenango</option>
-                <option name="municipio" value="137"> San Francisco Zapotitlán</option>
-                <option name="municipio" value="138"> San Bernardino</option>
-                <option name="municipio" value="139"> San José el Idolo</option>
-                <option name="municipio" value="140"> Santo Domingo Suchitepéquez</option>
-                <option name="municipio" value="141"> San Lorenzo</option>
-                <option name="municipio" value="142"> Samayac</option>
-                <option name="municipio" value="143"> San Pablo Jocopilas</option>
-                <option name="municipio" value="144"> San Antonio Suchitepéquez</option>
-                <option name="municipio" value="145"> San Miguel Panán</option>
-                <option name="municipio" value="146"> San Gabriel</option>
-                <option name="municipio" value="147"> Chicacao</option>
-                <option name="municipio" value="148"> Patulul</option>
-                <option name="municipio" value="149"> Santa Bárbara</option>
-                <option name="municipio" value="150"> San Juan Bautista</option>
-                <option name="municipio" value="151"> Santo Tomás la Unión</option>
-                <option name="municipio" value="152"> Zunilito</option>
-                <option name="municipio" value="153"> Pueblo Nuevo</option>
-                <option name="municipio" value="154"> Río Bravo</option>
-                <option name="municipio" value="155"> San José La Máquina</option>
-                <option name="municipio" value="156"> Retalhuleu</option>
-                <option name="municipio" value="157"> San Sebastián</option>
-                <option name="municipio" value="158"> Santa Cruz Muluá</option>
-                <option name="municipio" value="159"> San Martín Zapotitlán</option>
-                <option name="municipio" value="160"> San Felipe</option>
-                <option name="municipio" value="161"> San Andrés Villa Seca</option>
-                <option name="municipio" value="162"> Champerico</option>
-                <option name="municipio" value="163"> Nuevo San Carlos</option>
-                <option name="municipio" value="164"> El Asintal</option>
-                <option name="municipio" value="165"> San Marcos</option>
-                <option name="municipio" value="166"> San Pedro Sacatepéquez</option>
-                <option name="municipio" value="167"> San Antonio Sacatepéquez</option>
-                <option name="municipio" value="168"> Comitancillo</option>
-                <option name="municipio" value="169"> San Miguel Ixtahuacán</option>
-                <option name="municipio" value="170"> Concepción Tutuapa</option>
-                <option name="municipio" value="171"> Tacaná</option>
-                <option name="municipio" value="172"> Sibinal</option>
-                <option name="municipio" value="173"> Tajumulco</option>
-                <option name="municipio" value="174"> Tejutla</option>
-                <option name="municipio" value="175"> San Rafael Pié de la Cuesta</option>
-                <option name="municipio" value="176"> Nuevo Progreso</option>
-                <option name="municipio" value="177"> El Tumbador</option>
-                <option name="municipio" value="178"> El Rodeo</option>
-                <option name="municipio" value="179"> Malacatán</option>
-                <option name="municipio" value="180"> Catarina</option>
-                <option name="municipio" value="181"> Ayutla</option>
-                <option name="municipio" value="182"> Ocós</option>
-                <option name="municipio" value="183"> San Pablo</option>
-                <option name="municipio" value="184"> El Quetzal</option>
-                <option name="municipio" value="185"> La Reforma</option>
-                <option name="municipio" value="186"> Pajapita</option>
-                <option name="municipio" value="187"> Ixchiguán</option>
-                <option name="municipio" value="188"> San José Ojetenán</option>
-                <option name="municipio" value="189"> San Cristóbal Cucho</option>
-                <option name="municipio" value="190"> Sipacapa</option>
-                <option name="municipio" value="191"> Esquipulas Palo Gordo</option>
-                <option name="municipio" value="192"> Río Blanco</option>
-                <option name="municipio" value="193"> San Lorenzo</option>
-                <option name="municipio" value="194"> La Blanca</option>
-                <option name="municipio" value="195"> Huehuetenango</option>
-                <option name="municipio" value="196"> Chiantla</option>
-                <option name="municipio" value="197"> Malacatancito</option>
-                <option name="municipio" value="198"> Cuilco</option>
-                <option name="municipio" value="199"> Nentón</option>
-                <option name="municipio" value="200"> San Pedro Necta</option>
-                <option name="municipio" value="201"> Jacaltenango</option>
-                <option name="municipio" value="202"> Soloma</option>
-                <option name="municipio" value="203"> Ixtahuacán</option>
-                <option name="municipio" value="204"> Santa Bárbara</option>
-                <option name="municipio" value="205"> La Libertad</option>
-                <option name="municipio" value="206"> La Democracia</option>
-                <option name="municipio" value="207"> San Miguel Acatán</option>
-                <option name="municipio" value="208"> San Rafael la Independencia</option>
-                <option name="municipio" value="209"> Todos Santos Cuchumatán</option>
-                <option name="municipio" value="210"> San Juan Atitán</option>
-                <option name="municipio" value="211"> Santa Eulalia</option>
-                <option name="municipio" value="212"> San Mateo Ixtatán</option>
-                <option name="municipio" value="213"> Colotenango</option>
-                <option name="municipio" value="214"> San Sebastián Huehuetenango</option>
-                <option name="municipio" value="215"> Tectitán</option>
-                <option name="municipio" value="216"> Concepción Huista</option>
-                <option name="municipio" value="217"> San Juan Ixcoy</option>
-                <option name="municipio" value="218"> San Antonio Huista</option>
-                <option name="municipio" value="219"> San Sebastián Coatán</option>
-                <option name="municipio" value="220"> Barillas</option>
-                <option name="municipio" value="221"> Aguacatán</option>
-                <option name="municipio" value="222"> San Rafael Petzal</option>
-                <option name="municipio" value="223"> San Gaspar Ixchil</option>
-                <option name="municipio" value="224"> Santiago Chimaltenango</option>
-                <option name="municipio" value="225"> Santa Ana Huista</option>
-                <option name="municipio" value="226"> Unión Cantinil</option>
-                <option name="municipio" value="227"> Santa Cruz del Quiché</option>
-                <option name="municipio" value="228"> Chiché</option>
-                <option name="municipio" value="229"> Chinique</option>
-                <option name="municipio" value="230"> Zacualpa</option>
-                <option name="municipio" value="231"> Chajul</option>
-                <option name="municipio" value="232"> Chichicastenango</option>
-                <option name="municipio" value="233"> Patzité</option>
-                <option name="municipio" value="234"> San Antonio Ilotenango</option>
-                <option name="municipio" value="235"> San Pedro Jocopilas</option>
-                <option name="municipio" value="236"> Cunén</option>
-                <option name="municipio" value="237"> San Juan Cotzal</option>
-                <option name="municipio" value="238"> Joyabaj</option>
-                <option name="municipio" value="239"> Nebaj</option>
-                <option name="municipio" value="240"> San Andrés Sajcabajá</option>
-                <option name="municipio" value="241"> Uspantán</option>
-                <option name="municipio" value="242"> Sacapulas</option>
-                <option name="municipio" value="243"> San Bartolomé Jocotenango</option>
-                <option name="municipio" value="244"> Canillá</option>
-                <option name="municipio" value="245"> Chicamán</option>
-                <option name="municipio" value="246"> Ixcán</option>
-                <option name="municipio" value="247"> Pachalum</option>
-                <option name="municipio" value="248"> Salamá</option>
-                <option name="municipio" value="249"> San Miguel Chicaj</option>
-                <option name="municipio" value="250"> Rabinal</option>
-                <option name="municipio" value="251"> Cubulco</option>
-                <option name="municipio" value="252"> Granados</option>
-                <option name="municipio" value="253"> El Chol</option>
-                <option name="municipio" value="254"> San Jerónimo</option>
-                <option name="municipio" value="255"> Purulhá</option>
-                <option name="municipio" value="256"> Cobán</option>
-                <option name="municipio" value="257"> Santa Cruz Verapaz</option>
-                <option name="municipio" value="258"> San Cristóbal Verapaz</option>
-                <option name="municipio" value="259"> Tactic</option>
-                <option name="municipio" value="260"> Tamahú</option>
-                <option name="municipio" value="261"> Tucurú</option>
-                <option name="municipio" value="262"> Panzós</option>
-                <option name="municipio" value="263"> Senahú</option>
-                <option name="municipio" value="264"> San Pedro Carchá</option>
-                <option name="municipio" value="265"> San Juan Chamelco</option>
-                <option name="municipio" value="266"> Lanquín</option>
-                <option name="municipio" value="267"> Cahabón</option>
-                <option name="municipio" value="268"> Chisec</option>
-                <option name="municipio" value="269"> Chahal</option>
-                <option name="municipio" value="270"> Fray Bartolomé de las Casas</option>
-                <option name="municipio" value="271"> Santa Catalina la Tinta</option>
-                <option name="municipio" value="272"> Raxruhá</option>
-                <option name="municipio" value="273"> Flores</option>
-                <option name="municipio" value="274"> San José</option>
-                <option name="municipio" value="275"> San Benito</option>
-                <option name="municipio" value="276"> San Andrés</option>
-                <option name="municipio" value="277"> La Libertad</option>
-                <option name="municipio" value="278"> San Francisco</option>
-                <option name="municipio" value="279"> Santa Ana</option>
-                <option name="municipio" value="280"> Dolores</option>
-                <option name="municipio" value="281"> San Luis</option>
-                <option name="municipio" value="282"> Sayaxché</option>
-                <option name="municipio" value="283"> Melchor de Mencos</option>
-                <option name="municipio" value="284"> Poptún</option>
-                <option name="municipio" value="285"> Las Cruces</option>
-                <option name="municipio" value="286"> El Chal</option>
-                <option name="municipio" value="287"> Puerto Barrios</option>
-                <option name="municipio" value="288"> Livingston</option>
-                <option name="municipio" value="289"> El Estor</option>
-                <option name="municipio" value="290"> Morales</option>
-                <option name="municipio" value="291"> Los Amates</option>
-                <option name="municipio" value="292"> Zacapa</option>
-                <option name="municipio" value="293"> Estanzuela</option>
-                <option name="municipio" value="294"> Río Hondo</option>
-                <option name="municipio" value="295"> Gualán</option>
-                <option name="municipio" value="296"> Teculután</option>
-                <option name="municipio" value="297"> Usumatlán</option>
-                <option name="municipio" value="298"> Cabañas</option>
-                <option name="municipio" value="299"> San Diego</option>
-                <option name="municipio" value="300"> La Unión</option>
-                <option name="municipio" value="301"> Huité</option>
-                <option name="municipio" value="302"> San Jorge</option>
-                <option name="municipio" value="303"> Chiquimula</option>
-                <option name="municipio" value="304"> San José La Arada</option>
-                <option name="municipio" value="305"> San Juan Ermita</option>
-                <option name="municipio" value="306"> Jocotán</option>
-                <option name="municipio" value="307"> Camotán</option>
-                <option name="municipio" value="308"> Olopa</option>
-                <option name="municipio" value="309"> Esquipulas</option>
-                <option name="municipio" value="310"> Concepción Las Minas</option>
-                <option name="municipio" value="311"> Quetzaltepeque</option>
-                <option name="municipio" value="312"> San Jacinto</option>
-                <option name="municipio" value="313"> Ipala</option>
-                <option name="municipio" value="314"> Jalapa</option>
-                <option name="municipio" value="315"> San Pedro Pinula</option>
-                <option name="municipio" value="316"> San Luis Jilotepeque</option>
-                <option name="municipio" value="317"> San Manuel Chaparrón</option>
-                <option name="municipio" value="318"> San Carlos Alzatate</option>
-                <option name="municipio" value="319"> Monjas</option>
-                <option name="municipio" value="320"> Mataquescuintla</option>
-                <option name="municipio" value="321"> Jutiapa</option>
-                <option name="municipio" value="322"> El Progreso</option>
-                <option name="municipio" value="323"> Santa Catarina Mita</option>
-                <option name="municipio" value="324"> Agua Blanca</option>
-                <option name="municipio" value="325"> Asunción Mita</option>
-                <option name="municipio" value="326"> Yupiltepeque</option>
-                <option name="municipio" value="327"> Atescatempa</option>
-                <option name="municipio" value="328"> Jerez</option>
-                <option name="municipio" value="329"> El Adelanto</option>
-                <option name="municipio" value="330"> Zapotitlán</option>
-                <option name="municipio" value="331"> Comapa</option>
-                <option name="municipio" value="332"> Jalpatagua</option>
-                <option name="municipio" value="333"> Conguaco</option>
-                <option name="municipio" value="334"> Moyuta</option>
-                <option name="municipio" value="335"> Pasaco</option>
-                <option name="municipio" value="336"> San José Acatempa</option>
-                <option name="municipio" value="337"> Quesada</option>
+                        <option name="municipio" value="0"> Guatemala</option>
+                        <option name="municipio" value="1"> Santa Catarina Pinula</option>
+                        <option name="municipio" value="2"> San José Pinula</option>
+                        <option name="municipio" value="3"> San José del Golfo</option>
+                        <option name="municipio" value="4"> Palencia</option>
+                        <option name="municipio" value="5"> Chinautla</option>
+                        <option name="municipio" value="6"> San Pedro Ayampuc</option>
+                        <option name="municipio" value="7"> Mixco</option>
+                        <option name="municipio" value="8"> San Pedro Sacatepéquez</option>
+                        <option name="municipio" value="9"> San Juan Sacatepéquez</option>
+                        <option name="municipio" value="10"> San Raymundo</option>
+                        <option name="municipio" value="11"> Chuarrancho</option>
+                        <option name="municipio" value="12"> Fraijanes</option>
+                        <option name="municipio" value="13"> Amatitlán</option>
+                        <option name="municipio" value="14"> Villa Nueva</option>
+                        <option name="municipio" value="15"> Villa Canales</option>
+                        <option name="municipio" value="16"> Petapa</option>
+                        <option name="municipio" value="17"> Guastatoya</option>
+                        <option name="municipio" value="18"> Morazán</option>
+                        <option name="municipio" value="19"> San Agustín Acasaguastlán</option>
+                        <option name="municipio" value="20"> San Cristóbal Acasaguastlán</option>
+                        <option name="municipio" value="21"> El Jícaro</option>
+                        <option name="municipio" value="22"> Sansare</option>
+                        <option name="municipio" value="23"> Sanarate</option>
+                        <option name="municipio" value="24"> San Antonio la Paz</option>
+                        <option name="municipio" value="25"> Antigua Guatemala</option>
+                        <option name="municipio" value="26"> Jocotenango</option>
+                        <option name="municipio" value="27"> Pastores</option>
+                        <option name="municipio" value="28"> Sumpango</option>
+                        <option name="municipio" value="29"> Santo Domingo Xenacoj</option>
+                        <option name="municipio" value="30"> Santiago Sacatepéquez</option>
+                        <option name="municipio" value="31"> San Bartolomé Milpas Altas</option>
+                        <option name="municipio" value="32"> San Lucas Sacatepéquez</option>
+                        <option name="municipio" value="33"> Santa Lucía Milpas Altas</option>
+                        <option name="municipio" value="34"> Magdalena Milpas Altas</option>
+                        <option name="municipio" value="35"> Santa María de Jesús</option>
+                        <option name="municipio" value="36"> Ciudad Vieja</option>
+                        <option name="municipio" value="37"> San Miguel Dueñas</option>
+                        <option name="municipio" value="38"> Alotenango</option>
+                        <option name="municipio" value="39"> San Antonio Aguas Calientes</option>
+                        <option name="municipio" value="40"> Santa Catarina Barahona</option>
+                        <option name="municipio" value="41"> Chimaltenango</option>
+                        <option name="municipio" value="42"> San José Poaquil</option>
+                        <option name="municipio" value="43"> San Martín Jilotepeque</option>
+                        <option name="municipio" value="44"> Comalapa</option>
+                        <option name="municipio" value="45"> Santa Apolonia</option>
+                        <option name="municipio" value="46"> Tecpán Guatemala</option>
+                        <option name="municipio" value="47"> Patzún</option>
+                        <option name="municipio" value="48"> Pochuta</option>
+                        <option name="municipio" value="49"> Patzicía</option>
+                        <option name="municipio" value="50"> Santa Cruz Balanyá</option>
+                        <option name="municipio" value="51"> Acatenango</option>
+                        <option name="municipio" value="52"> Yepocapa</option>
+                        <option name="municipio" value="53"> San Andrés Itzapa</option>
+                        <option name="municipio" value="54"> Parramos</option>
+                        <option name="municipio" value="55"> Zaragoza</option>
+                        <option name="municipio" value="56"> El Tejar</option>
+                        <option name="municipio" value="57"> Escuintla</option>
+                        <option name="municipio" value="58"> Santa Lucía Cotzumalguapa</option>
+                        <option name="municipio" value="59"> La Democracia</option>
+                        <option name="municipio" value="60"> Siquinalá</option>
+                        <option name="municipio" value="61"> Masagua</option>
+                        <option name="municipio" value="62"> Tiquisate</option>
+                        <option name="municipio" value="63"> La Gomera</option>
+                        <option name="municipio" value="64"> Guanagazapa</option>
+                        <option name="municipio" value="65"> San José</option>
+                        <option name="municipio" value="66"> Iztapa</option>
+                        <option name="municipio" value="67"> Palín</option>
+                        <option name="municipio" value="68"> San Vicente Pacaya</option>
+                        <option name="municipio" value="69"> Nueva Concepción</option>
+                        <option name="municipio" value="70"> Cuilapa</option>
+                        <option name="municipio" value="71"> Barberena</option>
+                        <option name="municipio" value="72"> Santa Rosa de Lima</option>
+                        <option name="municipio" value="73"> Casillas</option>
+                        <option name="municipio" value="74"> San Rafael las Flores</option>
+                        <option name="municipio" value="75"> Oratorio</option>
+                        <option name="municipio" value="76"> San Juan Tecuaco</option>
+                        <option name="municipio" value="77"> Chiquimulilla</option>
+                        <option name="municipio" value="78"> Taxisco</option>
+                        <option name="municipio" value="79"> Santa María Ixhuatán</option>
+                        <option name="municipio" value="80"> Guazacapán</option>
+                        <option name="municipio" value="81"> Santa Cruz Naranjo</option>
+                        <option name="municipio" value="82"> Pueblo Nuevo Viñas</option>
+                        <option name="municipio" value="83"> Nueva Santa Rosa</option>
+                        <option name="municipio" value="84"> Sololá</option>
+                        <option name="municipio" value="85"> San José Chacayá</option>
+                        <option name="municipio" value="86"> Santa María Visitación</option>
+                        <option name="municipio" value="87"> Santa Lucía Utatlán</option>
+                        <option name="municipio" value="88"> Nahualá</option>
+                        <option name="municipio" value="89"> Santa Catarina Ixtahuacán</option>
+                        <option name="municipio" value="90"> Santa Clara la Laguna</option>
+                        <option name="municipio" value="91"> Concepción</option>
+                        <option name="municipio" value="92"> San Andrés Semetabaj</option>
+                        <option name="municipio" value="93"> Panajachel</option>
+                        <option name="municipio" value="94"> Santa Catarina Palopó</option>
+                        <option name="municipio" value="95"> San Antonio Palopó</option>
+                        <option name="municipio" value="96"> San Lucas Tolimán</option>
+                        <option name="municipio" value="97"> Santa Cruz la Laguna</option>
+                        <option name="municipio" value="98"> San Pablo la Laguna</option>
+                        <option name="municipio" value="99"> San Marcos la Laguna</option>
+                        <option name="municipio" value="100"> San Juan la Laguna</option>
+                        <option name="municipio" value="101"> San Pedro la Laguna</option>
+                        <option name="municipio" value="102"> Santiago Atitlán</option>
+                        <option name="municipio" value="103"> Totonicapán</option>
+                        <option name="municipio" value="104"> San Cristóbal Totonicapán</option>
+                        <option name="municipio" value="105"> San Francisco el Alto</option>
+                        <option name="municipio" value="106"> San Andrés Xecul</option>
+                        <option name="municipio" value="107"> Momostenango</option>
+                        <option name="municipio" value="108"> Santa María Chiquimula</option>
+                        <option name="municipio" value="109"> Santa Lucía la Reforma</option>
+                        <option name="municipio" value="110"> San Bartolo</option>
+                        <option name="municipio" value="111"> Quetzaltenango</option>
+                        <option name="municipio" value="112"> Salcajá</option>
+                        <option name="municipio" value="113"> Olintepeque</option>
+                        <option name="municipio" value="114"> San Carlos Sija</option>
+                        <option name="municipio" value="115"> Sibilia</option>
+                        <option name="municipio" value="116"> Cabricán</option>
+                        <option name="municipio" value="117"> Cajolá</option>
+                        <option name="municipio" value="118"> San Miguel Siguilá</option>
+                        <option name="municipio" value="119"> Ostuncalco</option>
+                        <option name="municipio" value="120"> San Mateo</option>
+                        <option name="municipio" value="121"> Concepción Chiquirichapa</option>
+                        <option name="municipio" value="122"> San Martín Sacatepéquez</option>
+                        <option name="municipio" value="123"> Almolonga</option>
+                        <option name="municipio" value="124"> Cantel</option>
+                        <option name="municipio" value="125"> Huitán</option>
+                        <option name="municipio" value="126"> Zunil</option>
+                        <option name="municipio" value="127"> Colomba</option>
+                        <option name="municipio" value="128"> San Francisco la Unión</option>
+                        <option name="municipio" value="129"> El Palmar</option>
+                        <option name="municipio" value="130"> Coatepeque</option>
+                        <option name="municipio" value="131"> Génova</option>
+                        <option name="municipio" value="132"> Flores Costa Cuca</option>
+                        <option name="municipio" value="133"> La Esperanza</option>
+                        <option name="municipio" value="134"> Palestina de los Altos</option>
+                        <option name="municipio" value="135"> Mazatenango</option>
+                        <option name="municipio" value="136"> Cuyotenango</option>
+                        <option name="municipio" value="137"> San Francisco Zapotitlán</option>
+                        <option name="municipio" value="138"> San Bernardino</option>
+                        <option name="municipio" value="139"> San José el Idolo</option>
+                        <option name="municipio" value="140"> Santo Domingo Suchitepéquez</option>
+                        <option name="municipio" value="141"> San Lorenzo</option>
+                        <option name="municipio" value="142"> Samayac</option>
+                        <option name="municipio" value="143"> San Pablo Jocopilas</option>
+                        <option name="municipio" value="144"> San Antonio Suchitepéquez</option>
+                        <option name="municipio" value="145"> San Miguel Panán</option>
+                        <option name="municipio" value="146"> San Gabriel</option>
+                        <option name="municipio" value="147"> Chicacao</option>
+                        <option name="municipio" value="148"> Patulul</option>
+                        <option name="municipio" value="149"> Santa Bárbara</option>
+                        <option name="municipio" value="150"> San Juan Bautista</option>
+                        <option name="municipio" value="151"> Santo Tomás la Unión</option>
+                        <option name="municipio" value="152"> Zunilito</option>
+                        <option name="municipio" value="153"> Pueblo Nuevo</option>
+                        <option name="municipio" value="154"> Río Bravo</option>
+                        <option name="municipio" value="155"> San José La Máquina</option>
+                        <option name="municipio" value="156"> Retalhuleu</option>
+                        <option name="municipio" value="157"> San Sebastián</option>
+                        <option name="municipio" value="158"> Santa Cruz Muluá</option>
+                        <option name="municipio" value="159"> San Martín Zapotitlán</option>
+                        <option name="municipio" value="160"> San Felipe</option>
+                        <option name="municipio" value="161"> San Andrés Villa Seca</option>
+                        <option name="municipio" value="162"> Champerico</option>
+                        <option name="municipio" value="163"> Nuevo San Carlos</option>
+                        <option name="municipio" value="164"> El Asintal</option>
+                        <option name="municipio" value="165"> San Marcos</option>
+                        <option name="municipio" value="166"> San Pedro Sacatepéquez</option>
+                        <option name="municipio" value="167"> San Antonio Sacatepéquez</option>
+                        <option name="municipio" value="168"> Comitancillo</option>
+                        <option name="municipio" value="169"> San Miguel Ixtahuacán</option>
+                        <option name="municipio" value="170"> Concepción Tutuapa</option>
+                        <option name="municipio" value="171"> Tacaná</option>
+                        <option name="municipio" value="172"> Sibinal</option>
+                        <option name="municipio" value="173"> Tajumulco</option>
+                        <option name="municipio" value="174"> Tejutla</option>
+                        <option name="municipio" value="175"> San Rafael Pié de la Cuesta</option>
+                        <option name="municipio" value="176"> Nuevo Progreso</option>
+                        <option name="municipio" value="177"> El Tumbador</option>
+                        <option name="municipio" value="178"> El Rodeo</option>
+                        <option name="municipio" value="179"> Malacatán</option>
+                        <option name="municipio" value="180"> Catarina</option>
+                        <option name="municipio" value="181"> Ayutla</option>
+                        <option name="municipio" value="182"> Ocós</option>
+                        <option name="municipio" value="183"> San Pablo</option>
+                        <option name="municipio" value="184"> El Quetzal</option>
+                        <option name="municipio" value="185"> La Reforma</option>
+                        <option name="municipio" value="186"> Pajapita</option>
+                        <option name="municipio" value="187"> Ixchiguán</option>
+                        <option name="municipio" value="188"> San José Ojetenán</option>
+                        <option name="municipio" value="189"> San Cristóbal Cucho</option>
+                        <option name="municipio" value="190"> Sipacapa</option>
+                        <option name="municipio" value="191"> Esquipulas Palo Gordo</option>
+                        <option name="municipio" value="192"> Río Blanco</option>
+                        <option name="municipio" value="193"> San Lorenzo</option>
+                        <option name="municipio" value="194"> La Blanca</option>
+                        <option name="municipio" value="195"> Huehuetenango</option>
+                        <option name="municipio" value="196"> Chiantla</option>
+                        <option name="municipio" value="197"> Malacatancito</option>
+                        <option name="municipio" value="198"> Cuilco</option>
+                        <option name="municipio" value="199"> Nentón</option>
+                        <option name="municipio" value="200"> San Pedro Necta</option>
+                        <option name="municipio" value="201"> Jacaltenango</option>
+                        <option name="municipio" value="202"> Soloma</option>
+                        <option name="municipio" value="203"> Ixtahuacán</option>
+                        <option name="municipio" value="204"> Santa Bárbara</option>
+                        <option name="municipio" value="205"> La Libertad</option>
+                        <option name="municipio" value="206"> La Democracia</option>
+                        <option name="municipio" value="207"> San Miguel Acatán</option>
+                        <option name="municipio" value="208"> San Rafael la Independencia</option>
+                        <option name="municipio" value="209"> Todos Santos Cuchumatán</option>
+                        <option name="municipio" value="210"> San Juan Atitán</option>
+                        <option name="municipio" value="211"> Santa Eulalia</option>
+                        <option name="municipio" value="212"> San Mateo Ixtatán</option>
+                        <option name="municipio" value="213"> Colotenango</option>
+                        <option name="municipio" value="214"> San Sebastián Huehuetenango</option>
+                        <option name="municipio" value="215"> Tectitán</option>
+                        <option name="municipio" value="216"> Concepción Huista</option>
+                        <option name="municipio" value="217"> San Juan Ixcoy</option>
+                        <option name="municipio" value="218"> San Antonio Huista</option>
+                        <option name="municipio" value="219"> San Sebastián Coatán</option>
+                        <option name="municipio" value="220"> Barillas</option>
+                        <option name="municipio" value="221"> Aguacatán</option>
+                        <option name="municipio" value="222"> San Rafael Petzal</option>
+                        <option name="municipio" value="223"> San Gaspar Ixchil</option>
+                        <option name="municipio" value="224"> Santiago Chimaltenango</option>
+                        <option name="municipio" value="225"> Santa Ana Huista</option>
+                        <option name="municipio" value="226"> Unión Cantinil</option>
+                        <option name="municipio" value="227"> Santa Cruz del Quiché</option>
+                        <option name="municipio" value="228"> Chiché</option>
+                        <option name="municipio" value="229"> Chinique</option>
+                        <option name="municipio" value="230"> Zacualpa</option>
+                        <option name="municipio" value="231"> Chajul</option>
+                        <option name="municipio" value="232"> Chichicastenango</option>
+                        <option name="municipio" value="233"> Patzité</option>
+                        <option name="municipio" value="234"> San Antonio Ilotenango</option>
+                        <option name="municipio" value="235"> San Pedro Jocopilas</option>
+                        <option name="municipio" value="236"> Cunén</option>
+                        <option name="municipio" value="237"> San Juan Cotzal</option>
+                        <option name="municipio" value="238"> Joyabaj</option>
+                        <option name="municipio" value="239"> Nebaj</option>
+                        <option name="municipio" value="240"> San Andrés Sajcabajá</option>
+                        <option name="municipio" value="241"> Uspantán</option>
+                        <option name="municipio" value="242"> Sacapulas</option>
+                        <option name="municipio" value="243"> San Bartolomé Jocotenango</option>
+                        <option name="municipio" value="244"> Canillá</option>
+                        <option name="municipio" value="245"> Chicamán</option>
+                        <option name="municipio" value="246"> Ixcán</option>
+                        <option name="municipio" value="247"> Pachalum</option>
+                        <option name="municipio" value="248"> Salamá</option>
+                        <option name="municipio" value="249"> San Miguel Chicaj</option>
+                        <option name="municipio" value="250"> Rabinal</option>
+                        <option name="municipio" value="251"> Cubulco</option>
+                        <option name="municipio" value="252"> Granados</option>
+                        <option name="municipio" value="253"> El Chol</option>
+                        <option name="municipio" value="254"> San Jerónimo</option>
+                        <option name="municipio" value="255"> Purulhá</option>
+                        <option name="municipio" value="256"> Cobán</option>
+                        <option name="municipio" value="257"> Santa Cruz Verapaz</option>
+                        <option name="municipio" value="258"> San Cristóbal Verapaz</option>
+                        <option name="municipio" value="259"> Tactic</option>
+                        <option name="municipio" value="260"> Tamahú</option>
+                        <option name="municipio" value="261"> Tucurú</option>
+                        <option name="municipio" value="262"> Panzós</option>
+                        <option name="municipio" value="263"> Senahú</option>
+                        <option name="municipio" value="264"> San Pedro Carchá</option>
+                        <option name="municipio" value="265"> San Juan Chamelco</option>
+                        <option name="municipio" value="266"> Lanquín</option>
+                        <option name="municipio" value="267"> Cahabón</option>
+                        <option name="municipio" value="268"> Chisec</option>
+                        <option name="municipio" value="269"> Chahal</option>
+                        <option name="municipio" value="270"> Fray Bartolomé de las Casas</option>
+                        <option name="municipio" value="271"> Santa Catalina la Tinta</option>
+                        <option name="municipio" value="272"> Raxruhá</option>
+                        <option name="municipio" value="273"> Flores</option>
+                        <option name="municipio" value="274"> San José</option>
+                        <option name="municipio" value="275"> San Benito</option>
+                        <option name="municipio" value="276"> San Andrés</option>
+                        <option name="municipio" value="277"> La Libertad</option>
+                        <option name="municipio" value="278"> San Francisco</option>
+                        <option name="municipio" value="279"> Santa Ana</option>
+                        <option name="municipio" value="280"> Dolores</option>
+                        <option name="municipio" value="281"> San Luis</option>
+                        <option name="municipio" value="282"> Sayaxché</option>
+                        <option name="municipio" value="283"> Melchor de Mencos</option>
+                        <option name="municipio" value="284"> Poptún</option>
+                        <option name="municipio" value="285"> Las Cruces</option>
+                        <option name="municipio" value="286"> El Chal</option>
+                        <option name="municipio" value="287"> Puerto Barrios</option>
+                        <option name="municipio" value="288"> Livingston</option>
+                        <option name="municipio" value="289"> El Estor</option>
+                        <option name="municipio" value="290"> Morales</option>
+                        <option name="municipio" value="291"> Los Amates</option>
+                        <option name="municipio" value="292"> Zacapa</option>
+                        <option name="municipio" value="293"> Estanzuela</option>
+                        <option name="municipio" value="294"> Río Hondo</option>
+                        <option name="municipio" value="295"> Gualán</option>
+                        <option name="municipio" value="296"> Teculután</option>
+                        <option name="municipio" value="297"> Usumatlán</option>
+                        <option name="municipio" value="298"> Cabañas</option>
+                        <option name="municipio" value="299"> San Diego</option>
+                        <option name="municipio" value="300"> La Unión</option>
+                        <option name="municipio" value="301"> Huité</option>
+                        <option name="municipio" value="302"> San Jorge</option>
+                        <option name="municipio" value="303"> Chiquimula</option>
+                        <option name="municipio" value="304"> San José La Arada</option>
+                        <option name="municipio" value="305"> San Juan Ermita</option>
+                        <option name="municipio" value="306"> Jocotán</option>
+                        <option name="municipio" value="307"> Camotán</option>
+                        <option name="municipio" value="308"> Olopa</option>
+                        <option name="municipio" value="309"> Esquipulas</option>
+                        <option name="municipio" value="310"> Concepción Las Minas</option>
+                        <option name="municipio" value="311"> Quetzaltepeque</option>
+                        <option name="municipio" value="312"> San Jacinto</option>
+                        <option name="municipio" value="313"> Ipala</option>
+                        <option name="municipio" value="314"> Jalapa</option>
+                        <option name="municipio" value="315"> San Pedro Pinula</option>
+                        <option name="municipio" value="316"> San Luis Jilotepeque</option>
+                        <option name="municipio" value="317"> San Manuel Chaparrón</option>
+                        <option name="municipio" value="318"> San Carlos Alzatate</option>
+                        <option name="municipio" value="319"> Monjas</option>
+                        <option name="municipio" value="320"> Mataquescuintla</option>
+                        <option name="municipio" value="321"> Jutiapa</option>
+                        <option name="municipio" value="322"> El Progreso</option>
+                        <option name="municipio" value="323"> Santa Catarina Mita</option>
+                        <option name="municipio" value="324"> Agua Blanca</option>
+                        <option name="municipio" value="325"> Asunción Mita</option>
+                        <option name="municipio" value="326"> Yupiltepeque</option>
+                        <option name="municipio" value="327"> Atescatempa</option>
+                        <option name="municipio" value="328"> Jerez</option>
+                        <option name="municipio" value="329"> El Adelanto</option>
+                        <option name="municipio" value="330"> Zapotitlán</option>
+                        <option name="municipio" value="331"> Comapa</option>
+                        <option name="municipio" value="332"> Jalpatagua</option>
+                        <option name="municipio" value="333"> Conguaco</option>
+                        <option name="municipio" value="334"> Moyuta</option>
+                        <option name="municipio" value="335"> Pasaco</option>
+                        <option name="municipio" value="336"> San José Acatempa</option>
+                        <option name="municipio" value="337"> Quesada</option>
 
 
-            </select>
-            <span asp-validation-for="municipio" class="text-danger"></span>
+                    </select>
+                    <spanclass="text-danger"></span>
 
-        
-        <button class="boton">Correr</button>
-       
-        </td>
-    </tr>
-    <tr>
-        <td><br /><br /><br /><br />
-            <!-- Tabla para mostrar-->
-                              <table class="table">
-                                  <thead class="table-light">
-                                      <tr>
-                                          <th>
-                                              @Dates[0]
-                                          </th>
-                                          <th>
-                                              @Dates[1]
-                                          </th>
-                                          <th>
-                                              @Dates[2]
-                                          </th>
-                                          <th>
-                                              @Dates[3]
-                                          </th>
-                                          <th>
-                                              @Dates[4]
-                                          </th>
-                                          <th>
-                                              @Dates[5]
-                                          </th>
-                                          <th>
-                                              @Dates[6]
-                                          </th>
-                                          <th>
-                                              @Dates[7]
-                                          </th>
-                                          <th></th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      @for (int i = 0; i < 3; i++)
-                                      {
-                                          <tr>
-                                              <td>
-                                                  @Dates[0]
-                                              </td>
-                                              <td>
-                                                  @Dates[0]
-                                              </td>
-                                              <td>
-                                                  @Dates[0]
-                                              </td>
-                                              <td>
-                                                  @Dates[0]
-                                              </td>
-                                              <td>
-                                                  @Dates[0]
-                                              </td>
-                                              <td>
-                                                  @Dates[0]
-                                              </td>
-                                              <td>
-                                                  @Dates[0]
-                                              </td>
-                                              <td>
-                                                  @Dates[0]
-                                              </td>
 
-                                          </tr>
-                                      }
-                                  </tbody>
-                              </table>
+                    <button asp-action="Simulator" type="submit" class="boton">Correr</button>
+                </form>
+            </td>
+        </tr>
+<tr>
+    <td>
+        <br /><br /><br /><br />
+        <!-- Tabla para mostrar-->
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th>
+                        @Dates[0]
+                    </th>
+                    <th>
+                        @Dates[1]
+                    </th>
+                    <th>
+                        @Dates[2]
+                    </th>
+                    <th>
+                        @Dates[3]
+                    </th>
+                    <th>
+                        @Dates[4]
+                    </th>
+                    <th>
+                        @Dates[5]
+                    </th>
+                    <th>
+                        @Dates[6]
+                    </th>
+                    <th>
+                        @Dates[7]
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < 3; i++)
+                {
+                    <tr>
+                        <td>
+                            @Dates[0]
+                        </td>
+                        <td>
+                            @Dates[0]
+                        </td>
+                        <td>
+                            @Dates[0]
+                        </td>
+                        <td>
+                            @Dates[0]
+                        </td>
+                        <td>
+                            @Dates[0]
+                        </td>
+                        <td>
+                            @Dates[0]
+                        </td>
+                        <td>
+                            @Dates[0]
+                        </td>
+                        <td>
+                            @Dates[0]
+                        </td>
 
-        </td>
-    </tr>
-</table>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </td>
+</tr>
+    </table>
 
 
