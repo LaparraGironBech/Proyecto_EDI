@@ -20,8 +20,12 @@ namespace Proyecto_EDI.Models
             tablaPaciente = new TablaHash<int, Paciente>();
             avlPaciente = new AVL<PacienteIndice>();
             priodadPaciente = new ColaDePrioridad();
-            totalPacientes = 0;
-            pacientesPrioridad = 0;
+
+            //Dar tamaño a la tabla hash, para cambiar tamaño hay que aumentar  las iteracions del for------------->
+            for (int i = 0; i < 10; i++)
+            {
+                tablaPaciente.AgregarFinalLista();
+            }
         }
 
         public void insertarPaciente(Paciente pac, PacienteIndice pac1, int prioridad)//Aqui se insertan en todas las estructuras a utilizar
@@ -29,13 +33,25 @@ namespace Proyecto_EDI.Models
             listaPacientes.AgregarInicio(pac);
             avlPaciente.Insertar(pac1);
             priodadPaciente.insertar(prioridad, pac);
-            totalPacientes++;
-            pacientesPrioridad++;
+            tablaPaciente.Pos(FHash(pac.nombre + pac.apellido)).Agregar(FHash(pac.nombre + pac.apellido), pac);
         }
-        public void ExtraerPaciente()
+
+        //Funsión Hash-------------------------->
+        public int FHash(string titulo)// Nuestra función hash
         {
-            priodadPaciente.ExtraerInicio();
-            pacientesPrioridad--;
-        }        
+
+            titulo = titulo.ToLower(); //convertir todo a minuscula 
+            int CHash = 0; //devolverá el valor en número
+            char letra; // detecta letra por letra de la cadena
+            for (int i = 0; i < titulo.Length; i++)
+            {
+                letra = Convert.ToChar(titulo.Substring(i, 1));
+                CHash = CHash + Convert.ToInt32(letra);
+
+            }
+
+            CHash = CHash % 10;
+            return CHash;
+        }
     }
 }

@@ -19,11 +19,6 @@ namespace Proyecto_EDI.Controllers
             return View(Singleton.Instance.PacienteList);
         }
 
-       
-
-
-
-
         // GET: PacienteController/Details/5
         public ActionResult Details(int id)
         {
@@ -196,8 +191,7 @@ namespace Proyecto_EDI.Controllers
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    listSimulacion.InsertarInicio(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.priodadPaciente.pacPrioridad.ObtenerInicio());
-                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.ExtraerPaciente();
+                    listSimulacion.InsertarInicio(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.priodadPaciente.pacPrioridad.ObtenerInicio());                    
                 }
             }
         }  
