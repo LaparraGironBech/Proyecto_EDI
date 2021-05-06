@@ -1,11 +1,17 @@
 ﻿<style>
     .Botones {
-        width: 100px;
-        height: 50px;
-        color: white;
-        background: #02007F;
-        border: none;
-        border-radius: 2px;
+        
+        background: #808080;
+       
+       
+    }
+    .card:hover {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -o-transform: scale(1);
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -o-transition-duration: 0.5s;
     }
 
         .Botones:hover {
@@ -18,13 +24,49 @@
         }
 </style>
 
-<div style="margin: 0% 0% 10% 40% !important;float: left;" class="d-grid gap-2">
 
-    <a asp-controller="Paciente" asp-action="Index"><button class="Botones" type="button">Ingreso de Paciente</button></a>  <br /><br />
 
-    <a asp-controller="CentroVacunacion" asp-action="Index"><button class="Botones" type="button">Simulación</button></a>  <br /><br />
+
+<table>
+    <tr>
+        <td>
+            <a id="Botones" asp-controller="Paciente" asp-action="Index">
+                <div class="card" style="width: 18rem;">
+                    <img height="200px;" src="data:image/png;base64,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" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Ingresar nuevo registro</p>
+                    </div>
+                </div>
+            </a>
+        </td>
+
+        <td>
+            <a asp-controller="Paciente" asp-action="Index">
+                <div  class="card" style="width: 18rem;">
+                    <img  style="background: #f6f6f6;" src="https://gateway.edoc4u.com/style/eDoc4u/images/icons/icn_PatientSearch.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Buscar paciente</p>
+                    </div>
+                </div>
+            </a>
+        </td>
+    </tr>
+</table>
+
+
+
+
+<div  style="margin: 0% 0% 10% 40% !important;float: left;" class="d-grid gap-2">
+
+
+
+
+    
+    
+
 
 
 </div>
+
 <br />
 <br />
