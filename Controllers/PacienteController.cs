@@ -58,8 +58,13 @@ namespace Proyecto_EDI.Controllers
                     edad = Convert.ToInt32(collection["edad"]),
                     grupo_prioridad = Convert.ToInt32(collection["grupo_prioridad"]),
                     vacunado = Convert.ToBoolean(collection["vacunado"])
-                };               
-                Singleton.Instance.PacienteList.Add(newPaciente);                
+                };                
+                Singleton.Instance.PacienteList.Add(newPaciente);
+                if (newPaciente.grupo_prioridad == -1)
+                {
+                    newPaciente.grupo_prioridad = Defprioridad(newPaciente.edad);
+                }
+                newPaciente.prioString = asignarPrio(newPaciente.grupo_prioridad);
                 Municipios_Departamentos piv = new Municipios_Departamentos();
                 string municipioP = piv.DevolverMunicipio(newPaciente.municipio); 
                 string departamentoP = piv.DevolverDepartamento(newPaciente.departamento);
@@ -206,6 +211,100 @@ namespace Proyecto_EDI.Controllers
                 }
             }
         }  
+        public int Defprioridad(int age)
+        {
+            if (age >= 70)
+            {
+                return 7;
+            }
+            else if (age>=60 && age < 70)
+            {
+                return 8;
+            }
+            else if(age>=50 && age < 60)
+            {
+                return 9;
+            }
+            else if (age>=40 && age<50)
+            {
+                return 16;
+            }
+            else
+            {
+                return 17;
+            }
+        }
+        public string asignarPrio(int prioridad)
+        {
+            if(prioridad == 1)
+            {
+                return "1A";
+            }
+            else if (prioridad == 2)
+            {
+                return "1B";
+            }
+            else if (prioridad == 3)
+            {
+                return "1C";
+            }
+            else if (prioridad == 4)
+            {
+                return "1D";
+            }
+            else if (prioridad == 5)
+            {
+                return "1E";
+            }
+            else if (prioridad == 6)
+            {
+                return "1F";
+            }
+            else if (prioridad == 7)
+            {
+                return "2A";
+            }
+            else if (prioridad == 8)
+            {
+                return "2B";
+            }
+            else if (prioridad == 9)
+            {
+                return "2C";
+            }
+            else if (prioridad == 10)
+            {
+                return "2D";
+            }
+            else if (prioridad == 11)
+            {
+                return "2E";
+            }
+            else if (prioridad == 12)
+            {
+                return "3A";
+            }
+            else if (prioridad == 13)
+            {
+                return "3B";
+            }
+            else if (prioridad == 14)
+            {
+                return "3C";
+            }
+            else if (prioridad == 15)
+            {
+                return "3D";
+            }
+            else if (prioridad == 16)
+            {
+                return "4A";
+            }
+            else 
+            {
+                return "4B";
+            }
+        }
         public ActionResult VerificarEstadoDeVacunacion() 
         {
             return Redirect("Index");            
