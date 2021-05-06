@@ -422,69 +422,77 @@
     <td>
         <br /><br /><br /><br />
         <!-- Tabla para mostrar-->
-        <table class="table">
-            <thead class="table-light">
+        @if (Model.Cantidad != 0)
+        {
+    <table class="table">
+        <thead class="table-light">
+            <tr>
+                <th>
+                    @Dates[0]
+                </th>
+                <th>
+                    @Dates[1]
+                </th>
+                <th>
+                    @Dates[2]
+                </th>
+                <th>
+                    @Dates[3]
+                </th>
+                <th>
+                    @Dates[4]
+                </th>
+                <th>
+                    @Dates[5]
+                </th>
+                <th>
+                    @Dates[6]
+                </th>
+                <th>
+                    @Dates[7]
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Cantidad; i++)
+            {
                 <tr>
-                    <th>
-                        @Dates[0]
-                    </th>
-                    <th>
-                        @Dates[1]
-                    </th>
-                    <th>
-                        @Dates[2]
-                    </th>
-                    <th>
-                        @Dates[3]
-                    </th>
-                    <th>
-                        @Dates[4]
-                    </th>
-                    <th>
-                        @Dates[5]
-                    </th>
-                    <th>
-                        @Dates[6]
-                    </th>
-                    <th>
-                        @Dates[7]
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (int i = 0; i < 3; i++)
-                {
-                    <tr>
-                        <td>
-                            @Model.ObtenerPos(i).Data.pacientePrioridad.nombre
-                        </td>
-                        <td>
-                            @Model.ObtenerPos(i).Data.pacientePrioridad.apellido
-                        </td>
-                        <td>
-                            @Model.ObtenerPos(i).Data.pacientePrioridad.departamentoString
-                        </td>
-                        <td>
-                            @Model.ObtenerPos(i).Data.pacientePrioridad.municipioString
-                        </td>
-                        <td>
-                            @Model.ObtenerPos(i).Data.pacientePrioridad.dpi
-                        </td>
-                        <td>
-                            @Model.ObtenerPos(i).Data.pacientePrioridad.edad
-                        </td>
-                        <td>
-                            @Model.ObtenerPos(i).Data.pacientePrioridad.grupo_prioridad
-                        </td>
-                        <td>
-                            @Model.ObtenerPos(i).Data.pacientePrioridad.vacunado
-                        </td>
+                    <td>
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.nombre
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.apellido
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.departamentoString
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.municipioString
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.dpi
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.edad
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.grupo_prioridad
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.vacunado
+                    </td>
 
-                    </tr>
-                }
-            </tbody>
-        </table>
+                </tr>
+            }
+
+            }
+
+
+        </tbody>
+    </table>
+        }
+        
 
     </td>
 </tr>
