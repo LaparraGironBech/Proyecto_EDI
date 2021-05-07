@@ -480,9 +480,7 @@
                         @Model.ObtenerPos(i).Data.pacientePrioridad.prioString
                     </td>
                     <td>
-                        <div>
-                            <a asp-action="Simulador">De vuelta a vacunados</a>
-                        </div>
+                        <input id="vacunado" name="vacunado" type="checkbox" value="@Model.ObtenerPos(i).Data.pacientePrioridad.vacunado" />
                     </td>
 
                 </tr>

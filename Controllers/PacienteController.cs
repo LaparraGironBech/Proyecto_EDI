@@ -37,7 +37,8 @@ namespace Proyecto_EDI.Controllers
 
         public ActionResult Espera() //Página para desplegar los pacientes pendientes
         {
-            return View(Singleton.Instance.listaPacientesVacunados);
+            hacerListaDeEspera();
+            return View(Singleton.Instance.listaDeEspera);
         }
         public ActionResult Vacunados() //Página para desplegar los pacientes pendientes
         {
@@ -253,7 +254,8 @@ namespace Proyecto_EDI.Controllers
                 for (int i = 0; i < 3; i++)
                 {
                     Singleton.Instance.listSimulacion.AgregarFinal(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerPos(0).Data);
-                    //Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
+                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();                     
+
                 }
             }
         }  
@@ -349,7 +351,23 @@ namespace Proyecto_EDI.Controllers
             else 
             {
                 return "4B";
+            }            
+        }
+        public void hacerListaDeEspera()
+        {
+            for (int i = 0; i < Singleton.Instance.listaGeneralDePacientes.Cantidad; i++)
+            {
+                if (Singleton.Instance.listaGeneralDePacientes.ObtenerPos(i).Data.vacunado == false)
+                {
+                    Singleton.Instance.listaDeEspera.AgregarFinal(Singleton.Instance.listaGeneralDePacientes.ObtenerPos(i).Data);
+                }
             }
+        }
+        public decimal porcentajeVacunados()
+        {
+            decimal total = (Singleton.Instance.listaPacientesVacunados.Cantidad * 100) / Singleton.Instance.listaGeneralDePacientes.Cantidad;
+            decimal porcentaje = decimal.Round(total, 2);
+            return porcentaje;
         }
         public ActionResult VerificarEstadoDeVacunacion() 
         {

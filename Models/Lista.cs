@@ -272,5 +272,11 @@ namespace Proyecto_EDI.Models
                 
             }
         }
+
+        public void EliminarTodo()
+        {
+            PrimerNodo = null;
+            UltimoNodo = null;
+        }
     }
 }
