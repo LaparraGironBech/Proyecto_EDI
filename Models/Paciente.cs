@@ -29,7 +29,7 @@ namespace Proyecto_EDI.Models
         [Required]
         public bool vacunado { get; set; }
         public string prioString { get; set; }
-        public Paciente(string Name, string lastname, int DPI, int departament, int muni, int ed, int prio, string mm, string dd)
+        public Paciente(string Name, string lastname, int DPI, int departament, int muni, int ed, int prio, string mm, string dd, string PrioridadS)
         {
             nombre = Name;
             apellido = lastname;
@@ -41,7 +41,7 @@ namespace Proyecto_EDI.Models
             vacunado = false;
             municipioString = mm;
             departamentoString = dd;
-            prioString = "";
+            prioString = PrioridadS;
 
         }
         public Paciente()

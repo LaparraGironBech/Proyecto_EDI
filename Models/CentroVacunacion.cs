@@ -34,6 +34,8 @@ namespace Proyecto_EDI.Models
             avlPaciente.Insertar(pac1);
             priodadPaciente.insertar(prioridad, pac);
             tablaPaciente.Pos(FHash(pac.nombre + pac.apellido)).Agregar(FHash(pac.nombre + pac.apellido), pac);
+            totalPacientes++;
+            pacientesPrioridad++;
         }
 
         //Funsión Hash-------------------------->
@@ -52,6 +54,15 @@ namespace Proyecto_EDI.Models
 
             CHash = CHash % 10;
             return CHash;
+        }
+        public void ExtraerPrioridad()
+        {
+            priodadPaciente.ExtraerInicio();
+            pacientesPrioridad--;
+        }
+        public void ReinsertarPrioridad(int prioridad, Paciente pac)
+        {
+            priodadPaciente.insertar(prioridad, pac);
         }
     }
 }

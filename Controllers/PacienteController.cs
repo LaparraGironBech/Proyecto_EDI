@@ -36,7 +36,14 @@ namespace Proyecto_EDI.Controllers
         }
         public ActionResult Simulator(string municipio)
         {
-            if(municipio!=null)
+            if (Singleton.Instance.listSimulacion.Cantidad > 0)
+            {
+                for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
+                {
+                    Singleton.Instance.listSimulacion.EliminarFinal();
+                }
+            }
+            if (municipio!=null)
             {
                 int municipi = Convert.ToInt32(municipio);
                 IniciarSimulacion(municipi);
@@ -76,7 +83,7 @@ namespace Proyecto_EDI.Controllers
                 newPaciente.departamentoString = departamentoP;
                 // se instancia un objeto centro de vacunación y se instancia objeto paciente para los procesos del centro de vacunacion
                 CentroVacunacion newCentro = new CentroVacunacion(); 
-                Paciente nuevoPaciente = new Paciente(newPaciente.nombre,newPaciente.apellido,newPaciente.dpi,newPaciente.departamento,newPaciente.municipio,newPaciente.edad,newPaciente.grupo_prioridad, municipioP, departamentoP);
+                Paciente nuevoPaciente = new Paciente(newPaciente.nombre,newPaciente.apellido,newPaciente.dpi,newPaciente.departamento,newPaciente.municipio,newPaciente.edad,newPaciente.grupo_prioridad, municipioP, departamentoP,newPaciente.prioString);
                 //se igualaran variables para poder procesos próximos                                 
                 int prioridad = newPaciente.grupo_prioridad;
                 int municipioPivot = newPaciente.municipio;
@@ -193,25 +200,45 @@ namespace Proyecto_EDI.Controllers
 
 
         public void IniciarSimulacion(int id)
-        {            
-            if (Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.pacientesPrioridad == 0)
+        {
+            //if (Singleton.Instance.listSimulacion.Cantidad > 0)
+            //{
+            //    for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
+            //    {
+            //        Singleton.Instance.listSimulacion.EliminarFinal();
+            //    }
+            //}
+            int muniPivot=id;
+            bool encontradoI = false;
+            int posicionEncontradaI = 0;
+            for (int i = 0; i < Singleton.Instance.cantidadCentros; i++)
+            {
+                if (muniPivot == Singleton.Instance.listaReferencia.DevolverValue(i))
+                {
+                    encontradoI = true;
+                    posicionEncontradaI = i;
+                    i = Singleton.Instance.cantidadCentros;
+                }
+            }
+            if (encontradoI == false)
             {
                 //no hay datos
             }
-            else if (Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.pacientesPrioridad < 3)
+            else if (encontradoI == true && Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.pacientesPrioridad < 3)
             {
-                for (int i = 0; i < Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.pacientesPrioridad; i++)
+                for (int i = 0; i < Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.pacientesPrioridad; i++)
                 {
-                    Singleton.Instance.listSimulacion.InsertarInicio(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.priodadPaciente.pacPrioridad.ObtenerInicio());
-                    
-                    
+                    //Singleton.Instance.listSimulacion.InsertarInicio(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerInicio());
+                    Singleton.Instance.listSimulacion.AgregarPos(0, Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerPos(i).Data);
+                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
                 }
             }
-            else
+            else if (encontradoI == true)
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    Singleton.Instance.listSimulacion.InsertarInicio(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(id).Data.priodadPaciente.pacPrioridad.ObtenerInicio());                    
+                    Singleton.Instance.listSimulacion.AgregarFinal(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerPos(0).Data);
+                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
                 }
             }
         }  

@@ -75,8 +75,8 @@ namespace Proyecto_EDI.Models
             {
                 UltimoNodo.siguiente = Nom2;
                 UltimoNodo = Nom2;
-            }
-            Cantidad++;
+                Cantidad++;
+            }            
         }
 
         public void AgregarPos(int pos, T t)
