@@ -30,6 +30,19 @@ namespace Proyecto_EDI.Controllers
         
 
         // GET: PacienteController/Create
+        public ActionResult MenuReporte()//menu de reportes
+        {
+            return View();
+        }
+
+        public ActionResult Espera() //Página para desplegar los pacientes pendientes
+        {
+            return View(Singleton.Instance.listaPacientesVacunados);
+        }
+        public ActionResult Vacunados() //Página para desplegar los pacientes pendientes
+        {
+            return View(Singleton.Instance.listaPacientesVacunados);
+        }
         public ActionResult Create()
         {
             return View();
