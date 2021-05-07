@@ -49,6 +49,7 @@ namespace Proyecto_EDI.Controllers
         }
         public ActionResult Simulator(string municipio)
         {
+            Console.WriteLine(Singleton.Instance.listSimulacion);
             if (Singleton.Instance.listSimulacion.Cantidad > 0)
             {
                 for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)

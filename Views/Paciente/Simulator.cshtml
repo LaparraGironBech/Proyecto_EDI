@@ -480,7 +480,9 @@
                         @Model.ObtenerPos(i).Data.pacientePrioridad.prioString
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.vacunado
+                        <div>
+                            <a asp-action="Simulador">De vuelta a vacunados</a>
+                        </div>
                     </td>
 
                 </tr>
@@ -492,9 +494,7 @@
         </tbody>
     </table>
         }
-    <div>
-        <a asp-action="Simulator">De vuelta a vacunados</a>
-        <a asp-action="Simulador">De vuelta a vacunados</a>
+    <div>        
     </div>
 
     </td>
