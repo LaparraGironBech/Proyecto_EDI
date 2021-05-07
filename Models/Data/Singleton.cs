@@ -16,7 +16,7 @@ namespace Proyecto_EDI.Models.Data
         public Lista<Paciente> listaGeneralDePacientes;
         public Lista<Paciente> listaPacientesVacunados;
         public Lista<PrioridadIndice> listSimulacion;
-        public Lista<Paciente> listaSimulacionS;
+        public Lista<Paciente> listaPacientes;        
 
 
         private Singleton()
@@ -29,7 +29,7 @@ namespace Proyecto_EDI.Models.Data
             posicion = 0;
             cantidadCentros = 0;
             listSimulacion = new Lista<PrioridadIndice>();
-            listaSimulacionS = new Lista<Paciente>();
+            listaPacientes = new Lista<Paciente>();            
         }
 
         public static Singleton Instance
