@@ -244,7 +244,7 @@ namespace Proyecto_EDI.Controllers
                 {
                     //Singleton.Instance.listSimulacion.InsertarInicio(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerInicio());
                     Singleton.Instance.listSimulacion.AgregarPos(0, Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerPos(i).Data);
-                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
+                    //Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
                 }
             }
             else if (encontradoI == true)
@@ -252,7 +252,7 @@ namespace Proyecto_EDI.Controllers
                 for (int i = 0; i < 3; i++)
                 {
                     Singleton.Instance.listSimulacion.AgregarFinal(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerPos(0).Data);
-                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
+                    //Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
                 }
             }
         }  

@@ -477,9 +477,9 @@
                         @Model.ObtenerPos(i).Data.pacientePrioridad.edad
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.grupo_prioridad
+                        @Model.ObtenerPos(i).Data.pacientePrioridad.prioString
                     </td>
-                    <td>                        
+                    <td>
                         @Model.ObtenerPos(i).Data.pacientePrioridad.vacunado
                     </td>
 
@@ -492,7 +492,10 @@
         </tbody>
     </table>
         }
-        
+    <div>
+        <a asp-action="Simulator">De vuelta a vacunados</a>
+        <a asp-action="Simulador">De vuelta a vacunados</a>
+    </div>
 
     </td>
 </tr>
