@@ -4,39 +4,40 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<h1>LISTA GENERAL DE PACIENTES REGISTRADOS</h1>
+<h4>Fase 1 - COVID-19</h4>
+<br />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">+Agregar nuevo registro</a><br />
+    <a asp-controller="Home" asp-action="Index">Regresar Menú principal</a>
 </p>
-<table class="table">
+
+   
+
+<table class="table table-hover"><br /><br />
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.nombre)
+                <label>Nombre</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.apellido)
+                <label>Apellido</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.dpi)
+                <label>DPI</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.departamentoString)
+                <label>Departamento</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.municipioString)
+                <label>Municipio</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.edad)
+                <label>Edad</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.prioString)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vacunado)
-            </th>
-            <th></th>
+                <label>Grupo</label>
+            </th>           
         </tr>
     </thead>
     <tbody>
@@ -64,12 +65,7 @@
                 @Html.DisplayFor(modelItem => item.prioString)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.vacunado)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.dpi">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.dpi">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.dpi">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.dpi">Edit</a> 
             </td>
         </tr>
 }

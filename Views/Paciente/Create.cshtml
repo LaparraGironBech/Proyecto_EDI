@@ -3,34 +3,44 @@
 @{
     ViewData["Title"] = "Create";
 }
+<style>
+    .op {
+        height: 30px;
+        border-radius: 5px;
+        border: 2px solid #ced4da;
+    }
+</style>
 
-<h1>Create</h1>
 
-<h4>Paciente</h4>
+<h1>REGISTRO DE VACUNACIÓN </h1>
+<h4>Fase 1 COVID-19</h4>
 <hr />
+<div>
+    <a asp-controller="Home" asp-action="Index">Regresar Menú principal</a>
+</div>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nombre" class="control-label"></label>
+                <label class="control-label"><b>Nombres:</b></label>
                 <input asp-for="nombre" class="form-control" />
                 <span asp-validation-for="nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="apellido" class="control-label"></label>
+                <label  class="control-label"><b>Apellidos:</b></label>
                 <input asp-for="apellido" class="form-control" />
                 <span asp-validation-for="apellido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="dpi" class="control-label"></label>
+                <label  class="control-label"><b>DPI:</b></label>
                 <input asp-for="dpi" class="form-control" />
                 <span asp-validation-for="dpi" class="text-danger"></span>
             </div>
-
-            <label asp-for="departamento" class="control-label"></label>
+            <br />
+            <label class="control-label"><b>Departamento:</b></label>
             <br>
-            <select asp-for="departamento" name="departamento">
+            <select class="op" asp-for="departamento" name="departamento">
                 <option name="municipio" value="0"> Guatemala</option>
                 <option name="municipio" value="1"> El Progreso</option>
                 <option name="municipio" value="2"> Sacatepéquez</option>
@@ -57,11 +67,12 @@
 
 
             </select>
-            <span asp-validation-for="departamento" class="text-danger"></span>
+            <br />
+            <span style="float:left;" asp-validation-for="departamento" class="text-danger"></span>
             <br>
-            <label asp-for="municipio" class="control-label"></label>
+            <label class="control-label"><b>Municipio:</b></label>
             <br>
-            <select asp-for="municipio" name="municipio">
+            <select class="op" asp-for="municipio" name="municipio">
 
                 <option name="municipio" value="0"> Guatemala</option>
                 <option name="municipio" value="1"> Santa Catarina Pinula</option>
@@ -405,17 +416,17 @@
 
             </select>
             <span asp-validation-for="municipio" class="text-danger"></span>
-
+            <br />
 
             <div class="form-group">
-                <label asp-for="edad" class="control-label"></label>
+                <label class="control-label"><b>Edad:</b></label>
                 <input asp-for="edad" class="form-control" />
                 <span asp-validation-for="edad" class="text-danger"></span>
             </div>
 
-            <label asp-for="grupo_prioridad" class="control-label"></label>
+            <label class="control-label"><b>Grupo de prioridad</b></label>
             <br>
-            <select style="width:400px;" asp-for="grupo_prioridad" name="grupo_prioridad">
+            <select class="op" style="width:400px;" asp-for="grupo_prioridad" name="grupo_prioridad">
                 <option name="grupo_prioridad" value="1"> Trabajador de establecimientos de salud asistencial que atienden pacientes con COVID-19</option>
                 <option name="grupo_prioridad" value="2"> Trabajador de establecimiento de salud asistencial no incluidos en sub-fase 1a y comunitario de apoyo , incluyendo: comadronas, promotores voluntarios y terapeutas tradicionales</option>
                 <option name="grupo_prioridad" value="3"> Estudiantes de ciencias de la salud y afines que realizan prácticas asistenciales en establecimientos de salud</option>
@@ -436,17 +447,15 @@
 
 
 
-
+            <br /><br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input style="width:150px;" type="submit" value="Registrar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
