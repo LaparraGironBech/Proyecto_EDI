@@ -3,6 +3,30 @@
 @{
     ViewData["Title"] = "Details";
 }
+<style>
+    .combobox {
+        height: 30px;
+        width: 200px;
+        border-radius: 5px;
+        background: #ffffff;
+        color: #000000;
+        font-size: 15px;
+        border: 2px solid #ced4da;
+    }
+    .Botones {
+        width: 200px;
+        height: 35px;
+        border-radius: 5px;
+        background: #0094ff;
+        color: #ffffff;
+        border: none;
+        font-size: 20px;
+        
+    }
+    .text {
+        font-size: 20px;
+    }
+</style>
 
 <h1>Vacunación COVID-19 </h1>
 
@@ -13,51 +37,63 @@
         <!---div style="float:left;"><img width="200px;" src="https://www.asechiapas.gob.mx/wp-content/uploads/2020/10/COVID-1.png" /--></!--div>
         <div>
             <!--Nombre del paciente-->
-            <font style="30px">
+            <font style="40px">
                 <b> Nombre</b><br />
             </font>
             @Model.nombre<br />
             <!--Apellido del paciente-->
-            <font style="30px">
+            <font style="40px">
                 <b> Apellido</b><br />
             </font>
             @Model.apellido<br />
             <!--DPI del paciente-->
-            <font style="30px">
+            <font style="40px">
                 <b> Domuento de Identificación Personal - DPI</b><br />
             </font>
             @Model.dpi<br />
             <!--Departamento del paciente-->
-            <font style="30px">
+            <font style="40px">
                 <b> Departamento</b><br />
             </font>
             @Model.departamentoString<br />
 
             <!--Municipio del paciente-->
-            <font style="30px">
+            <font style="40px">
                 <b> Municipio</b><br />
             </font>
             @Model.municipioString<br />
             <!--ESTADO del paciente-->
-            <font style="30px">
+            <font style="40px">
                 <b>Estado</b><br />
             </font>
-            @Model.vacunado<br />
-        </div><br /><br />
+            @{
+                if (Model.vacunado == true)
+                {
+                    <label style="color:blue;">Vacunado</label>
+                }
+                else
+                {
+                    <label style="color:red;">En espera</label>
+                }
+            }
 
-                    <form asp-action="search">
-                        <p>Estado de Vacunación</p>
-                        <select class="buscar" name="Estado">
-                            <option name="Estado" value="false">En espera</option>
+            <br />
 
-                            <option name="Estado" value="true">Vacunado</option>
+            <form asp-action="search">
+                <font style="40px">
+                    <b>Modificar estado de vacunación</b><br />
+                </font>
+                <select class="combobox" name="Estado">
+                    <option name="Estado" value="false">En espera</option>
 
-                        </select>
-                        <input class="Botones" asp-action="Vacunacion" type="submit" value="EVacunación">
-                        <div>
-                            <a asp-action="Simulator">Regreso a simulación</a>
-                        </div>
-                    </form>
+                    <option name="Estado" value="true">Vacunado</option>
+
+                </select><br /><br />
+                <input class="Botones" asp-action="Vacunacion" type="submit" value="Guardar">
+                <div>
+                </div>
+            </form>
+        </div>
     </div>
 
   

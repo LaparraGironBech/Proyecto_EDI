@@ -8,7 +8,7 @@
 <style>
     .boton {
         width: 150px;
-        height: 45px;
+        height: 35px;
         border-radius: 15px;
         background: #0094ff;
         color: #ffffff;
@@ -18,12 +18,12 @@
     }
 
     .combobox {
-        height: 45px;
-        border-radius: 15px;
+        height: 30px;
+        border-radius: 5px;
         background: #ffffff;
         color: #000000;
-        border: 1px solid #808080;
         font-size: 20px;
+        border: 2px solid #ced4da;
     }
 
     label {
@@ -31,7 +31,10 @@
         color: #000000;
     }
 </style>
-<h1>Simulator</h1>
+<h1>PROCESO DE VACUNACIÓN FASE 1</h1>
+<h4>COVID - 19</h4>
+<br />
+
 <!--Elegir departamento y municipio-->
 
     <table>
@@ -425,7 +428,7 @@
         <!-- Tabla para mostrar-->
         @if (Model.Cantidad != 0)
         {
-            <table class="table">
+            <table class="table table-hover">
                 <thead class="table-light">
                     <tr>
                         <th>
@@ -481,8 +484,16 @@
                                 @Model.ObtenerPos(0).Data.pacientePrioridad.prioString
                             </td>
                             <td>
-                                @Model.ObtenerPos(0).Data.pacientePrioridad.vacunado
-
+                                @{
+                                    if (Model.ObtenerPos(0).Data.pacientePrioridad.vacunado == true)
+                                    {
+                                        <label style="color:blue;">Vacunado</label>
+                                    }
+                                    else
+                                    {
+                                        <label style="color:red;">En espera</label>
+                                    }
+                                }
                             </td>
                             <td>
                                 <form>
@@ -519,7 +530,17 @@
                                 @Model.ObtenerPos(1).Data.pacientePrioridad.prioString
                             </td>
                             <td>
-                                @Model.ObtenerPos(1).Data.pacientePrioridad.vacunado
+                                @{
+                                    if(Model.ObtenerPos(1).Data.pacientePrioridad.vacunado==true)
+                                    {
+                                       <label style="color:blue;">Vacunado</label>
+                                    }
+                                    else
+                                    {
+                                        <label style="color:red;">En espera</label>
+                                    }
+                                }
+                                    
 
                             </td>
                             <td>
@@ -557,7 +578,17 @@
                                 @Model.ObtenerPos(2).Data.pacientePrioridad.prioString
                             </td>
                             <td>
-                                @Model.ObtenerPos(2).Data.pacientePrioridad.vacunado
+                                @{
+                                    if (Model.ObtenerPos(2).Data.pacientePrioridad.vacunado == true)
+                                    {
+                                        <label style="color:blue;">Vacunado</label>
+                                    }
+                                    else
+                                    {
+                                        <label style="color:red;">En espera</label>
+                                    }
+                                }
+
 
                             </td>
                             <td>
@@ -573,10 +604,12 @@
         }
         <div>
         </div>
-        <a asp-action="FinalizarSimulacro">Finalizar Simulacro</a><br />
+        <br />
     </td>
 
 </tr>
     </table>
+<br />
+<a asp-action="FinalizarSimulacro">Finalizar Simulacro</a>
 
 

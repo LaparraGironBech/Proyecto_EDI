@@ -84,7 +84,7 @@ namespace Proyecto_EDI.Controllers
             Singleton.Instance.listSimulacion.ObtenerPos(Singleton.Instance.id).Data.pacientePrioridad.vacunado = Estado;
             Singleton.Instance.idSimulacro = 0;
 
-            return Redirect("Details");
+            return Redirect("Simulator");
 
         }
 
@@ -467,7 +467,7 @@ namespace Proyecto_EDI.Controllers
         public ActionResult FinalizarSimulacro()
         {
             hacerListaVacunados(Singleton.Instance.Municipio);
-            return Redirect("Index");
+            return Redirect("../Home/Index");
         }
     }        
 }
