@@ -1,0 +1,154 @@
+﻿@model IEnumerable<Proyecto_EDI.Models.Paciente>
+
+@{
+    ViewData["Title"] = "search";
+}
+
+<h1>search</h1>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<style>
+    .buscar {
+        width: 200px;
+        height: 50px;
+        background: #f2f2f2;
+        border-color: #333333;
+        border: solid 1px;
+        border-radius: 4px;
+        color: #333333;
+        font-size: 20px;
+    }
+
+    .Botones {
+        width: 100px;
+        height: 50px;
+        background: #f2f2f2;
+        color: #333333;
+        font-size: 20px;
+        border-radius: 4px;
+        border: none;
+    }
+
+        .Botones:hover {
+            background: #333333;
+            color: #f2f2f2;
+        }
+
+    .text {
+        width: 300px;
+        height: 50px;
+        color: #333333;
+        font-size: 20px;
+    }
+</style>
+
+<form asp-action="search">
+    <p>BUSCAR POR:</p>
+    <select class="buscar" name="Buscar">
+        <option name="Buscar" value="0"> Nombre</option>
+
+        <option name="Buscar" value="1"> Apellido</option>
+
+        <option name="Buscar" value="2"> DPI</option>
+
+    </select>
+
+    <input class="text" type="search" name="Busqueda" placeholder="Ingresar...">
+
+    <input class="Botones" asp-action="search" type="submit" value="Buscar">
+    <br /><br>
+    
+</form>
+<br />
+<br />
+<p style="float:left;">
+    <a asp-action="regresar">Ver lista completa</a><br />
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dpi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.departamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.municipioString)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.departamentoString)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.grupo_prioridad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vacunado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prioString)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dpi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.municipioString)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.departamentoString)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.grupo_prioridad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vacunado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prioString)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
