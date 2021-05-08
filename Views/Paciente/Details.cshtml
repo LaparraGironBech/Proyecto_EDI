@@ -45,16 +45,19 @@
             @Model.vacunado<br />
         </div><br /><br />
 
-        <form asp-action="search">
-            <p>Estado de Vacunación</p>
-            <select class="buscar" name="Estado">
-                <option name="Estado" value="false">En espera</option>
+                    <form asp-action="search">
+                        <p>Estado de Vacunación</p>
+                        <select class="buscar" name="Estado">
+                            <option name="Estado" value="false">En espera</option>
 
-                <option name="Estado" value="true">Vacunado</option>
+                            <option name="Estado" value="true">Vacunado</option>
 
-            </select>
-            <input class="Botones" asp-action="Vacunacion" type="submit" value="EVacunación">
-        </form>
+                        </select>
+                        <input class="Botones" asp-action="Vacunacion" type="submit" value="EVacunación">
+                        <div>
+                            <a asp-action="Simulator">Regreso a simulación</a>
+                        </div>
+                    </form>
     </div>
 
   

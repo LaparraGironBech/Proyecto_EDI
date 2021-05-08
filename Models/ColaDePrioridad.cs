@@ -71,6 +71,7 @@ namespace Proyecto_EDI.Models
         {
             listaAlternativa.RemoveAt(0);
             pacPrioridad.EliminarInicio();
+            tamLista--;
         }       
     }
 }

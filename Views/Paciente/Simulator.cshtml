@@ -425,157 +425,157 @@
         <!-- Tabla para mostrar-->
         @if (Model.Cantidad != 0)
         {
-    <table class="table">
-        <thead class="table-light">
-            <tr>
-                <th>
-                    @Dates[0]
-                </th>
-                <th>
-                    @Dates[1]
-                </th>
-                <th>
-                    @Dates[2]
-                </th>
-                <th>
-                    @Dates[3]
-                </th>
-                <th>
-                    @Dates[4]
-                </th>
-                <th>
-                    @Dates[5]
-                </th>
-                <th>
-                    @Dates[6]
-                </th>
-                <th>
-                    @Dates[7]
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model.Cantidad >= 1) //si hay solo un valor a mostrar
-            {
-                <tr>
-                    <td>
-                        @Model.ObtenerPos(0).Data.pacientePrioridad.nombre
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(0).Data.pacientePrioridad.apellido
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(0).Data.pacientePrioridad.dpi
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(0).Data.pacientePrioridad.departamentoString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(0).Data.pacientePrioridad.municipioString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(0).Data.pacientePrioridad.edad
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(0).Data.pacientePrioridad.prioString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(0).Data.pacientePrioridad.prioString
+            <table class="table">
+                <thead class="table-light">
+                    <tr>
+                        <th>
+                            @Dates[0]
+                        </th>
+                        <th>
+                            @Dates[1]
+                        </th>
+                        <th>
+                            @Dates[2]
+                        </th>
+                        <th>
+                            @Dates[3]
+                        </th>
+                        <th>
+                            @Dates[4]
+                        </th>
+                        <th>
+                            @Dates[5]
+                        </th>
+                        <th>
+                            @Dates[6]
+                        </th>
+                        <th>
+                            @Dates[7]
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Cantidad >= 1) //si hay solo un valor a mostrar
+                    {
+                        <tr>
+                            <td>
+                                @Model.ObtenerPos(0).Data.pacientePrioridad.nombre
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(0).Data.pacientePrioridad.apellido
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(0).Data.pacientePrioridad.dpi
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(0).Data.pacientePrioridad.departamentoString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(0).Data.pacientePrioridad.municipioString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(0).Data.pacientePrioridad.edad
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(0).Data.pacientePrioridad.prioString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(0).Data.pacientePrioridad.vacunado
 
-                    </td>
-                    <td>
-                        <form>
-                            <a asp-action="Details" asp-route-id="0">Actualizar</a>
+                            </td>
+                            <td>
+                                <form>
+                                    <a asp-action="Details" asp-route-id="0">Actualizar</a>
 
-                        </form>
-                    </td>
-                </tr>
+                                </form>
+                            </td>
+                        </tr>
 
-            }
+                    }
 
-            @if (Model.Cantidad >= 2) //si hay  dos valores-------------------------------
-            {
-                <tr>
-                    <td>
-                        @Model.ObtenerPos(1).Data.pacientePrioridad.nombre
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(1).Data.pacientePrioridad.apellido
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(1).Data.pacientePrioridad.dpi
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(1).Data.pacientePrioridad.departamentoString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(1).Data.pacientePrioridad.municipioString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(1).Data.pacientePrioridad.edad
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(1).Data.pacientePrioridad.prioString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(1).Data.pacientePrioridad.prioString
+                    @if (Model.Cantidad >= 2) //si hay  dos valores-------------------------------
+                    {
+                        <tr>
+                            <td>
+                                @Model.ObtenerPos(1).Data.pacientePrioridad.nombre
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(1).Data.pacientePrioridad.apellido
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(1).Data.pacientePrioridad.dpi
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(1).Data.pacientePrioridad.departamentoString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(1).Data.pacientePrioridad.municipioString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(1).Data.pacientePrioridad.edad
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(1).Data.pacientePrioridad.prioString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(1).Data.pacientePrioridad.vacunado
 
-                    </td>
-                    <td>
-                        <form>
-                            <a asp-action="Details" asp-route-id="1">Actualizar</a>
+                            </td>
+                            <td>
+                                <form>
+                                    <a asp-action="Details" asp-route-id="1">Actualizar</a>
 
-                        </form>
-                    </td>
-                </tr>
+                                </form>
+                            </td>
+                        </tr>
 
-            }
+                    }
 
-            @if (Model.Cantidad >= 3) //si hay solo  tres valores------------------------------------>
-            {
-                <tr>
-                    <td>
-                        @Model.ObtenerPos(2).Data.pacientePrioridad.nombre
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(2).Data.pacientePrioridad.apellido
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(2).Data.pacientePrioridad.dpi
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(2).Data.pacientePrioridad.departamentoString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(2).Data.pacientePrioridad.municipioString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(2).Data.pacientePrioridad.edad
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(2).Data.pacientePrioridad.prioString
-                    </td>
-                    <td>
-                        @Model.ObtenerPos(2).Data.pacientePrioridad.prioString
+                    @if (Model.Cantidad >= 3) //si hay solo  tres valores------------------------------------>
+                    {
+                        <tr>
+                            <td>
+                                @Model.ObtenerPos(2).Data.pacientePrioridad.nombre
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(2).Data.pacientePrioridad.apellido
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(2).Data.pacientePrioridad.dpi
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(2).Data.pacientePrioridad.departamentoString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(2).Data.pacientePrioridad.municipioString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(2).Data.pacientePrioridad.edad
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(2).Data.pacientePrioridad.prioString
+                            </td>
+                            <td>
+                                @Model.ObtenerPos(2).Data.pacientePrioridad.vacunado
 
-                    </td>
-                    <td>
-                        <form>
-                            <a asp-action="Details" asp-route-id="2">Actualizar</a>
+                            </td>
+                            <td>
+                                <form>
+                                    <a asp-action="Details" asp-route-id="2">Actualizar</a>
+                                </form>
+                            </td>
+                        </tr>
 
-                        </form>
-                    </td>
-                </tr>
-
-            }
-        </tbody>
-    </table>
+                    }
+                </tbody>
+            </table>
         }
-    <div>        
-    </div>
-
+        <div>
+        </div>
+        <a asp-action="FinalizarSimulacro">Finalizar Simulacro</a><br />
     </td>
+
 </tr>
     </table>
 
