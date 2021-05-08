@@ -79,7 +79,7 @@ namespace Proyecto_EDI.Controllers
 
         public ActionResult Vacunacion(bool Estado)
         {
-         //  Singleton.Instance.listaCentrosVacunacion.ObtenerPos().Data.
+            Singleton.Instance.listSimulacion.ObtenerPos(Singleton.Instance.id).Data.pacientePrioridad.vacunado = true;
 
             return Redirect("Details");
 
