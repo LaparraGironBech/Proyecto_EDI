@@ -19,6 +19,7 @@ namespace Proyecto_EDI.Models.Data
         public Lista<Paciente> listaPacientes;
         public Lista<Paciente> listaDeEspera;
        public int id; //ID para actualizar datos
+        public List<Paciente> pacientebusqueda;
 
 
         private Singleton()
@@ -28,6 +29,7 @@ namespace Proyecto_EDI.Models.Data
             listaReferencia = new Lista<int>();
             listaGeneralDePacientes = new Lista<Paciente>();
             listaPacientesVacunados = new Lista<Paciente>();
+            pacientebusqueda = new List<Paciente>();
             posicion = 0;
             cantidadCentros = 0;
             listSimulacion = new Lista<PrioridadIndice>();

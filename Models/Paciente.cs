@@ -9,6 +9,8 @@ namespace Proyecto_EDI.Models
     public class Paciente
     {
         [Required]
+        [Range(1000000000000, 9999999999999,
+        ErrorMessage = "El valor del dpi tiene 13 digitos")]
         public int dpi { get; set; }
         [Required]
         public string nombre { get; set; }
