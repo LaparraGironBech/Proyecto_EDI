@@ -61,8 +61,9 @@ namespace Proyecto_EDI.Models
             pacientesPrioridad--;
         }
         public void ReinsertarPrioridad(int prioridad, Paciente pac)
-        {
+        {            
             priodadPaciente.insertar(prioridad, pac);
+            pacientesPrioridad++;
         }
     }
 }
