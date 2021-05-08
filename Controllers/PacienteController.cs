@@ -420,6 +420,7 @@ namespace Proyecto_EDI.Controllers
         }
         public void hacerListaDeEspera()
         {
+            Singleton.Instance.listaDeEspera.EliminarTodo();
             for (int i = 0; i < Singleton.Instance.listaGeneralDePacientes.Cantidad; i++)
             {
                 if (Singleton.Instance.listaGeneralDePacientes.ObtenerPos(i).Data.vacunado == false)
