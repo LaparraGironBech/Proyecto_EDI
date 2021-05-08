@@ -19,54 +19,7 @@ namespace Proyecto_EDI.Controllers
         {
             return View(Singleton.Instance.PacienteList);
         }
-        public IActionResult search(string Buscar, string Busqueda)
-        {
 
-            Singleton.Instance.pacientebusqueda.Clear();
-            int opcion = Convert.ToInt32(Buscar);
-           
-                switch (opcion)
-                {
-                    case 0://Busqueda por nombre 
-                        for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
-                        {
-                            string nombre = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.nombre;
-                            if (nombre == Busqueda)
-                            {
-                                Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
-                                Singleton.Instance.pacientebusqueda.Add(Buscado);
-                            }
-                        }
-                        break;
-
-                    case 1://apellido
-                        for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
-                        {
-                            string apellido = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.apellido;
-                            if (apellido == Busqueda)
-                            {
-                            Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
-                                Singleton.Instance.pacientebusqueda.Add(Buscado);
-                            }
-                        }
-                        break;
-
-
-                    case 2://DPI
-                      for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
-                        {
-                            string DPI = Convert.ToString(Singleton.Instance.listaPacientes.ObtenerPos(i).Data.dpi);
-                            if (DPI == Busqueda)
-                            {
-                            Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
-                                Singleton.Instance.pacientebusqueda.Add(Buscado);
-                            }
-                        }
-                        break;
-                }
-     
-            return View(Singleton.Instance.pacientebusqueda);
-        }
         // GET: PacienteController/Details/5
         public ActionResult Details(int id)
         {
@@ -279,7 +232,14 @@ namespace Proyecto_EDI.Controllers
             return Redirect("Simulator");
         }
         public void IniciarSimulacion(int id)
-        {            
+        {
+            //if (Singleton.Instance.listSimulacion.Cantidad > 0)
+            //{
+            //    for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
+            //    {
+            //        Singleton.Instance.listSimulacion.EliminarFinal();
+            //    }
+            //}
             int muniPivot=id;
             bool encontradoI = false;
             int posicionEncontradaI = 0;
@@ -412,14 +372,11 @@ namespace Proyecto_EDI.Controllers
         }
         public void hacerListaDeEspera()
         {
-            for (int i = 0; i < Singleton.Instance.cantidadCentros; i++)
+            for (int i = 0; i < Singleton.Instance.listaGeneralDePacientes.Cantidad; i++)
             {
-                for (int j = 0; j < Singleton.Instance.listaCentrosVacunacion.ObtenerPos(i).Data.totalPacientes; j++)
+                if (Singleton.Instance.listaGeneralDePacientes.ObtenerPos(i).Data.vacunado == false)
                 {
-                    if (Singleton.Instance.listaCentrosVacunacion.ObtenerPos(i).Data.priodadPaciente.pacPrioridad.ObtenerPos(j).Data.pacientePrioridad.vacunado == false)
-                    {
-                        Singleton.Instance.listaDeEspera.AgregarFinal(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(i).Data.priodadPaciente.pacPrioridad.ObtenerPos(j).Data.pacientePrioridad);
-                    }
+                    Singleton.Instance.listaDeEspera.AgregarFinal(Singleton.Instance.listaGeneralDePacientes.ObtenerPos(i).Data);
                 }
             }
         }
