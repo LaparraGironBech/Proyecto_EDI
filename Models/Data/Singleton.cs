@@ -18,12 +18,12 @@ namespace Proyecto_EDI.Models.Data
         public Lista<PrioridadIndice> listSimulacion;
         public Lista<Paciente> listaPacientes;
         public Lista<Paciente> listaDeEspera;
-<<<<<<< Updated upstream
+
         public int idSimulacro;
         public int Municipio;
-=======
+
         public List<Paciente> pacientebusqueda;
->>>>>>> Stashed changes
+
        public int id; //ID para actualizar datos
 
 
