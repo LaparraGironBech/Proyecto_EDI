@@ -6,7 +6,7 @@
         border: none;
         color: #ffffff;
         font-size: 25px;
-        margin:0px 20px 0px 0px;
+        margin: 0px 20px 0px 0px;
     }
 
         .Boton:hover {
@@ -17,6 +17,15 @@
             -moz-transition-duration: 0.5s;
             -o-transition-duration: 0.5s;
         }
+
+    
+    .botonRegresar2 {
+        width: 200px;
+        height: 100px;
+        border-radius: 10px;
+        border: none;
+        color: #ffffff;
+    }
 </style>
 <h1>DATOS DE VACUNACIONES</h1>
 <h4>COVID-19</h4>
@@ -25,10 +34,10 @@
 
         <a asp-action="Espera"><button style=" background: #1b3647;" class="Boton">Pacientes en espera</button></a>
         <a asp-action="Vacunados"><button style="background: #166ba2;" class="Boton">Pacientes Vacunados</button></a>
-        <a asp-action="search"><button style="background: #1691be;" class="Boton">Porcentaje de pacientes vacunados</button></a>
-        <a asp-action="../Home/Index"><button style="background: #1691be;" class="Boton">Menu principal</button></a>
+        <a asp-action="porcentaje"><button style="background: #1691be;" class="Boton">Porcentaje de pacientes vacunados</button></a>
+        <a asp-action="Index"><button style="background: #1691be;" class="Boton">Lista completa de registrados</button></a>
 
-        
+
 
     </center>
 </div>
@@ -41,5 +50,12 @@
 <br />
 <br />
 <br />
-
-
+<br /> <br /> <br /> <br />
+                     <div>
+                         <center>
+                             <button type="button" onClick="history.go(-1)" class="botonRegresar2" style="background: #5359ed; width: 315px; height: 45px">Regresar Menu Principal</button>
+                         </center>
+                     </div>
+<br />
+<br />
+<br />
