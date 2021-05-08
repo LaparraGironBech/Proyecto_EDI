@@ -18,12 +18,17 @@
             -o-transition-duration: 0.5s;
         }
 </style>
+<h1>DATOS DE VACUNACIONES</h1>
+<h4>COVID-19</h4>
 <div>
     <center>
 
-        <a asp-action="Espera"><button style="background:#1691be;" class="Boton">Pacientes en espera</button></a>
-         <a asp-action="Vacunados"><button style="background:#166ba2;" class="Boton" >Pacientes Vacunados</button></a>
-        <button style="background:#1b3647;" class="Boton" asp-action="">Porcentaje de pacientes vacunados</button>
+        <a asp-action="Espera"><button style=" background: #1b3647;" class="Boton">Pacientes en espera</button></a>
+        <a asp-action="Vacunados"><button style="background: #166ba2;" class="Boton">Pacientes Vacunados</button></a>
+        <a asp-action="search"><button style="background: #1691be;" class="Boton">Porcentaje de pacientes vacunados</button></a>
+        <a asp-action="../Home/Index"><button style="background: #1691be;" class="Boton">Menu principal</button></a>
+
+        
 
     </center>
 </div>
