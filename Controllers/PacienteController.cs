@@ -273,11 +273,7 @@ namespace Proyecto_EDI.Controllers
             }
         }
 
-            public ActionResult EstadoPaciente (string Estado1, string Estado2, string Estado3) //Acción 
-        {
-            
-            return Redirect("Simulator");
-        }
+         
         public void IniciarSimulacion(int id)
         {            
             int muniPivot=id;
