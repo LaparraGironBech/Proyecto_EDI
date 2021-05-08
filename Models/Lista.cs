@@ -277,7 +277,6 @@ namespace Proyecto_EDI.Models
         {
             PrimerNodo = null;
             UltimoNodo = null;
-            Cantidad = 0;
         }
     }
 }
