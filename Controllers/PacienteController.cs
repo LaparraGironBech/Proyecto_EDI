@@ -55,8 +55,8 @@ namespace Proyecto_EDI.Controllers
                     case2://DPI
                       for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
                         {
-                            int Club = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.dpi;
-                            if (Convert.ToString(Club) == Busqueda)
+                            string DPI = Convert.ToString(Singleton.Instance.listaPacientes.ObtenerPos(i).Data.dpi);
+                            if (DPI == Busqueda)
                             {
                             Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
                                 Singleton.Instance.pacientebusqueda.Add(Buscado);
