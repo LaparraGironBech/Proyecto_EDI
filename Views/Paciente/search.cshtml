@@ -4,7 +4,10 @@
     ViewData["Title"] = "search";
 }
 
-<h1>search</h1>
+<h1>BÚSQUEDA DE PACIENTES REGISTRADOS</h1>
+<p>
+    <a asp-controller="Home" asp-action="Index">Menú principal</a><br />
+</p>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
@@ -63,39 +66,43 @@
 </form>
 <br />
 <br />
-<p style="float:left;">
-    
-    <a asp-action="Index">Ver lista completa</a><br />
-</p>
 
-<table class="table">
+
+<table class="table table-hover">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.dpi)
+                <label>DPI</label>
+               
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nombre)
+                <label>Nombre</label>
+             
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.apellido)
+                <label>Apellido</label>
+               
             </th>
            
             <th>
-                @Html.DisplayNameFor(model => model.municipioString)
+                <label>Municipio</label>
+              
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.departamentoString)
+                <label>Departamento</label>
+              
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.edad)
+                <label>Edad</label>
+               
             </th>
             
             <th>
-                @Html.DisplayNameFor(model => model.vacunado)
+                <label>Vacunación</label>
+               
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.prioString)
+               <label>Grupo de prioridad</label>
             </th>
             <th></th>
         </tr>

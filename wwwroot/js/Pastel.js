@@ -46,7 +46,7 @@ function GraficaPastel(data) {
             }
         },
         series: [{
-            name: 'Frameworks',
+            name: 'Porcentaje Real',
             colorByPoint: true,
             data: data
         }]

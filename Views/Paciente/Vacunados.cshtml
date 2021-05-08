@@ -7,10 +7,14 @@
 
 
 <!-- Tabla para mostrar-->
-<h1>Lista de pacientes vacunados</h1>
+<h1>PACIENTES VACUNADOS <br />VACUNACIÓN COVID-19</h1>
+<p>
+    <a asp-controller="Home" asp-action="Index">Menú principal</a><br />
+    <a asp-action="MenuReporte">Regresar</a>
+</p>
 @if (Model.Cantidad != 0)
 {
-    <table class="table">
+    <table class="table table-hover">
         <thead class="table-light">
             <tr>
                 <th>
@@ -66,7 +70,17 @@
                         @Model.ObtenerPos(i).Data.prioString
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.vacunado
+
+                        @{
+                            if (Model.ObtenerPos(i).Data.vacunado == true)
+                            {
+                                <label style="color:blue;">Vacunado</label>
+                            }
+                            else
+                            {
+                                <label style="color:red;">En espera</label>
+                            }
+                        }
                     </td>
 
                 </tr>
