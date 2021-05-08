@@ -20,6 +20,55 @@ namespace Proyecto_EDI.Controllers
             return View(Singleton.Instance.PacienteList);
         }
 
+        public IActionResult search(string Buscar, string Busqueda)
+        {
+
+
+
+            Singleton.Instance.pacientebusqueda.Clear();
+            int opcion = Convert.ToInt32(Buscar);
+
+            switch (opcion)
+            {
+                case 0://Busqueda por nombre 
+                    for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
+                    {
+                        string nombre = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.nombre;
+                        if (nombre == Busqueda)
+                        {
+                            Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                            Singleton.Instance.pacientebusqueda.Add(Buscado);
+                        }
+                    }
+                    break;
+
+                case 1://apellido
+                    for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
+                    {
+                        string apellido = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.apellido;
+                        if (apellido == Busqueda)
+                        {
+                            Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                            Singleton.Instance.pacientebusqueda.Add(Buscado);
+                        }
+                    }
+                    break;
+                case 2://DPI
+                    for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
+                    {
+                        string DPI = Convert.ToString(Singleton.Instance.listaPacientes.ObtenerPos(i).Data.dpi);
+                        if (DPI == Busqueda)
+                        {
+                            Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                            Singleton.Instance.pacientebusqueda.Add(Buscado);
+                        }
+                    }
+                    break;
+            }
+
+            return View(Singleton.Instance.pacientebusqueda);
+        }
+
         // GET: PacienteController/Details/5
         public ActionResult Details(int id)
         {
