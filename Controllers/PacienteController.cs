@@ -468,5 +468,18 @@ namespace Proyecto_EDI.Controllers
             hacerListaVacunados(Singleton.Instance.Municipio);
             return Redirect("../Home/Index");
         }
+
+        public ActionResult porcentaje()
+        {
+            return View(Singleton.Instance.PacienteList);
+
+            
+        }
+        public JsonResult DataPastel()
+        {
+            SeriePastel serie = new SeriePastel();
+            return Json(serie.GetDataDummy());
+        }
+
     }        
 }
