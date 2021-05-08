@@ -153,7 +153,7 @@ namespace Proyecto_EDI.Controllers
                         Singleton.Instance.cantidadCentros++;
                     }
                     else
-                    {
+                    {                        
                         CentroVacunacion tempVacunacion = new CentroVacunacion();
                         tempVacunacion = Singleton.Instance.listaCentrosVacunacion.DevolverValue(posicionEncontrada);
                         tempVacunacion.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);
