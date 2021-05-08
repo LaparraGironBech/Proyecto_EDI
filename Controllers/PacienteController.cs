@@ -23,11 +23,21 @@ namespace Proyecto_EDI.Controllers
         // GET: PacienteController/Details/5
         public ActionResult Details(int id)
         {
-            var ViewJugadores = Singleton.Instance.PacienteList.Find(x => x.dpi == id);
-            return View(ViewJugadores);
+            Singleton.Instance.id = id;
+            Paciente ViewPaciente;
+            ViewPaciente = Singleton.Instance.listSimulacion.ObtenerPos(id).Data.pacientePrioridad;
+            return View(ViewPaciente);
+           
         }
 
-        
+        public ActionResult Vacunacion(bool Estado)
+        {
+         //  Singleton.Instance.listaCentrosVacunacion.ObtenerPos().Data.
+
+            return Redirect("Details");
+
+        }
+
 
         // GET: PacienteController/Create
         public ActionResult MenuReporte()//menu de reportes
@@ -48,7 +58,9 @@ namespace Proyecto_EDI.Controllers
         {
             return View();
         }
-        public ActionResult Simulator(string municipio)
+       
+       
+        public ActionResult Simulator(string municipio, string departamento, string Estado1)
         {
             Console.WriteLine(Singleton.Instance.listSimulacion);
             if (Singleton.Instance.listSimulacion.Cantidad > 0)
@@ -214,7 +226,11 @@ namespace Proyecto_EDI.Controllers
             }
         }
 
-
+            public ActionResult EstadoPaciente (string Estado1, string Estado2, string Estado3) //Acción 
+        {
+            
+            return Redirect("Simulator");
+        }
         public void IniciarSimulacion(int id)
         {
             //if (Singleton.Instance.listSimulacion.Cantidad > 0)
@@ -259,6 +275,7 @@ namespace Proyecto_EDI.Controllers
                 }
             }
         }  
+
         public int Defprioridad(int age)
         {
             if (age >= 70)

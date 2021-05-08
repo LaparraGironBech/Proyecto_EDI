@@ -4,58 +4,57 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Vacunación COVID-19 </h1>
 
 <div>
-    <h4>Paciente</h4>
+    <h4>Fase 1</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.apellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.apellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.dpi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.dpi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.departamento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.departamento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.municipio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.municipio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.edad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.edad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.grupo_prioridad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.grupo_prioridad)
-        </dd>
-        
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <!---div style="float:left;"><img width="200px;" src="https://www.asechiapas.gob.mx/wp-content/uploads/2020/10/COVID-1.png" /--></!--div>
+        <div>
+            <!--Nombre del paciente-->
+            <font style="30px">
+                <b> Nombre</b><br />
+            </font>
+            @Model.nombre<br />
+            <!--Apellido del paciente-->
+            <font style="30px">
+                <b> Apellido</b><br />
+            </font>
+            @Model.apellido<br />
+            <!--DPI del paciente-->
+            <font style="30px">
+                <b> Domuento de Identificación Personal - DPI</b><br />
+            </font>
+            @Model.dpi<br />
+            <!--Departamento del paciente-->
+            <font style="30px">
+                <b> Departamento</b><br />
+            </font>
+            @Model.departamentoString<br />
+
+            <!--Municipio del paciente-->
+            <font style="30px">
+                <b> Municipio</b><br />
+            </font>
+            @Model.municipioString<br />
+            <!--ESTADO del paciente-->
+            <font style="30px">
+                <b>Estado</b><br />
+            </font>
+            @Model.vacunado<br />
+        </div><br /><br />
+
+        <form asp-action="search">
+            <p>Estado de Vacunación</p>
+            <select class="buscar" name="Estado">
+                <option name="Estado" value="false">En espera</option>
+
+                <option name="Estado" value="true">Vacunado</option>
+
+            </select>
+            <input class="Botones" asp-action="Vacunacion" type="submit" value="EVacunación">
+        </form>
+    </div>
+
+  

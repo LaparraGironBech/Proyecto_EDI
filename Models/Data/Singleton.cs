@@ -18,6 +18,7 @@ namespace Proyecto_EDI.Models.Data
         public Lista<PrioridadIndice> listSimulacion;
         public Lista<Paciente> listaPacientes;
         public Lista<Paciente> listaDeEspera;
+       public int id; //ID para actualizar datos
 
 
         private Singleton()

@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Simulator";
     string[] Dates = new string[8] { "Nombre", "Apellido", "DPI", "Departamento", "Municipio", "Edad", "Grupo de prioridad", "Estado de vacunación" };
+    int[] id = new int[3] { 0,1,2};
 }
 <style>
     .boton {
@@ -68,7 +69,7 @@
                     </select>
                     <spanclass="text-danger"></span>
                     <label style="float:left;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Municipio:</b></label>
-                    <select class="combobox" style="float:left;"  name="municipio">
+                    <select class="combobox" style="float:left;"  name="municipio" placeholder="Ingresar...">
 
                         <option name="municipio" value="0"> Guatemala</option>
                         <option name="municipio" value="1"> Santa Catarina Pinula</option>
@@ -455,40 +456,119 @@
             </tr>
         </thead>
         <tbody>
-            @for (int i = 0; i < Model.Cantidad; i++)
+            @if (Model.Cantidad >= 1) //si hay solo un valor a mostrar
             {
                 <tr>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.nombre
+                        @Model.ObtenerPos(0).Data.pacientePrioridad.nombre
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.apellido
+                        @Model.ObtenerPos(0).Data.pacientePrioridad.apellido
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.dpi
+                        @Model.ObtenerPos(0).Data.pacientePrioridad.dpi
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.departamentoString
+                        @Model.ObtenerPos(0).Data.pacientePrioridad.departamentoString
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.municipioString
+                        @Model.ObtenerPos(0).Data.pacientePrioridad.municipioString
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.edad
+                        @Model.ObtenerPos(0).Data.pacientePrioridad.edad
                     </td>
                     <td>
-                        @Model.ObtenerPos(i).Data.pacientePrioridad.prioString
+                        @Model.ObtenerPos(0).Data.pacientePrioridad.prioString
                     </td>
                     <td>
-                        <input id="vacunado" name="vacunado" type="checkbox" value="@Model.ObtenerPos(i).Data.pacientePrioridad.vacunado" />
-                    </td>
+                        @Model.ObtenerPos(0).Data.pacientePrioridad.prioString
 
+                    </td>
+                    <td>
+                        <form>
+                            <a asp-action="Details" asp-route-id="0">Actualizar</a>
+
+                        </form>
+                    </td>
                 </tr>
-            }
 
             }
 
+            @if (Model.Cantidad >= 2) //si hay  dos valores-------------------------------
+            {
+                <tr>
+                    <td>
+                        @Model.ObtenerPos(1).Data.pacientePrioridad.nombre
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(1).Data.pacientePrioridad.apellido
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(1).Data.pacientePrioridad.dpi
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(1).Data.pacientePrioridad.departamentoString
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(1).Data.pacientePrioridad.municipioString
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(1).Data.pacientePrioridad.edad
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(1).Data.pacientePrioridad.prioString
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(1).Data.pacientePrioridad.prioString
 
+                    </td>
+                    <td>
+                        <form>
+                            <a asp-action="Details" asp-route-id="1">Actualizar</a>
+
+                        </form>
+                    </td>
+                </tr>
+
+            }
+
+            @if (Model.Cantidad >= 3) //si hay solo  tres valores------------------------------------>
+            {
+                <tr>
+                    <td>
+                        @Model.ObtenerPos(2).Data.pacientePrioridad.nombre
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(2).Data.pacientePrioridad.apellido
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(2).Data.pacientePrioridad.dpi
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(2).Data.pacientePrioridad.departamentoString
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(2).Data.pacientePrioridad.municipioString
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(2).Data.pacientePrioridad.edad
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(2).Data.pacientePrioridad.prioString
+                    </td>
+                    <td>
+                        @Model.ObtenerPos(2).Data.pacientePrioridad.prioString
+
+                    </td>
+                    <td>
+                        <form>
+                            <a asp-action="Details" asp-route-id="2">Actualizar</a>
+
+                        </form>
+                    </td>
+                </tr>
+
+            }
         </tbody>
     </table>
         }
