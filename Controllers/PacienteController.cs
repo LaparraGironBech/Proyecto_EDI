@@ -425,11 +425,10 @@ namespace Proyecto_EDI.Controllers
                 }
             }
         }
-        public decimal porcentajeVacunados()
+        public void porcentajeVacunados()
         {
             decimal total = (Singleton.Instance.listaPacientesVacunados.Cantidad * 100) / Singleton.Instance.listaGeneralDePacientes.Cantidad;
-            decimal porcentaje = decimal.Round(total, 2);
-            return porcentaje;
+            Singleton.Instance.porcVac = decimal.Round(total, 2);            
         }
 
         public void hacerListaVacunados(int id)

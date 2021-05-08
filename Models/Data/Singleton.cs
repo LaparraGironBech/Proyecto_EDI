@@ -18,6 +18,7 @@ namespace Proyecto_EDI.Models.Data
         public Lista<PrioridadIndice> listSimulacion;
         public Lista<Paciente> listaPacientes;
         public Lista<Paciente> listaDeEspera;
+        public decimal porcVac;
 
         public int idSimulacro;
         public int Municipio;
@@ -42,6 +43,7 @@ namespace Proyecto_EDI.Models.Data
             listaDeEspera = new Lista<Paciente>();
             idSimulacro = 0;
             Municipio = 0;
+            porcVac = 0;
         }
 
         public static Singleton Instance
