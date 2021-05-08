@@ -4,7 +4,8 @@
     ViewData["Title"] = "porcentaje";
 }
 
-<h1>porcentaje</h1>
+<h1>GRÁFICA NACIONAL</h1>
+<h4>Datos en tiempo real de pacientes vacunados a nivel nacional</h4>
 
 <div id="pastel"></div>
 @section Scripts{
@@ -19,3 +20,7 @@
     <script src="~/js/Pastel.js"></script>
 
 }
+<p>
+    <a asp-controller="Home" asp-action="Index">Menú principal</a><br />
+    <a asp-action="MenuReporte">Regresar</a>
+</p>

@@ -18,14 +18,17 @@
             -o-transition-duration: 0.5s;
         }
 
-    
-    .botonRegresar2 {
-        width: 200px;
-        height: 100px;
-        border-radius: 10px;
-        border: none;
+    .boton {
+        width: 350px;
+        height: 55px;
+        border-radius: 15px;
+        background: #0094ff;
         color: #ffffff;
+        border: none;
+        font-size: 20px;
+        margin: 0px 0px 0px 45px;
     }
+
 </style>
 <h1>DATOS DE VACUNACIONES</h1>
 <h4>COVID-19</h4>
@@ -50,12 +53,10 @@
 <br />
 <br />
 <br />
-<br /> <br /> <br /> <br />
-                     <div>
-                         <center>
-                             <button type="button" onClick="history.go(-1)" class="botonRegresar2" style="background: #5359ed; width: 315px; height: 45px">Regresar Menu Principal</button>
-                         </center>
-                     </div>
+<br /> <br /> <br /> <br /><br />
+                           <div style="margin-top:3%;">
+                               <center> <button asp-controller="Home" asp-action="Index" type="submit" class="boton">Regresar al menú principal</button></center>
+                           </div>
 <br />
 <br />
 <br />
