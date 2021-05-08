@@ -116,9 +116,19 @@ namespace Proyecto_EDI.Controllers
             {
                 if (Singleton.Instance.listSimulacion.Cantidad > 0)
                 {
-                    for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
+                    if (Singleton.Instance.listSimulacion.Cantidad == 3)
                     {
-                        Singleton.Instance.listSimulacion.EliminarFinal();
+                        for (int i = 0; i < 3; i++)
+                        {
+                            Singleton.Instance.listSimulacion.EliminarFinal();
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
+                        {
+                            Singleton.Instance.listSimulacion.EliminarFinal();
+                        }
                     }
                 }
             }
@@ -171,7 +181,7 @@ namespace Proyecto_EDI.Controllers
                 newCentro.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);                
                 int posicionEncontrada = 0;                
                 bool encontrado = false;
-                Singleton.Instance.listaPacientes.AgregarInicio(nuevoPaciente);
+                Singleton.Instance.listaPacientes.AgregarInicio(nuevoPaciente);                
                 //Lista de pacientes que servira para procesos de reporte
                 Singleton.Instance.listaGeneralDePacientes.AgregarInicio(nuevoPaciente);
                 //Validaciones para poder ingresar en la lista de pacientes
