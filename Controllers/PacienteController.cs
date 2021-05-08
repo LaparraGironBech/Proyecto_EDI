@@ -21,8 +21,8 @@ namespace Proyecto_EDI.Controllers
         }
         public IActionResult search(string Buscar, string Busqueda)
         {
-            
-            
+
+            Singleton.Instance.pacientebusqueda.Clear();
             int opcion = Convert.ToInt32(Buscar);
            
                 switch (opcion)
@@ -52,7 +52,7 @@ namespace Proyecto_EDI.Controllers
                         break;
 
 
-                    case2://DPI
+                    case 2://DPI
                       for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
                         {
                             string DPI = Convert.ToString(Singleton.Instance.listaPacientes.ObtenerPos(i).Data.dpi);

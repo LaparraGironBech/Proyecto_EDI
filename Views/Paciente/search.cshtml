@@ -64,7 +64,7 @@
 <br />
 <br />
 <p style="float:left;">
-    <a asp-action="regresar">Ver lista completa</a><br />
+    <a asp-action="Index">Ver lista completa</a><br />
 </p>
 
 <table class="table">
@@ -79,12 +79,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.apellido)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.departamento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.municipio)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.municipioString)
             </th>
@@ -93,9 +88,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.edad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.grupo_prioridad)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.vacunado)
@@ -119,12 +111,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.apellido)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.departamento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.municipio)
-                </td>
+               
                 <td>
                     @Html.DisplayFor(modelItem => item.municipioString)
                 </td>
@@ -134,9 +121,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.edad)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.grupo_prioridad)
-                </td>
+               
                 <td>
                     @Html.DisplayFor(modelItem => item.vacunado)
                 </td>
