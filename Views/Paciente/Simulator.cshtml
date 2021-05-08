@@ -40,36 +40,7 @@
     <table>
         <tr>
             <td>
-                <br />
-                <form>
-                    <label style="float:left;"><b>&nbsp;&nbsp;Departamento:</b></label>
-                    <select class="combobox" style="float:left;"  name="departamento">
-                        <option name="municipio" value="0"> Guatemala</option>
-                        <option name="municipio" value="1"> El Progreso</option>
-                        <option name="municipio" value="2"> Sacatepéquez</option>
-                        <option name="municipio" value="3"> Chimaltenango</option>
-                        <option name="municipio" value="4"> Escuintla</option>
-                        <option name="municipio" value="5"> Santa Rosa</option>
-                        <option name="municipio" value="6"> Sololá</option>
-                        <option name="municipio" value="7"> Totonicapán</option>
-                        <option name="municipio" value="8"> Quetzaltenango</option>
-                        <option name="municipio" value="9"> Suchitepéquez</option>
-                        <option name="municipio" value="10"> Retalhuleu</option>
-                        <option name="municipio" value="11"> San Marcos</option>
-                        <option name="municipio" value="12"> Huehuetenango</option>
-                        <option name="municipio" value="13"> Quiché</option>
-                        <option name="municipio" value="14"> Baja Verapaz</option>
-                        <option name="municipio" value="15"> Alta Verapaz</option>
-                        <option name="municipio" value="16"> Petén</option>
-                        <option name="municipio" value="17"> Izabal</option>
-                        <option name="municipio" value="18"> Zacapa</option>
-                        <option name="municipio" value="19"> Chiquimula</option>
-                        <option name="municipio" value="20"> Jalapa</option>
-                        <option name="municipio" value="21"> Jutiapa</option>
-
-
-
-                    </select>
+              <form>
                     <spanclass="text-danger"></span>
                     <label style="float:left;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Municipio:</b></label>
                     <select class="combobox" style="float:left;"  name="municipio" placeholder="Ingresar...">
@@ -531,16 +502,16 @@
                             </td>
                             <td>
                                 @{
-                                    if(Model.ObtenerPos(1).Data.pacientePrioridad.vacunado==true)
+                                    if (Model.ObtenerPos(1).Data.pacientePrioridad.vacunado == true)
                                     {
-                                       <label style="color:blue;">Vacunado</label>
+                                        <label style="color:blue;">Vacunado</label>
                                     }
                                     else
                                     {
                                         <label style="color:red;">En espera</label>
                                     }
                                 }
-                                    
+
 
                             </td>
                             <td>
@@ -601,6 +572,10 @@
                     }
                 </tbody>
             </table>
+        }
+        else
+        {
+            <center><p> NO hay datos registrados para mostrar...</p></center>
         }
         <div>
         </div>
