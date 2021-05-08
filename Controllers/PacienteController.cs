@@ -33,6 +33,7 @@ namespace Proyecto_EDI.Controllers
         public ActionResult Vacunacion(bool Estado)
         {
             Singleton.Instance.listSimulacion.ObtenerPos(Singleton.Instance.id).Data.pacientePrioridad.vacunado = Estado;
+            Singleton.Instance.idSimulacro = 0;
 
             return Redirect("Details");
 
@@ -60,19 +61,23 @@ namespace Proyecto_EDI.Controllers
         }
        
        
-        public ActionResult Simulator(string municipio, string departamento, string Estado1)
+        public ActionResult Simulator(string municipio)
         {
-            Console.WriteLine(Singleton.Instance.listSimulacion);
-            if (Singleton.Instance.listSimulacion.Cantidad > 0)
+            if (Singleton.Instance.idSimulacro == 1)
             {
-                for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
+                if (Singleton.Instance.listSimulacion.Cantidad > 0)
                 {
-                    Singleton.Instance.listSimulacion.EliminarFinal();
+                    for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
+                    {
+                        Singleton.Instance.listSimulacion.EliminarFinal();
+                    }
                 }
             }
+            Singleton.Instance.idSimulacro = 1;
             if (municipio!=null)
             {
                 int municipi = Convert.ToInt32(municipio);
+                Singleton.Instance.Municipio = municipi;
                 IniciarSimulacion(municipi);
             }
            
@@ -232,14 +237,7 @@ namespace Proyecto_EDI.Controllers
             return Redirect("Simulator");
         }
         public void IniciarSimulacion(int id)
-        {
-            //if (Singleton.Instance.listSimulacion.Cantidad > 0)
-            //{
-            //    for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
-            //    {
-            //        Singleton.Instance.listSimulacion.EliminarFinal();
-            //    }
-            //}
+        {            
             int muniPivot=id;
             bool encontradoI = false;
             int posicionEncontradaI = 0;
@@ -258,11 +256,12 @@ namespace Proyecto_EDI.Controllers
             }
             else if (encontradoI == true && Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.pacientesPrioridad < 3)
             {
-                for (int i = 0; i < Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.pacientesPrioridad; i++)
+                int valueCiclo = Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.pacientesPrioridad;
+                for (int i = 0; i < valueCiclo; i++)
                 {
                     //Singleton.Instance.listSimulacion.InsertarInicio(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerInicio());
-                    Singleton.Instance.listSimulacion.AgregarPos(0, Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerPos(i).Data);
-                    //Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
+                    Singleton.Instance.listSimulacion.AgregarFinal(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.priodadPaciente.pacPrioridad.ObtenerPos(0).Data);
+                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ExtraerPrioridad();
                 }
             }
             else if (encontradoI == true)
@@ -386,9 +385,44 @@ namespace Proyecto_EDI.Controllers
             decimal porcentaje = decimal.Round(total, 2);
             return porcentaje;
         }
+
+        public void hacerListaVacunados(int id)
+        {
+            int muniPivot = id;
+            bool encontradoI = false;
+            int posicionEncontradaI = 0;
+            for (int i = 0; i < Singleton.Instance.cantidadCentros; i++)
+            {
+                if (muniPivot == Singleton.Instance.listaReferencia.DevolverValue(i))
+                {
+                    encontradoI = true;
+                    posicionEncontradaI = i;
+                    i = Singleton.Instance.cantidadCentros;
+                }
+            }
+            for (int i = 0; i < Singleton.Instance.listSimulacion.Cantidad; i++)
+            {
+                if(Singleton.Instance.listSimulacion.ObtenerPos(i).Data.pacientePrioridad.vacunado == true)
+                {
+                    Singleton.Instance.listaPacientesVacunados.AgregarFinal(Singleton.Instance.listSimulacion.ObtenerPos(i).Data.pacientePrioridad);
+                }
+                else
+                {
+                    int PrioridadIndice = Singleton.Instance.listSimulacion.ObtenerPos(i).Data.prioridad;
+                    Paciente pacIn = Singleton.Instance.listSimulacion.ObtenerPos(i).Data.pacientePrioridad;
+                    Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.ReinsertarPrioridad(PrioridadIndice,pacIn);
+                }
+            }
+        }
         public ActionResult VerificarEstadoDeVacunacion() 
         {
             return Redirect("Index");            
+        }
+
+        public ActionResult FinalizarSimulacro()
+        {
+            hacerListaVacunados(Singleton.Instance.Municipio);
+            return Redirect("Index");
         }
     }        
 }
