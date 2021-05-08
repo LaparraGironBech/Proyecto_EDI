@@ -216,14 +216,7 @@ namespace Proyecto_EDI.Controllers
 
 
         public void IniciarSimulacion(int id)
-        {
-            //if (Singleton.Instance.listSimulacion.Cantidad > 0)
-            //{
-            //    for (int i = 0; i <= Singleton.Instance.listSimulacion.Cantidad; i++)
-            //    {
-            //        Singleton.Instance.listSimulacion.EliminarFinal();
-            //    }
-            //}
+        {            
             int muniPivot=id;
             bool encontradoI = false;
             int posicionEncontradaI = 0;
@@ -355,11 +348,14 @@ namespace Proyecto_EDI.Controllers
         }
         public void hacerListaDeEspera()
         {
-            for (int i = 0; i < Singleton.Instance.listaGeneralDePacientes.Cantidad; i++)
+            for (int i = 0; i < Singleton.Instance.cantidadCentros; i++)
             {
-                if (Singleton.Instance.listaGeneralDePacientes.ObtenerPos(i).Data.vacunado == false)
+                for (int j = 0; j < Singleton.Instance.listaCentrosVacunacion.ObtenerPos(i).Data.totalPacientes; j++)
                 {
-                    Singleton.Instance.listaDeEspera.AgregarFinal(Singleton.Instance.listaGeneralDePacientes.ObtenerPos(i).Data);
+                    if (Singleton.Instance.listaCentrosVacunacion.ObtenerPos(i).Data.priodadPaciente.pacPrioridad.ObtenerPos(j).Data.pacientePrioridad.vacunado == false)
+                    {
+                        Singleton.Instance.listaDeEspera.AgregarFinal(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(i).Data.priodadPaciente.pacPrioridad.ObtenerPos(j).Data.pacientePrioridad);
+                    }
                 }
             }
         }
