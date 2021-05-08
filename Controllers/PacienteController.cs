@@ -148,8 +148,7 @@ namespace Proyecto_EDI.Controllers
                     departamento = Convert.ToInt32(collection["departamento"]),
                     municipio = Convert.ToInt32(collection["municipio"]),
                     edad = Convert.ToInt32(collection["edad"]),
-                    grupo_prioridad = Convert.ToInt32(collection["grupo_prioridad"]),
-                    vacunado = Convert.ToBoolean(collection["vacunado"])
+                    grupo_prioridad = Convert.ToInt32(collection["grupo_prioridad"]),                    
                 };                
                 Singleton.Instance.PacienteList.Add(newPaciente);
                 if (newPaciente.grupo_prioridad == -1)
