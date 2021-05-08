@@ -8,10 +8,6 @@ namespace Proyecto_EDI.Models
 {
     public class SeriePastel
     {
-        //name: 'Chrome',
-        //    y: 61.41,
-        //    sliced: true,
-        //    selected: true
 
         public string name { get; set; }
         public double y { get; set; }
