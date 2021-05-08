@@ -22,7 +22,7 @@ namespace Proyecto_EDI.Models
             priodadPaciente = new ColaDePrioridad();
 
             //Dar tamaño a la tabla hash, para cambiar tamaño hay que aumentar  las iteracions del for------------->
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
                 tablaPaciente.AgregarFinalLista();
             }
