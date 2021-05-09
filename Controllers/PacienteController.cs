@@ -20,13 +20,14 @@ namespace Proyecto_EDI.Controllers
             return View(Singleton.Instance.PacienteList);
         }
 
-        public IActionResult search(string Buscar, string Busqueda)
+        public IActionResult search(string Buscar, string Busqueda, int Busquedaminicipio)
         {
 
 
 
             Singleton.Instance.pacientebusqueda.Clear();
             int opcion = Convert.ToInt32(Buscar);
+            int b = Busquedaminicipio;
 
             switch (opcion)
             {
