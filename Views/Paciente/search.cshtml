@@ -66,72 +66,424 @@
 </form>
 <br />
 <br />
+<br>
+
+<form asp-action="busquedaminicipio">
+    <p>BUSCAR POR:</p>
+    <select class="busquedaminicipio" name="Busquedaminicipio">
+        <option name="Busquedaminicipio" value="138"> Busqueda General</option>
+        <option name="Busquedaminicipio" value="0"> Guatemala</option>
+        <option name="Busquedaminicipio" value="1"> Santa Catarina Pinula</option>
+        <option name="Busquedaminicipio" value="2"> San José Pinula</option>
+        <option name="Busquedaminicipio" value="3"> San José del Golfo</option>
+        <option name="Busquedaminicipio" value="4"> Palencia</option>
+        <option name="Busquedaminicipio" value="5"> Chinautla</option>
+        <option name="Busquedaminicipio" value="6"> San Pedro Ayampuc</option>
+        <option name="Busquedaminicipio" value="7"> Mixco</option>
+        <option name="Busquedaminicipio" value="8"> San Pedro Sacatepéquez</option>
+        <option name="Busquedaminicipio" value="9"> San Juan Sacatepéquez</option>
+        <option name="Busquedaminicipio" value="10"> San Raymundo</option>
+        <option name="Busquedaminicipio" value="11"> Chuarrancho</option>
+        <option name="Busquedaminicipio" value="12"> Fraijanes</option>
+        <option name="Busquedaminicipio" value="13"> Amatitlán</option>
+        <option name="Busquedaminicipio" value="14"> Villa Nueva</option>
+        <option name="Busquedaminicipio" value="15"> Villa Canales</option>
+        <option name="Busquedaminicipio" value="16"> Petapa</option>
+        <option name="Busquedaminicipio" value="17"> Guastatoya</option>
+        <option name="Busquedaminicipio" value="18"> Morazán</option>
+        <option name="Busquedaminicipio" value="19"> San Agustín Acasaguastlán</option>
+        <option name="Busquedaminicipio" value="20"> San Cristóbal Acasaguastlán</option>
+        <option name="Busquedaminicipio" value="21"> El Jícaro</option>
+        <option name="Busquedaminicipio" value="22"> Sansare</option>
+        <option name="Busquedaminicipio" value="23"> Sanarate</option>
+        <option name="Busquedaminicipio" value="24"> San Antonio la Paz</option>
+        <option name="Busquedaminicipio" value="25"> Antigua Guatemala</option>
+        <option name="Busquedaminicipio" value="26"> Jocotenango</option>
+        <option name="Busquedaminicipio" value="27"> Pastores</option>
+        <option name="Busquedaminicipio" value="28"> Sumpango</option>
+        <option name="Busquedaminicipio" value="29"> Santo Domingo Xenacoj</option>
+        <option name="Busquedaminicipio" value="30"> Santiago Sacatepéquez</option>
+        <option name="Busquedaminicipio" value="31"> San Bartolomé Milpas Altas</option>
+        <option name="Busquedaminicipio" value="32"> San Lucas Sacatepéquez</option>
+        <option name="Busquedaminicipio" value="33"> Santa Lucía Milpas Altas</option>
+        <option name="Busquedaminicipio" value="34"> Magdalena Milpas Altas</option>
+        <option name="Busquedaminicipio" value="35"> Santa María de Jesús</option>
+        <option name="Busquedaminicipio" value="36"> Ciudad Vieja</option>
+        <option name="Busquedaminicipio" value="37"> San Miguel Dueñas</option>
+        <option name="Busquedaminicipio" value="38"> Alotenango</option>
+        <option name="Busquedaminicipio" value="39"> San Antonio Aguas Calientes</option>
+        <option name="Busquedaminicipio" value="40"> Santa Catarina Barahona</option>
+        <option name="Busquedaminicipio" value="41"> Chimaltenango</option>
+        <option name="Busquedaminicipio" value="42"> San José Poaquil</option>
+        <option name="Busquedaminicipio" value="43"> San Martín Jilotepeque</option>
+        <option name="Busquedaminicipio" value="44"> Comalapa</option>
+        <option name="Busquedaminicipio" value="45"> Santa Apolonia</option>
+        <option name="Busquedaminicipio" value="46"> Tecpán Guatemala</option>
+        <option name="Busquedaminicipio" value="47"> Patzún</option>
+        <option name="Busquedaminicipio" value="48"> Pochuta</option>
+        <option name="Busquedaminicipio" value="49"> Patzicía</option>
+        <option name="Busquedaminicipio" value="50"> Santa Cruz Balanyá</option>
+        <option name="Busquedaminicipio" value="51"> Acatenango</option>
+        <option name="Busquedaminicipio" value="52"> Yepocapa</option>
+        <option name="Busquedaminicipio" value="53"> San Andrés Itzapa</option>
+        <option name="Busquedaminicipio" value="54"> Parramos</option>
+        <option name="Busquedaminicipio" value="55"> Zaragoza</option>
+        <option name="Busquedaminicipio" value="56"> El Tejar</option>
+        <option name="Busquedaminicipio" value="57"> Escuintla</option>
+        <option name="Busquedaminicipio" value="58"> Santa Lucía Cotzumalguapa</option>
+        <option name="Busquedaminicipio" value="59"> La Democracia</option>
+        <option name="Busquedaminicipio" value="60"> Siquinalá</option>
+        <option name="Busquedaminicipio" value="61"> Masagua</option>
+        <option name="Busquedaminicipio" value="62"> Tiquisate</option>
+        <option name="Busquedaminicipio" value="63"> La Gomera</option>
+        <option name="Busquedaminicipio" value="64"> Guanagazapa</option>
+        <option name="Busquedaminicipio" value="65"> San José</option>
+        <option name="Busquedaminicipio" value="66"> Iztapa</option>
+        <option name="Busquedaminicipio" value="67"> Palín</option>
+        <option name="Busquedaminicipio" value="68"> San Vicente Pacaya</option>
+        <option name="Busquedaminicipio" value="69"> Nueva Concepción</option>
+        <option name="Busquedaminicipio" value="70"> Cuilapa</option>
+        <option name="Busquedaminicipio" value="71"> Barberena</option>
+        <option name="Busquedaminicipio" value="72"> Santa Rosa de Lima</option>
+        <option name="Busquedaminicipio" value="73"> Casillas</option>
+        <option name="Busquedaminicipio" value="74"> San Rafael las Flores</option>
+        <option name="Busquedaminicipio" value="75"> Oratorio</option>
+        <option name="Busquedaminicipio" value="76"> San Juan Tecuaco</option>
+        <option name="Busquedaminicipio" value="77"> Chiquimulilla</option>
+        <option name="Busquedaminicipio" value="78"> Taxisco</option>
+        <option name="Busquedaminicipio" value="79"> Santa María Ixhuatán</option>
+        <option name="Busquedaminicipio" value="80"> Guazacapán</option>
+        <option name="Busquedaminicipio" value="81"> Santa Cruz Naranjo</option>
+        <option name="Busquedaminicipio" value="82"> Pueblo Nuevo Viñas</option>
+        <option name="Busquedaminicipio" value="83"> Nueva Santa Rosa</option>
+        <option name="Busquedaminicipio" value="84"> Sololá</option>
+        <option name="Busquedaminicipio" value="85"> San José Chacayá</option>
+        <option name="Busquedaminicipio" value="86"> Santa María Visitación</option>
+        <option name="Busquedaminicipio" value="87"> Santa Lucía Utatlán</option>
+        <option name="Busquedaminicipio" value="88"> Nahualá</option>
+        <option name="Busquedaminicipio" value="89"> Santa Catarina Ixtahuacán</option>
+        <option name="Busquedaminicipio" value="90"> Santa Clara la Laguna</option>
+        <option name="Busquedaminicipio" value="91"> Concepción</option>
+        <option name="Busquedaminicipio" value="92"> San Andrés Semetabaj</option>
+        <option name="Busquedaminicipio" value="93"> Panajachel</option>
+        <option name="Busquedaminicipio" value="94"> Santa Catarina Palopó</option>
+        <option name="Busquedaminicipio" value="95"> San Antonio Palopó</option>
+        <option name="Busquedaminicipio" value="96"> San Lucas Tolimán</option>
+        <option name="Busquedaminicipio" value="97"> Santa Cruz la Laguna</option>
+        <option name="Busquedaminicipio" value="98"> San Pablo la Laguna</option>
+        <option name="Busquedaminicipio" value="99"> San Marcos la Laguna</option>
+        <option name="Busquedaminicipio" value="100"> San Juan la Laguna</option>
+        <option name="Busquedaminicipio" value="101"> San Pedro la Laguna</option>
+        <option name="Busquedaminicipio" value="102"> Santiago Atitlán</option>
+        <option name="Busquedaminicipio" value="103"> Totonicapán</option>
+        <option name="Busquedaminicipio" value="104"> San Cristóbal Totonicapán</option>
+        <option name="Busquedaminicipio" value="105"> San Francisco el Alto</option>
+        <option name="Busquedaminicipio" value="106"> San Andrés Xecul</option>
+        <option name="Busquedaminicipio" value="107"> Momostenango</option>
+        <option name="Busquedaminicipio" value="108"> Santa María Chiquimula</option>
+        <option name="Busquedaminicipio" value="109"> Santa Lucía la Reforma</option>
+        <option name="Busquedaminicipio" value="110"> San Bartolo</option>
+        <option name="Busquedaminicipio" value="111"> Quetzaltenango</option>
+        <option name="Busquedaminicipio" value="112"> Salcajá</option>
+        <option name="Busquedaminicipio" value="113"> Olintepeque</option>
+        <option name="Busquedaminicipio" value="114"> San Carlos Sija</option>
+        <option name="Busquedaminicipio" value="115"> Sibilia</option>
+        <option name="Busquedaminicipio" value="116"> Cabricán</option>
+        <option name="Busquedaminicipio" value="117"> Cajolá</option>
+        <option name="Busquedaminicipio" value="118"> San Miguel Siguilá</option>
+        <option name="Busquedaminicipio" value="119"> Ostuncalco</option>
+        <option name="Busquedaminicipio" value="120"> San Mateo</option>
+        <option name="Busquedaminicipio" value="121"> Concepción Chiquirichapa</option>
+        <option name="Busquedaminicipio" value="122"> San Martín Sacatepéquez</option>
+        <option name="Busquedaminicipio" value="123"> Almolonga</option>
+        <option name="Busquedaminicipio" value="124"> Cantel</option>
+        <option name="Busquedaminicipio" value="125"> Huitán</option>
+        <option name="Busquedaminicipio" value="126"> Zunil</option>
+        <option name="Busquedaminicipio" value="127"> Colomba</option>
+        <option name="Busquedaminicipio" value="128"> San Francisco la Unión</option>
+        <option name="Busquedaminicipio" value="129"> El Palmar</option>
+        <option name="Busquedaminicipio" value="130"> Coatepeque</option>
+        <option name="Busquedaminicipio" value="131"> Génova</option>
+        <option name="Busquedaminicipio" value="132"> Flores Costa Cuca</option>
+        <option name="Busquedaminicipio" value="133"> La Esperanza</option>
+        <option name="Busquedaminicipio" value="134"> Palestina de los Altos</option>
+        <option name="Busquedaminicipio" value="135"> Mazatenango</option>
+        <option name="Busquedaminicipio" value="136"> Cuyotenango</option>
+        <option name="Busquedaminicipio" value="137"> San Francisco Zapotitlán</option>
+        <option name="Busquedaminicipio" value="138"> San Bernardino</option>
+        <option name="Busquedaminicipio" value="139"> San José el Idolo</option>
+        <option name="Busquedaminicipio" value="140"> Santo Domingo Suchitepéquez</option>
+        <option name="Busquedaminicipio" value="141"> San Lorenzo</option>
+        <option name="Busquedaminicipio" value="142"> Samayac</option>
+        <option name="Busquedaminicipio" value="143"> San Pablo Jocopilas</option>
+        <option name="Busquedaminicipio" value="144"> San Antonio Suchitepéquez</option>
+        <option name="Busquedaminicipio" value="145"> San Miguel Panán</option>
+        <option name="Busquedaminicipio" value="146"> San Gabriel</option>
+        <option name="Busquedaminicipio" value="147"> Chicacao</option>
+        <option name="Busquedaminicipio" value="148"> Patulul</option>
+        <option name="Busquedaminicipio" value="149"> Santa Bárbara</option>
+        <option name="Busquedaminicipio" value="150"> San Juan Bautista</option>
+        <option name="Busquedaminicipio" value="151"> Santo Tomás la Unión</option>
+        <option name="Busquedaminicipio" value="152"> Zunilito</option>
+        <option name="Busquedaminicipio" value="153"> Pueblo Nuevo</option>
+        <option name="Busquedaminicipio" value="154"> Río Bravo</option>
+        <option name="Busquedaminicipio" value="155"> San José La Máquina</option>
+        <option name="Busquedaminicipio" value="156"> Retalhuleu</option>
+        <option name="Busquedaminicipio" value="157"> San Sebastián</option>
+        <option name="Busquedaminicipio" value="158"> Santa Cruz Muluá</option>
+        <option name="Busquedaminicipio" value="159"> San Martín Zapotitlán</option>
+        <option name="Busquedaminicipio" value="160"> San Felipe</option>
+        <option name="Busquedaminicipio" value="161"> San Andrés Villa Seca</option>
+        <option name="Busquedaminicipio" value="162"> Champerico</option>
+        <option name="Busquedaminicipio" value="163"> Nuevo San Carlos</option>
+        <option name="Busquedaminicipio" value="164"> El Asintal</option>
+        <option name="Busquedaminicipio" value="165"> San Marcos</option>
+        <option name="Busquedaminicipio" value="166"> San Pedro Sacatepéquez</option>
+        <option name="Busquedaminicipio" value="167"> San Antonio Sacatepéquez</option>
+        <option name="Busquedaminicipio" value="168"> Comitancillo</option>
+        <option name="Busquedaminicipio" value="169"> San Miguel Ixtahuacán</option>
+        <option name="Busquedaminicipio" value="170"> Concepción Tutuapa</option>
+        <option name="Busquedaminicipio" value="171"> Tacaná</option>
+        <option name="Busquedaminicipio" value="172"> Sibinal</option>
+        <option name="Busquedaminicipio" value="173"> Tajumulco</option>
+        <option name="Busquedaminicipio" value="174"> Tejutla</option>
+        <option name="Busquedaminicipio" value="175"> San Rafael Pié de la Cuesta</option>
+        <option name="Busquedaminicipio" value="176"> Nuevo Progreso</option>
+        <option name="Busquedaminicipio" value="177"> El Tumbador</option>
+        <option name="Busquedaminicipio" value="178"> El Rodeo</option>
+        <option name="Busquedaminicipio" value="179"> Malacatán</option>
+        <option name="Busquedaminicipio" value="180"> Catarina</option>
+        <option name="Busquedaminicipio" value="181"> Ayutla</option>
+        <option name="Busquedaminicipio" value="182"> Ocós</option>
+        <option name="Busquedaminicipio" value="183"> San Pablo</option>
+        <option name="Busquedaminicipio" value="184"> El Quetzal</option>
+        <option name="Busquedaminicipio" value="185"> La Reforma</option>
+        <option name="Busquedaminicipio" value="186"> Pajapita</option>
+        <option name="Busquedaminicipio" value="187"> Ixchiguán</option>
+        <option name="Busquedaminicipio" value="188"> San José Ojetenán</option>
+        <option name="Busquedaminicipio" value="189"> San Cristóbal Cucho</option>
+        <option name="Busquedaminicipio" value="190"> Sipacapa</option>
+        <option name="Busquedaminicipio" value="191"> Esquipulas Palo Gordo</option>
+        <option name="Busquedaminicipio" value="192"> Río Blanco</option>
+        <option name="Busquedaminicipio" value="193"> San Lorenzo</option>
+        <option name="Busquedaminicipio" value="194"> La Blanca</option>
+        <option name="Busquedaminicipio" value="195"> Huehuetenango</option>
+        <option name="Busquedaminicipio" value="196"> Chiantla</option>
+        <option name="Busquedaminicipio" value="197"> Malacatancito</option>
+        <option name="Busquedaminicipio" value="198"> Cuilco</option>
+        <option name="Busquedaminicipio" value="199"> Nentón</option>
+        <option name="Busquedaminicipio" value="200"> San Pedro Necta</option>
+        <option name="Busquedaminicipio" value="201"> Jacaltenango</option>
+        <option name="Busquedaminicipio" value="202"> Soloma</option>
+        <option name="Busquedaminicipio" value="203"> Ixtahuacán</option>
+        <option name="Busquedaminicipio" value="204"> Santa Bárbara</option>
+        <option name="Busquedaminicipio" value="205"> La Libertad</option>
+        <option name="Busquedaminicipio" value="206"> La Democracia</option>
+        <option name="Busquedaminicipio" value="207"> San Miguel Acatán</option>
+        <option name="Busquedaminicipio" value="208"> San Rafael la Independencia</option>
+        <option name="Busquedaminicipio" value="209"> Todos Santos Cuchumatán</option>
+        <option name="Busquedaminicipio" value="210"> San Juan Atitán</option>
+        <option name="Busquedaminicipio" value="211"> Santa Eulalia</option>
+        <option name="Busquedaminicipio" value="212"> San Mateo Ixtatán</option>
+        <option name="Busquedaminicipio" value="213"> Colotenango</option>
+        <option name="Busquedaminicipio" value="214"> San Sebastián Huehuetenango</option>
+        <option name="Busquedaminicipio" value="215"> Tectitán</option>
+        <option name="Busquedaminicipio" value="216"> Concepción Huista</option>
+        <option name="Busquedaminicipio" value="217"> San Juan Ixcoy</option>
+        <option name="Busquedaminicipio" value="218"> San Antonio Huista</option>
+        <option name="Busquedaminicipio" value="219"> San Sebastián Coatán</option>
+        <option name="Busquedaminicipio" value="220"> Barillas</option>
+        <option name="Busquedaminicipio" value="221"> Aguacatán</option>
+        <option name="Busquedaminicipio" value="222"> San Rafael Petzal</option>
+        <option name="Busquedaminicipio" value="223"> San Gaspar Ixchil</option>
+        <option name="Busquedaminicipio" value="224"> Santiago Chimaltenango</option>
+        <option name="Busquedaminicipio" value="225"> Santa Ana Huista</option>
+        <option name="Busquedaminicipio" value="226"> Unión Cantinil</option>
+        <option name="Busquedaminicipio" value="227"> Santa Cruz del Quiché</option>
+        <option name="Busquedaminicipio" value="228"> Chiché</option>
+        <option name="Busquedaminicipio" value="229"> Chinique</option>
+        <option name="Busquedaminicipio" value="230"> Zacualpa</option>
+        <option name="Busquedaminicipio" value="231"> Chajul</option>
+        <option name="Busquedaminicipio" value="232"> Chichicastenango</option>
+        <option name="Busquedaminicipio" value="233"> Patzité</option>
+        <option name="Busquedaminicipio" value="234"> San Antonio Ilotenango</option>
+        <option name="Busquedaminicipio" value="235"> San Pedro Jocopilas</option>
+        <option name="Busquedaminicipio" value="236"> Cunén</option>
+        <option name="Busquedaminicipio" value="237"> San Juan Cotzal</option>
+        <option name="Busquedaminicipio" value="238"> Joyabaj</option>
+        <option name="Busquedaminicipio" value="239"> Nebaj</option>
+        <option name="Busquedaminicipio" value="240"> San Andrés Sajcabajá</option>
+        <option name="Busquedaminicipio" value="241"> Uspantán</option>
+        <option name="Busquedaminicipio" value="242"> Sacapulas</option>
+        <option name="Busquedaminicipio" value="243"> San Bartolomé Jocotenango</option>
+        <option name="Busquedaminicipio" value="244"> Canillá</option>
+        <option name="Busquedaminicipio" value="245"> Chicamán</option>
+        <option name="Busquedaminicipio" value="246"> Ixcán</option>
+        <option name="Busquedaminicipio" value="247"> Pachalum</option>
+        <option name="Busquedaminicipio" value="248"> Salamá</option>
+        <option name="Busquedaminicipio" value="249"> San Miguel Chicaj</option>
+        <option name="Busquedaminicipio" value="250"> Rabinal</option>
+        <option name="Busquedaminicipio" value="251"> Cubulco</option>
+        <option name="Busquedaminicipio" value="252"> Granados</option>
+        <option name="Busquedaminicipio" value="253"> El Chol</option>
+        <option name="Busquedaminicipio" value="254"> San Jerónimo</option>
+        <option name="Busquedaminicipio" value="255"> Purulhá</option>
+        <option name="Busquedaminicipio" value="256"> Cobán</option>
+        <option name="Busquedaminicipio" value="257"> Santa Cruz Verapaz</option>
+        <option name="Busquedaminicipio" value="258"> San Cristóbal Verapaz</option>
+        <option name="Busquedaminicipio" value="259"> Tactic</option>
+        <option name="Busquedaminicipio" value="260"> Tamahú</option>
+        <option name="Busquedaminicipio" value="261"> Tucurú</option>
+        <option name="Busquedaminicipio" value="262"> Panzós</option>
+        <option name="Busquedaminicipio" value="263"> Senahú</option>
+        <option name="Busquedaminicipio" value="264"> San Pedro Carchá</option>
+        <option name="Busquedaminicipio" value="265"> San Juan Chamelco</option>
+        <option name="Busquedaminicipio" value="266"> Lanquín</option>
+        <option name="Busquedaminicipio" value="267"> Cahabón</option>
+        <option name="Busquedaminicipio" value="268"> Chisec</option>
+        <option name="Busquedaminicipio" value="269"> Chahal</option>
+        <option name="Busquedaminicipio" value="270"> Fray Bartolomé de las Casas</option>
+        <option name="Busquedaminicipio" value="271"> Santa Catalina la Tinta</option>
+        <option name="Busquedaminicipio" value="272"> Raxruhá</option>
+        <option name="Busquedaminicipio" value="273"> Flores</option>
+        <option name="Busquedaminicipio" value="274"> San José</option>
+        <option name="Busquedaminicipio" value="275"> San Benito</option>
+        <option name="Busquedaminicipio" value="276"> San Andrés</option>
+        <option name="Busquedaminicipio" value="277"> La Libertad</option>
+        <option name="Busquedaminicipio" value="278"> San Francisco</option>
+        <option name="Busquedaminicipio" value="279"> Santa Ana</option>
+        <option name="Busquedaminicipio" value="280"> Dolores</option>
+        <option name="Busquedaminicipio" value="281"> San Luis</option>
+        <option name="Busquedaminicipio" value="282"> Sayaxché</option>
+        <option name="Busquedaminicipio" value="283"> Melchor de Mencos</option>
+        <option name="Busquedaminicipio" value="284"> Poptún</option>
+        <option name="Busquedaminicipio" value="285"> Las Cruces</option>
+        <option name="Busquedaminicipio" value="286"> El Chal</option>
+        <option name="Busquedaminicipio" value="287"> Puerto Barrios</option>
+        <option name="Busquedaminicipio" value="288"> Livingston</option>
+        <option name="Busquedaminicipio" value="289"> El Estor</option>
+        <option name="Busquedaminicipio" value="290"> Morales</option>
+        <option name="Busquedaminicipio" value="291"> Los Amates</option>
+        <option name="Busquedaminicipio" value="292"> Zacapa</option>
+        <option name="Busquedaminicipio" value="293"> Estanzuela</option>
+        <option name="Busquedaminicipio" value="294"> Río Hondo</option>
+        <option name="Busquedaminicipio" value="295"> Gualán</option>
+        <option name="Busquedaminicipio" value="296"> Teculután</option>
+        <option name="Busquedaminicipio" value="297"> Usumatlán</option>
+        <option name="Busquedaminicipio" value="298"> Cabañas</option>
+        <option name="Busquedaminicipio" value="299"> San Diego</option>
+        <option name="Busquedaminicipio" value="300"> La Unión</option>
+        <option name="Busquedaminicipio" value="301"> Huité</option>
+        <option name="Busquedaminicipio" value="302"> San Jorge</option>
+        <option name="Busquedaminicipio" value="303"> Chiquimula</option>
+        <option name="Busquedaminicipio" value="304"> San José La Arada</option>
+        <option name="Busquedaminicipio" value="305"> San Juan Ermita</option>
+        <option name="Busquedaminicipio" value="306"> Jocotán</option>
+        <option name="Busquedaminicipio" value="307"> Camotán</option>
+        <option name="Busquedaminicipio" value="308"> Olopa</option>
+        <option name="Busquedaminicipio" value="309"> Esquipulas</option>
+        <option name="Busquedaminicipio" value="310"> Concepción Las Minas</option>
+        <option name="Busquedaminicipio" value="311"> Quetzaltepeque</option>
+        <option name="Busquedaminicipio" value="312"> San Jacinto</option>
+        <option name="Busquedaminicipio" value="313"> Ipala</option>
+        <option name="Busquedaminicipio" value="314"> Jalapa</option>
+        <option name="Busquedaminicipio" value="315"> San Pedro Pinula</option>
+        <option name="Busquedaminicipio" value="316"> San Luis Jilotepeque</option>
+        <option name="Busquedaminicipio" value="317"> San Manuel Chaparrón</option>
+        <option name="Busquedaminicipio" value="318"> San Carlos Alzatate</option>
+        <option name="Busquedaminicipio" value="319"> Monjas</option>
+        <option name="Busquedaminicipio" value="320"> Mataquescuintla</option>
+        <option name="Busquedaminicipio" value="321"> Jutiapa</option>
+        <option name="Busquedaminicipio" value="322"> El Progreso</option>
+        <option name="Busquedaminicipio" value="323"> Santa Catarina Mita</option>
+        <option name="Busquedaminicipio" value="324"> Agua Blanca</option>
+        <option name="Busquedaminicipio" value="325"> Asunción Mita</option>
+        <option name="Busquedaminicipio" value="326"> Yupiltepeque</option>
+        <option name="Busquedaminicipio" value="327"> Atescatempa</option>
+        <option name="Busquedaminicipio" value="328"> Jerez</option>
+        <option name="Busquedaminicipio" value="329"> El Adelanto</option>
+        <option name="Busquedaminicipio" value="330"> Zapotitlán</option>
+        <option name="Busquedaminicipio" value="331"> Comapa</option>
+        <option name="Busquedaminicipio" value="332"> Jalpatagua</option>
+        <option name="Busquedaminicipio" value="333"> Conguaco</option>
+        <option name="Busquedaminicipio" value="334"> Moyuta</option>
+        <option name="Busquedaminicipio" value="335"> Pasaco</option>
+        <option name="Busquedaminicipio" value="336"> San José Acatempa</option>
+        <option name="Busquedaminicipio" value="337"> Quesada</option>
 
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                <label>DPI</label>
-               
-            </th>
-            <th>
-                <label>Nombre</label>
-             
-            </th>
-            <th>
-                <label>Apellido</label>
-               
-            </th>
-           
-            <th>
-                <label>Municipio</label>
-              
-            </th>
-            <th>
-                <label>Departamento</label>
-              
-            </th>
-            <th>
-                <label>Edad</label>
-               
-            </th>
-            
-            <th>
-               <label>Grupo de prioridad</label>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    </select>
+    <input class="text" type="search" name="Busquedaminicipio" placeholder="Ingresar...">
+
+    <input class="Botones" asp-action="busquedaminicipio" type="submit" value="Busquedaminicipio">
+    <br /><br>
+</form>
+    <br />
+
+    <table class="table table-hover">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.dpi)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.apellido)
-                </td>
-               
-                <td>
-                    @Html.DisplayFor(modelItem => item.municipioString)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.departamentoString)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.edad)
-                </td>
-              
-                <td>
-                    @Html.DisplayFor(modelItem => item.prioString)
-                </td>
-                
+                <th>
+                    <label>DPI</label>
+
+                </th>
+                <th>
+                    <label>Nombre</label>
+
+                </th>
+                <th>
+                    <label>Apellido</label>
+
+                </th>
+
+                <th>
+                    <label>Municipio</label>
+
+                </th>
+                <th>
+                    <label>Departamento</label>
+
+                </th>
+                <th>
+                    <label>Edad</label>
+
+                </th>
+
+                <th>
+                    <label>Grupo de prioridad</label>
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dpi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.apellido)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.municipioString)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.departamentoString)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.edad)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.prioString)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
