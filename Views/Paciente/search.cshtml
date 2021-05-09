@@ -47,7 +47,7 @@
     }
 </style>
 
-<form asp-action="search">
+@*<form asp-action="search">
     <p>BUSCAR POR:</p>
     <select class="buscar" name="Buscar">
         <option name="Buscar" value="0"> Nombre</option>
@@ -58,7 +58,7 @@
 
     </select>
 
-    <input class="text" type="search" name="Busqueda" placeholder="Ingresar...">
+    <input class="text" type="search" name="Busqueda" placeholder="Ingresar Nombre, apellido o dpi...">
 
     <input class="Botones" asp-action="search" type="submit" value="Buscar">
     <br /><br>
@@ -66,12 +66,12 @@
 </form>
 <br />
 <br />
-<br>
+<br>*@
 
 <form asp-action="search">
     <p>BUSCAR POR:</p>
-    <select class="busquedaminicipio" name="Busquedaminicipio">
-        <option name="Busquedaminicipio" value="338"> Busqueda General</option>
+    <select class="buscar" name="Busquedaminicipio">
+        <option name="Busquedaminicipio" value="138"> Busqueda General</option>
         <option name="Busquedaminicipio" value="0"> Guatemala</option>
         <option name="Busquedaminicipio" value="1"> Santa Catarina Pinula</option>
         <option name="Busquedaminicipio" value="2"> San José Pinula</option>
@@ -413,9 +413,23 @@
 
 
     </select>
-    <input class="text" type="search" name="Busquedaminicipio" placeholder="Ingresar...">
 
-    <input class="Botones" asp-action="busquedaminicipio" type="submit" value="Busquedaminicipio">
+    <input class="Botones"  value="Busquedaminicipio">
+
+    <select class="buscar" name="Buscar">
+        <option name="Buscar" value="0"> Nombre</option>
+
+        <option name="Buscar" value="1"> Apellido</option>
+
+        <option name="Buscar" value="2"> DPI</option>
+
+    </select>
+
+    <input class="text" type="search" name="Busqueda" placeholder="Ingresar Nombre, apellido o dpi...">
+    
+    <input class="Botones" asp-action="search" type="submit" value="Buscar">
+    <br /><br>
+    <br /><br>
     <br /><br>
 </form>
     <br />
