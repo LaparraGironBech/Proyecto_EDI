@@ -10,6 +10,8 @@ namespace Proyecto_EDI.Models
         public Lista<Paciente> listaPacientes;
         public TablaHash<int, Paciente> tablaPaciente;
         public AVL<PacienteIndice> avlPaciente;
+        public AVL<PacienteIndiceApellido> avlPacienteApellido;
+        public AVL<PacienteIndiceNombre> avlPacienteNombre;
         public ColaDePrioridad priodadPaciente;
         public int totalPacientes;
         public int pacientesPrioridad;
@@ -19,6 +21,8 @@ namespace Proyecto_EDI.Models
             listaPacientes = new Lista<Paciente>(); ;
             tablaPaciente = new TablaHash<int, Paciente>();
             avlPaciente = new AVL<PacienteIndice>();
+            avlPacienteApellido = new AVL<PacienteIndiceApellido>();
+            avlPacienteNombre = new AVL<PacienteIndiceNombre>();
             priodadPaciente = new ColaDePrioridad();
 
             //Dar tamaño a la tabla hash, para cambiar tamaño hay que aumentar  las iteracions del for------------->
@@ -28,10 +32,12 @@ namespace Proyecto_EDI.Models
             }
         }
 
-        public void insertarPaciente(Paciente pac, PacienteIndice pac1, int prioridad)//Aqui se insertan en todas las estructuras a utilizar
+        public void insertarPaciente(Paciente pac, PacienteIndice pacDPI, int prioridad,PacienteIndiceApellido pacApellido, PacienteIndiceNombre pacNombre)//Aqui se insertan en todas las estructuras a utilizar
         {
             listaPacientes.AgregarInicio(pac);
-            avlPaciente.Insertar(pac1);
+            avlPaciente.Insertar(pacDPI);
+            avlPacienteApellido.Insertar(pacApellido);
+            avlPacienteNombre.Insertar(pacNombre);
             priodadPaciente.insertar(prioridad, pac);
             tablaPaciente.Pos(FHash(pac.nombre + pac.apellido)).Agregar(FHash(pac.nombre + pac.apellido), pac);
             totalPacientes++;

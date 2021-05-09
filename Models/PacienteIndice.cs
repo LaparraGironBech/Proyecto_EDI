@@ -9,33 +9,13 @@ namespace Proyecto_EDI.Models
     {
         public int CompareTo(object? obj)
         {            
-            PacienteIndice value = (PacienteIndice)obj;
-            if (parametro == 0)
-            {
-                return nombre.CompareTo(value.nombre);
-            }
-            else if (parametro == 1)
-            {
-                return apellido.CompareTo(value.apellido);
-            }
-            else
-            {
-                return dpi.CompareTo(value.dpi);
-            }
-        }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public int dpi { get; set; }
-        public int parametro { get; set; }
-
-        public PacienteIndice(int PAR)
-        {
-            parametro = PAR;
-        }
-        public PacienteIndice(string name, string lastname, int DPI)
-        {
-            nombre = name;
-            apellido = lastname;
+            PacienteIndice value = (PacienteIndice)obj;                    
+                return dpi.CompareTo(value.dpi);            
+        }      
+        public int dpi { get; set; }      
+       
+        public PacienteIndice( int DPI)
+        {            
             dpi = DPI;
         }
 

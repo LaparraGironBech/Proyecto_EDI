@@ -20,50 +20,119 @@ namespace Proyecto_EDI.Controllers
             return View(Singleton.Instance.PacienteList);
         }
 
-        public IActionResult search(string Buscar, string Busqueda)
+        public IActionResult search(string Buscar, string Busqueda, string Busquedaminicipio)
         {
 
 
-
+            bool exists = false;
             Singleton.Instance.pacientebusqueda.Clear();
             int opcion = Convert.ToInt32(Buscar);
-
-            switch (opcion)
+            int muniPiv = Convert.ToInt32(Busquedaminicipio);
+            if (muniPiv == 338)
             {
-                case 0://Busqueda por nombre 
-                    for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
-                    {
-                        string nombre = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.nombre;
-                        if (nombre == Busqueda)
+                switch (opcion)
+                {
+                    case 0://Busqueda por nombre 
+                        for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
                         {
-                            Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
-                            Singleton.Instance.pacientebusqueda.Add(Buscado);
+                            string nombre = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.nombre;
+                            if (nombre == Busqueda)
+                            {
+                                Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                                Singleton.Instance.pacientebusqueda.Add(Buscado);
+                            }
                         }
-                    }
-                    break;
+                        break;
 
-                case 1://apellido
-                    for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
-                    {
-                        string apellido = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.apellido;
-                        if (apellido == Busqueda)
+                    case 1://apellido
+                        for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
                         {
-                            Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
-                            Singleton.Instance.pacientebusqueda.Add(Buscado);
+                            string apellido = Singleton.Instance.listaPacientes.ObtenerPos(i).Data.apellido;
+                            if (apellido == Busqueda)
+                            {
+                                Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                                Singleton.Instance.pacientebusqueda.Add(Buscado);
+                            }
                         }
-                    }
-                    break;
-                case 2://DPI
-                    for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
-                    {
-                        string DPI = Convert.ToString(Singleton.Instance.listaPacientes.ObtenerPos(i).Data.dpi);
-                        if (DPI == Busqueda)
+                        break;
+                    case 2://DPI
+                        for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
                         {
-                            Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
-                            Singleton.Instance.pacientebusqueda.Add(Buscado);
+                            string DPI = Convert.ToString(Singleton.Instance.listaPacientes.ObtenerPos(i).Data.dpi);
+                            if (DPI == Busqueda)
+                            {
+                                Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                                Singleton.Instance.pacientebusqueda.Add(Buscado);
+                            }
                         }
-                    }
-                    break;
+                        break;
+                }
+            }
+            else
+            {
+                int munPivB = Convert.ToInt32(Busquedaminicipio);                
+                int posicionEncontradaI = 0;
+                for (int i = 0; i < Singleton.Instance.cantidadCentros; i++)
+                {
+                    if (munPivB == Singleton.Instance.listaReferencia.DevolverValue(i))
+                    {                        ;
+                        posicionEncontradaI = i;
+                        i = Singleton.Instance.cantidadCentros;
+                    }                   
+                }
+                switch (opcion)
+                {
+                    case 0://Busqueda por nombre 
+                        Hoja<PacienteIndiceNombre> val = Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.avlPacienteNombre.raiz;
+                        Hoja<PacienteIndiceNombre> valorB = new Hoja<PacienteIndiceNombre>();
+                        PacienteIndiceNombre pIn = new PacienteIndiceNombre(Busqueda);
+                        valorB.value = pIn;
+                        Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.avlPacienteNombre.Busqueda(val, ref valorB, ref exists);
+                        if (exists == true)
+                        {
+                            for (int i = 0; i < Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.totalPacientes; i++)
+                            {
+                                if(Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.listaPacientes.ObtenerPos(i).Data.nombre == Busqueda)
+                                {
+                                    Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                                    Singleton.Instance.pacientebusqueda.Add(Buscado);
+                                }
+                            }
+                        }
+                        break;
+
+                    case 1://apellido
+                        Hoja<PacienteIndiceApellido> valAp = Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.avlPacienteApellido.raiz;
+                        Hoja<PacienteIndiceApellido> valorBAp = new Hoja<PacienteIndiceApellido>();
+                        PacienteIndiceApellido pIa = new PacienteIndiceApellido(Busqueda);
+                        valorBAp.value = pIa;
+                        Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.avlPacienteApellido.Busqueda(valAp, ref valorBAp, ref exists);
+                        for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
+                        {
+                            if (Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.listaPacientes.ObtenerPos(i).Data.nombre == Busqueda)
+                            {
+                                Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                                Singleton.Instance.pacientebusqueda.Add(Buscado);
+                            }
+                        }
+                        break;
+                    case 2://DPI
+                        Hoja<PacienteIndice> valDpi = Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.avlPaciente.raiz;
+                        Hoja<PacienteIndice> valorBdpi = new Hoja<PacienteIndice>();
+                        PacienteIndice pId = new PacienteIndice(Convert.ToInt32(Busqueda));
+                        Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.avlPaciente.Busqueda(valDpi, ref valorBdpi, ref exists);
+                        valorBdpi.value = pId;
+                        for (int i = 0; i < Singleton.Instance.listaPacientes.Cantidad; i++)
+                        {
+                            if (Singleton.Instance.listaCentrosVacunacion.ObtenerPos(posicionEncontradaI).Data.listaPacientes.ObtenerPos(i).Data.nombre == Busqueda)
+                            {
+                                Paciente Buscado = Singleton.Instance.listaPacientes.ObtenerPos(i).Data;
+                                Singleton.Instance.pacientebusqueda.Add(Buscado);
+                            }
+                        }
+                        break;
+                }
+
             }
 
             return View(Singleton.Instance.pacientebusqueda);
@@ -177,8 +246,10 @@ namespace Proyecto_EDI.Controllers
                 //se igualaran variables para poder procesos próximos                                 
                 int prioridad = newPaciente.grupo_prioridad;
                 int municipioPivot = newPaciente.municipio;
-                PacienteIndice nuevoPacienteIndice = new PacienteIndice(nuevoPaciente.nombre,nuevoPaciente.apellido,nuevoPaciente.dpi);
-                newCentro.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);                
+                PacienteIndice nuevoPacienteIndice = new PacienteIndice(nuevoPaciente.dpi);
+                PacienteIndiceApellido nuevoPacienteApellido = new PacienteIndiceApellido(nuevoPaciente.apellido);
+                PacienteIndiceNombre nuevoPacienteNombre = new PacienteIndiceNombre(nuevoPaciente.nombre);
+                newCentro.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad,nuevoPacienteApellido,nuevoPacienteNombre);                
                 int posicionEncontrada = 0;                
                 bool encontrado = false;
                 Singleton.Instance.listaPacientes.AgregarInicio(nuevoPaciente);                
@@ -214,7 +285,7 @@ namespace Proyecto_EDI.Controllers
                     {                        
                         CentroVacunacion tempVacunacion = new CentroVacunacion();
                         tempVacunacion = Singleton.Instance.listaCentrosVacunacion.DevolverValue(posicionEncontrada);
-                        tempVacunacion.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad);
+                        tempVacunacion.insertarPaciente(nuevoPaciente, nuevoPacienteIndice, prioridad, nuevoPacienteApellido, nuevoPacienteNombre);
                         Singleton.Instance.listaCentrosVacunacion.Eliminarpos(posicionEncontrada);
                         Singleton.Instance.listaCentrosVacunacion.AgregarPos(posicionEncontrada, tempVacunacion);
 

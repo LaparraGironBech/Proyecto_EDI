@@ -15,11 +15,11 @@ namespace Proyecto_EDI.Models
             raiz = null;
             existe = false;
         }
-        public void Busqueda(Hoja<T> r, ref Hoja<T> medicamento, ref bool existe)
+        public void Busqueda(Hoja<T> r, ref Hoja<T> valorAbuscar, ref bool existe)
         {
-            if (r.value.CompareTo(medicamento.value) == 0)
+            if (r.value.CompareTo(valorAbuscar.value) == 0)
             {
-                medicamento = r;
+                valorAbuscar = r;
                 existe = true;
 
             }
@@ -27,11 +27,11 @@ namespace Proyecto_EDI.Models
             {
                 if (r.hojaIzquierda != null)
                 {
-                    Busqueda(r.hojaIzquierda, ref medicamento, ref existe);
+                    Busqueda(r.hojaIzquierda, ref valorAbuscar, ref existe);
                 }
                 if (r.hojaDerecha != null)
                 {
-                    Busqueda(r.hojaDerecha, ref medicamento, ref existe);
+                    Busqueda(r.hojaDerecha, ref valorAbuscar, ref existe);
                 }
             }
         }
