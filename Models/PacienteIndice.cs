@@ -12,9 +12,9 @@ namespace Proyecto_EDI.Models
             PacienteIndice value = (PacienteIndice)obj;                    
                 return dpi.CompareTo(value.dpi);            
         }      
-        public int dpi { get; set; }      
+        public string dpi { get; set; }      
        
-        public PacienteIndice( int DPI)
+        public PacienteIndice(string DPI)
         {            
             dpi = DPI;
         }
