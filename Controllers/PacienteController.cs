@@ -175,6 +175,16 @@ namespace Proyecto_EDI.Controllers
         {
             return View();
         }
+        public ActionResult Configuracion(String municipio, string PSimultaneo, string Fecha, string hora)                                   //menu de reportes
+        {
+            int MUNICIPIO = Convert.ToInt32(municipio);
+            int SIMULTANEO = Convert.ToInt32(PSimultaneo);
+            DateTime fecha = Convert.ToDateTime(Fecha);
+            DateTime HORA = Convert.ToDateTime(hora);
+
+
+            return View();
+        }
 
         public ActionResult Espera() //Página para desplegar los pacientes pendientes
         {
